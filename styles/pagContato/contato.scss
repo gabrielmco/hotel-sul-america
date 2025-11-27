@@ -1,0 +1,575 @@
+@use '../globals' as *;
+
+
+.info {
+  padding: 4rem 2rem; // Padding lateral
+
+  .group-info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1220px;
+    margin: 0 auto;
+    gap: 2rem;
+
+    .content-info {
+      flex: 1;
+      text-align: left; // Alinhado à esquerda
+
+      h3 {
+        font-family: $font-title; // Estilo Imagem 2
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $black;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+
+        // CORREÇÃO: Remove a borda do H3
+        border-bottom: none;
+        display: inline-block;
+      }
+
+      hr {
+        // CORREÇÃO: Faz o HR ser a linha
+        display: block; // Garante que ele seja visível
+        width: 100%; // Ocupa 100% do .content-info
+        border: none;
+        border-top: 2px solid $black;
+        margin: -0.5rem 0 1rem; // Puxa para perto do h3
+      }
+
+      p {
+        font-family: $font-body;
+        font-size: 1rem;
+        color: $gray-700;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  // ========= RESPONSIVIDADE (Info) =========
+  @include responsive(md) {
+    padding: 2.5rem 1rem;
+
+    .group-info {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .content-info {
+      text-align: center;
+
+      h3 {
+        display: inline-block; // Mantém o texto
+        border-bottom: none;
+      }
+
+      hr {
+        border-top: 2px solid #ddd;
+        width: 80%; // Não 100% no mobile
+        margin: -0.5rem auto 1rem; // Centraliza
+      }
+    }
+  }
+}
+
+/* ==================================================
+   LAYOUT PRINCIPAL (Divisão de colunas)
+   ================================================== */
+.page-container-split {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 1rem;
+  border-bottom: 1px solid #eee;
+
+  // As duas colunas
+  .contact-wrapper,
+  .booking-wrapper {
+    flex: 1;
+    padding: 0 2rem;
+  }
+  
+  // ========= RESPONSIVIDADE (Split Container) =========
+  @include responsive(lg) { // Quebra em 1024px
+    flex-direction: column;
+    padding: 3rem 1rem;
+    
+    .contact-wrapper,
+    .booking-wrapper {
+      padding: 0 1rem;
+    }
+    
+    .contact-wrapper {
+      margin-bottom: 4rem; // Espaço entre os formulários no mobile
+    }
+  }
+}
+
+/* ==================================================
+   FORMULÁRIO DE CONTATO (Esquerda)
+   ================================================== */
+.contact-wrapper {
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    
+    // --- Regras de título ---
+    .subtitle {
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $primary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: $font-title;
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 2.5rem;
+      color: $black;
+    }
+
+    form {
+      font-family: $font-body;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .input-group {
+        position: relative;
+        width: 100%;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+        transition: border-color 0.3s ease;
+
+        &:focus-within {
+          border-color: $primary;
+        }
+
+        label {
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: $black;
+          margin-bottom: 0.5rem;
+          display: block;
+        }
+
+        .input {
+          width: 100%;
+          border: none;
+          outline: none;
+          padding: 8px 35px 8px 0;
+          font-size: 1rem;
+          font-family: inherit;
+          background: transparent;
+          resize: none;
+
+          &::placeholder {
+            color: #999;
+            font-style: italic;
+          }
+        }
+        
+        i {
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #aaa;
+          font-size: 1.1rem;
+        }
+        
+        textarea.input { min-height: 80px; }
+        textarea ~ i { top: auto; bottom: 15px; transform: none; }
+      }
+
+      .form-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        gap: 1rem;
+
+        p { font-size: 0.8rem; color: #888; flex: 1; }
+        
+        // --- Estilos do Botão Aninhados ---
+        button.btn {
+          padding: 0.9rem 1.8rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          white-space: nowrap;
+          background: $black; // .btn-dark
+          color: #fff;
+          
+          &:hover { 
+            background: $primary; // hover do .btn-dark
+          }
+        }
+      }
+    }
+  }
+  
+  // ========= RESPONSIVIDADE (Contact Form) =========
+  @include responsive(md) {
+    .contact-form h2 { font-size: 2.5rem; }
+
+    .contact-form .form-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      
+      button.btn { width: 100%; }
+    }
+  }
+}
+
+/* ==================================================
+   FORMULÁRIO DE RESERVAS (Direita)
+   ================================================== */
+.booking-wrapper {
+  .booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    
+    // --- Regras de título ---
+    .subtitle {
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $primary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: $font-title;
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 2.5rem;
+      color: $black;
+    }
+    
+    form {
+      font-family: $font-body;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      
+      .form-row {
+        display: flex;
+        gap: 1.5rem;
+        
+        .input-group {
+          flex: 1;
+        }
+      }
+
+      .input-group {
+        width: 100%;
+        
+        label {
+          font-size: 0.9rem;
+          color: $black;
+          margin-bottom: 0.5rem;
+          display: block;
+        }
+
+        .input {
+          width: 100%;
+          border: 1px solid #ccc;
+          outline: none;
+          padding: 0.8rem 1rem;
+          font-size: 1rem;
+          font-family: inherit;
+          background: #f9f9f9;
+          border-radius: 5px;
+          resize: none;
+          
+          &:focus {
+            border-color: $primary;
+            background: #fff;
+          }
+        }
+        
+        select.input {
+           cursor: pointer;
+        }
+        
+        input[type="date"] {
+           cursor: text;
+        }
+      }
+
+      // --- Estilos do Botão Aninhados ---
+      button.btn {
+        margin-top: 1rem;
+        padding: 0.9rem 1.8rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        background: $primary; // .btn-primary
+        color: #fff;
+        
+        &:hover { 
+          background: $black; // hover do .btn-primary
+        }
+      }
+    }
+  }
+  
+  // ========= RESPONSIVIDADE (Booking Form) =========
+  @include responsive(md) {
+    .booking-form h2 { font-size: 2.5rem; }
+  }
+
+  @include responsive(sm) {
+    .booking-form .form-row {
+       flex-direction: column;
+       gap: 1.5rem;
+    }
+  }
+}
+
+
+/* ==================================================
+   SEÇÃO DE INFORMAÇÕES DO HOTEL (Nova)
+   ================================================== */
+.footer-info {
+  background: $black;
+  color: #ccc;
+  padding: 4rem 2rem;
+  
+  .footer-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .info-item {
+      h3 {
+        font-family: $font-title;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-family: $font-body;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #ccc;
+      }
+    }
+  }
+  
+  // ========= RESPONSIVIDADE (Footer Info) =========
+  @include responsive(md) {
+    .footer-info-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+  }
+  
+  @include responsive(sm) {
+    .footer-info-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+}
+
+/* ========= REDES SOCIAIS ========= */
+.social-section {
+  padding: 2rem 0;
+
+  .social-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+
+    h3 {
+      font-family: $font-title;
+      font-size: 32px;
+      font-weight: 500;
+      color: $black;
+      white-space: nowrap;
+    }
+
+    .line {
+      flex: 1;
+      height: 1px;
+      background: $gray-700;
+      opacity: 0.4;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 8px;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 20px;
+        color: $gray-700;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        transition: color 0.3s ease, transform 0.3s ease;
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          transform: scale(0);
+          transition: transform 0.5s ease;
+          z-index: -1;
+        }
+
+        i {
+          font-size: 22px;
+        }
+
+        &:hover::before {
+          transform: scale(1);
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          color: #fff;
+        }
+
+        &.facebook::before {
+          background: #1877f2;
+        }
+
+        &.instagram::before {
+          background: linear-gradient(
+            45deg,
+            #f09433,
+            #dc2743,
+            #cc2366,
+            #bc1888
+          );
+        }
+
+        &.whatsapp::before {
+          background: #25d366;
+        }
+
+        &.youtube::before {
+          background: #f00;
+        }
+      }
+    }
+  }
+
+  // ========= RESPONSIVIDADE (Social) =========
+  @include responsive(md) {
+    .social-container {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 1.5rem;
+      gap: 1rem;
+
+      h3 {
+        font-size: 28px;
+      }
+
+      .line {
+        display: none;
+      }
+    }
+  }
+}
+
+/* ========= MAP ========= */
+.map-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  padding-top: 0;
+
+  .map-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 0 auto;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+      filter: grayscale(1);
+    }
+  }
+
+  // ========= RESPONSIVIDADE (Map) =========
+  @include responsive(md) {
+    padding: 2rem 1rem;
+
+    .map-container {
+      height: 300px;
+    }
+  }
+
+  @include responsive(sm) {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+.numeroTel {
+  text-align: center;
+  margin: 60px 0;
+
+  h1 {
+    font-family: $font-title;
+    font-size: 28px;
+    font-weight: 500;
+    color: $black;
+  }
+
+  // ========= RESPONSIVIDADE (Numero) =========
+  @include responsive(md) {
+    h1 {
+      font-size: 22px;
+    }
+
+    padding: 0 1rem;
+  }
+
+  @include responsive(sm) {
+    h1 {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+}
+
+

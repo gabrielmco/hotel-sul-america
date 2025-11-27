@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Sul América 2</title>
+
+
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pagPrincipal/principal.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;500;700&family=Urbanist:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <!-- HEAD: adicione isto -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ================= LOADER ================= -->
+
+  <div id="loader-container">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="logo-container">
+      <div class="logo-ring"></div>
+      <img src="logo/logo(branca).png" alt="Hotel Sul América" id="hotel-logo">
+    </div>
+
+
+
+    <div class="loader-wrapper">
+      <div class="loader">
+
+        <svg height="0" width="0" viewBox="0 0 64 64" class="absolute">
+          <defs xmlns="http://www.w3.org/2000/svg">
+            <linearGradient gradientUnits="userSpaceOnUse" y2="2" x2="0" y1="62" x1="0" id="b">
+              <stop stop-color="#086016"></stop>
+              <stop stop-color="#52935d" offset="1"></stop>
+            </linearGradient>
+            <linearGradient gradientUnits="userSpaceOnUse" y2="0" x2="0" y1="64" x1="0" id="c">
+              <stop stop-color="#fdfbf7"></stop>
+              <stop stop-color="#086016" offset="1"></stop>
+            </linearGradient>
+            <linearGradient gradientUnits="userSpaceOnUse" y2="2" x2="0" y1="62" x1="0" id="d">
+              <stop stop-color="#086016"></stop>
+              <stop stop-color="#fdfbf7" offset="1"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
+          class="inline-block">
+          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#b)"
+            d="M 12,12 V 52 M 12,32 H 52 M 52,12 V 52" class="dash" pathLength="360"></path>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="60" width="53"
+          class="inline-block">
+          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="10" stroke="url(#c)"
+            d="M 48,8 C 48,4 40,4 32,4 C 24,4 16,8 16,18 C 16,28 24,32 32,32 C 40,32 48,36 48,46 C 48,56 40,60 32,60 C 24,60 16,56 16,56"
+            class="dash" pathLength="360"></path>
+        </svg>
+
+        <div class="w-2"></div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" height="64" width="64"
+          class="inline-block">
+          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="url(#d)"
+            d="M 16 52 L 32 12 L 48 52 M 22 40 H 42" class="dash" pathLength="360"></path>
+        </svg>
+
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-percent" id="progress-percent">0%</div>
+
+    <div class="welcome-message">Preparando sua experiência</div>
+  </div>
+
+
+
+  
+
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="nav-phone">
+      <a href="tel:+553533323400">
+        <i class="fas fa-phone phone"></i> (35) 3332-3400
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <nav class="nav-left-links">
+        <ul>
+          <li><a href="Comodidades.html" class="page-link">Comodidades</a></li>
+          <li><a href="sobreNos.html" class="page-link">Sobre nós</a></li>
+          <li><a href="quartos.html" class="page-link">Quartos</a></li>
+        </ul>
+      </nav>
+
+      <div class="logo">
+        <a href="home.html" class="page-link">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+
+      <nav class="nav-right-links">
+        <ul>
+          <li><a href="SaoLourenco.html" class="page-link">São Lourenço</a></li>
+          <li><a href="restaurante.html" class="page-link">Restaurante</a></li>
+          <li><a href="contato.html" class="page-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-book">
+      <a href="contato.html" class="book-btn page-link">
+        <i class="fas fa-calendar-alt calendario"></i> Reserve sua estadia
+      </a>
+    </div>
+
+    <div class="navbar-mobile">
+      <div class="logo-mobile">
+        <a href="index.html" class="page-link">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="index.html" class="page-link">Lar</a></li>
+
+        <li><a href="index.html#sobre">Sobre nós</a></li>
+        <li><a href="index.html#rooms">Quartos</a></li>
+        <li><a href="index.html#amenities">São Lourenço</a></li>
+
+        <li><a href="restaurante.html" class="page-link">Restaurante</a></li>
+        <li><a href="contato.html" class="page-link">Contato</a></li>
+        <li><a href="galeria.html" class="page-link">Galeria</a></li>
+        <li>
+          <a href="contato.html" class="book-btn-mobile page-link">
+            <i class="fas fa-calendar-alt"></i> Reserve sua estadia
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="blur-circle"></div>
+
+    <div class="hero-content">
+      <div class="content-left">
+        <div class="hero-badge">
+          <span>Bem-vindo ao Paraíso</span>
+        </div>
+        <h1>Conforto e Tradição</h1>
+      </div>
+      <div class="content-right">
+        <p>
+          Experimente acomodações sofisticadas projetadas para proporcionar o máximo em conforto e elegância.
+          Cada detalhe foi pensado para tornar sua estadia inesquecível.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Quartos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9★</div>
+            <div class="stat-label">Avaliação</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Serviço</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Role para explorar</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+
+
+  <!-- ================= SOBRE (ícones principais) ================= -->
+  <section class="sobre" id="sobre" aria-label="Sobre o Hotel" data-aos="fade-up" data-aos-duration="800">
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+      <div class="icon-wrapper">
+        <img class="icons" src="icons/lazer.png" alt="Ícone lazer" />
+      </div>
+      <h3>Lazer</h3>
+      <p>Momentos inesquecíveis para toda a família.</p>
+    </div>
+
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="140">
+      <div class="icon-wrapper">
+        <img class="icons" src="icons/acomodações.png" alt="Ícone acomodações" />
+      </div>
+      <h3>Acomodações</h3>
+      <p>Conforto e sofisticação em cada detalhe.</p>
+    </div>
+
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="00">
+      <div class="icon-wrapper">
+        <img class="icons" src="icons/restaurante.png" alt="Ícone restaurante" />
+      </div>
+      <h3>Restaurante</h3>
+      <p>Gastronomia refinada com sabores únicos.</p>
+    </div>
+
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="260">
+      <div class="icon-wrapper">
+        <img class="icons" src="icons/funcionarios.png" alt="Ícone funcionários" />
+      </div>
+      <h3>Funcionários</h3>
+      <p>Equipe atenciosa e sempre pronta para ajudar.</p>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT RESORT ================= -->
+  <section class="about-resort">
+    <div class="container">
+
+      <!-- Texto -->
+      <div class="about-text">
+        <span class="subtitle">Sobre o Hotel Sul América</span>
+        <h2>Relaxe nos resorts de luxo ao redor do mundo.</h2>
+        <p>
+          O Hotel Sul América, no coração de São Lourenço, é ideal para o descanso e a diversão de toda a família.
+          Oferecemos 3 piscinas (uma aquecida), saunas, quadras, academia e espaços de lazer para todas as idades. Com
+          quartos confortáveis e três refeições diárias, garantimos momentos inesquecíveis.
+        <div class="actions">
+          <a href="#" class="btn">Sobre o resort</a>
+          <span class="phone">
+            <i class="fa-solid fa-phone icon-phone"></i>
+            <a href="">(35) 3332-3400</a>
+          </span>
+        </div>
+      </div>
+
+      <!-- Imagens -->
+      <div class="about-images">
+        <div class="image-big">
+          <div class="bg"></div>
+          <img src="img/vista/vista (3).jpg" alt="Quarto de hotel">
+        </div>
+        <div class="image-small">
+          <div class="bg"></div>
+          <img src="img/vista/vista (1).jpeg" alt="Mulher na praia">
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </section>
+  <!-- ================= INFINITE MARQUEE ================= -->
+  <div class="infinite-text" data-aos="fade-up" data-aos-duration="1000">
+    <div class="marquee">
+      <span>O resort foi construído em um terreno de 18 acres</span>
+      <span class="dot"></span>
+      <span>Ecossistema sustentável e significativo de hospitalidade</span>
+      <span class="dot"></span>
+      <span>Design orientado e experiências inesquecíveis</span>
+      <span class="dot"></span>
+      <span>Serviço exclusivo e premium para hóspedes</span>
+
+      <!-- DUPLICADO para loop contínuo -->
+      <span>O resort foi construído em um terreno de 18 acres</span>
+      <span class="dot"></span>
+      <span>Ecossistema sustentável e significativo de hospitalidade</span>
+      <span class="dot"></span>
+      <span>Design orientado e experiências inesquecíveis</span>
+      <span class="dot"></span>
+      <span>Serviço exclusivo e premium para hóspedes</span>
+    </div>
+  </div>
+
+
+  <!-- ================= FACILITIES ================= -->
+  <section class="facilities" aria-labelledby="facilities-title">
+    <header class="facilities-header">
+
+      <h1 id="facilities-title" class="facilities-title">Instalações Incríveis</h1>
+      <p class="facilities-subtitle">
+        Desfrute de amenidades premium cuidadosamente projetadas para proporcionar momentos inesquecíveis durante sua
+        estadia.
+      </p>
+    </header>
+
+    <div class="facilities-grid">
+      <!-- Sala de Bilhar -->
+      <div class="facility-card left">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="img/salão-bilhar/salaodebilhar01-640x425.jpg" alt="Sala de bilhar" />
+          </div>
+          <div class="card-back piscinas">
+            <i class="fa-solid fa-chess-board icon" aria-hidden="true"></i>
+            <p>Diversão e lazer em 3 piscinas</p>
+          </div>
+        </div>
+        <h3 class="titulo-card">Sala de Bilhar</h3>
+      </div>
+
+      <!-- Jardim -->
+      <div class="facility-card middle">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="img/jardim/jardim (1).jpg" alt="Jardins do Hotel" />
+          </div>
+          <div class="card-back jardim">
+            <i class="fa-solid fa-seedling icon" aria-hidden="true"></i>
+            <p>Espaços verdes para relaxar</p>
+          </div>
+        </div>
+        <h3 class="titulo-card">Jardim</h3>
+      </div>
+
+      <!-- Quadras -->
+      <div class="facility-card right">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="img/quadras/image.png" alt="Quadras Esportivas" />
+          </div>
+          <div class="card-back quadras">
+            <i class="fa-solid fa-basketball-ball icon" aria-hidden="true"></i>
+            <p>Quadras para esporte e diversão</p>
+          </div>
+        </div>
+        <h3 class="titulo-card">Quadras</h3>
+      </div>
+
+      <!-- Playground -->
+      <div class="facility-card left">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="img/playground/playground03-640x425.jpg" alt="Playground Infantil" />
+          </div>
+          <div class="card-back playground">
+            <i class="fa-solid fa-child-reaching icon" aria-hidden="true"></i>
+            <p>Diversão garantida para as crianças</p>
+          </div>
+        </div>
+        <h3 class="titulo-card">Playground</h3>
+      </div>
+
+      <!-- Capela -->
+      <div class="facility-card middle">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="img/capela/capela-1.jpeg" alt="Capela do Hotel" />
+          </div>
+          <div class="card-back capela">
+            <i class="fa-solid fa-church icon" aria-hidden="true"></i>
+            <p>Um espaço de paz e reflexão</p>
+          </div>
+        </div>
+        <h3 class="titulo-card">Capela</h3>
+      </div>
+
+      <!-- Sala de TV e Cinema -->
+      <div class="facility-card right">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="img/sala-TV-Cinema/tvecinema01-640x425.jpg" alt="Sala de TV e Cinema" />
+          </div>
+          <div class="card-back restaurante">
+            <i class="fa-solid fa-film icon" aria-hidden="true"></i>
+            <p>Relaxe e curta seu filme</p>
+          </div>
+        </div>
+        <h3 class="titulo-card">Sala de TV e Cinema</h3>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= FRASE INSPIRADORA / HOTEL ================= -->
+  <section class="hotel-quote" data-aos="fade-up" data-aos-duration="900">
+    <div class="quote-label">
+      <span class="label-text">TRADIÇÃO</span>
+    </div>
+    <div class="quote-content" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+      <p>
+        Desde 1940, nossa família se dedica a criar momentos inesquecíveis para a sua.
+        <strong>O Sul América</strong> é a sua casa em São Lourenço.
+      </p>
+
+      <span class="author">
+        <img src="logo/logo(branca).png" alt="Logo do Hotel" />
+      </span>
+    </div>
+  </section>
+
+  <!-- ================= EVENTOS SEMANAIS ================= -->
+  <section class="eventos" data-aos="fade-up" data-aos-duration="900">
+    <header class="eventos-header" data-aos="fade-right" data-aos-duration="800" data-aos-delay="80">
+      <h1 class="eventos-title">Eventos Semanais</h1>
+      <p class="eventos-subtitle">
+        Desfrute de experiências exclusivas cuidadosamente preparadas para tornar sua estadia ainda mais memorável.
+      </p>
+      <div class="eventos-badge">
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <span>Programação Especial</span>
+      </div>
+    </header>
+
+    <div class="eventos-grid">
+      <div class="evento-card" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120"
+        data-title="Coquetel de Boas-Vindas"
+        data-desc="Uma recepção elegante para abrir o fim de semana com charme. Drinks premium, música ambiente ao vivo e a oportunidade perfeita para conhecer outros hóspedes em um ambiente sofisticado e acolhedor."
+        data-img="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80"
+          alt="Coquetel de boas-vindas" />
+        <div class="overlay"></div>
+        <span class="day-badge">Quinta-feira</span>
+        <i class="fas fa-cocktail evento-icon" aria-hidden="true"></i>
+
+        <div class="evento-content">
+          <div class="central">
+            <span class="subtitle">19:00 - 21:00</span>
+            <hr />
+            <h3>Coquetel de Boas-Vindas</h3>
+          </div>
+          <div class="btn-wrapper">
+            <button class="btn-evento">Saiba mais</button>
+            <span class="circle"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="evento-card" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180"
+        data-title="Noite de Queijos e Vinhos"
+        data-desc="Uma noite de sabores únicos com queijos artesanais selecionados e vinhos finos harmonizados por nosso sommelier. Desfrute de jazz ao vivo em um ambiente intimista e refinado."
+        data-img="https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?w=800&q=80"
+          alt="Noite de queijos e vinhos" />
+        <div class="overlay"></div>
+        <span class="day-badge">Sexta-feira</span>
+        <i class="fas fa-wine-glass-alt evento-icon" aria-hidden="true"></i>
+
+        <div class="evento-content">
+          <div class="central">
+            <span class="subtitle">20:00 - 22:30</span>
+            <hr />
+            <h3>Queijos e Vinhos</h3>
+          </div>
+          <div class="btn-wrapper">
+            <button class="btn-evento">Saiba mais</button>
+            <span class="circle"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="evento-card" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="240"
+        data-title="Churrasco Mineiro"
+        data-desc="Sábado de sabores e tradição autêntica! Cortes nobres grelhados no ponto perfeito, acompanhamentos típicos mineiros e música sertaneja de raiz."
+        data-img="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" alt="Churrasco mineiro" />
+        <div class="overlay"></div>
+        <span class="day-badge">Sábado</span>
+        <i class="fas fa-drumstick-bite evento-icon" aria-hidden="true"></i>
+
+        <div class="evento-content">
+          <div class="central">
+            <span class="subtitle">12:00 - 15:00</span>
+            <hr />
+            <h3>Churrasco Mineiro</h3>
+          </div>
+          <div class="btn-wrapper">
+            <button class="btn-evento">Saiba mais</button>
+            <span class="circle"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cardModal" class="modal" aria-hidden="true">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Fechar">✕</button>
+        <img id="modalImg" src="" alt="" />
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESERVAS ONLINE / PARCEIROS ================= -->
+  <section class="partners-section" data-aos="fade-up" data-aos-duration="800">
+    <div class="partners-container">
+      <div class="logo-bar" role="list">
+        <a href="#" class="logo-link" aria-label="Reservar no Tripadvisor" role="listitem">
+          <img src="logo/logoParceiros/cleartrip-vector-logo-seeklogo/cleartrip-seeklogo.png" alt="Tripadvisor" />
+        </a>
+        <a href="#" class="logo-link" aria-label="Reservar no MakeMyTrip" role="listitem">
+          <img src="logo/logoParceiros/expedia-seeklogo.png" alt="MakeMyTrip" />
+        </a>
+        <a href="#" class="logo-link" aria-label="Reservar no Expedia" role="listitem">
+          <img src="logo/logoParceiros/makemytrip-seeklogo.png" alt="Expedia" />
+        </a>
+        <a href="#" class="logo-link" aria-label="Reservar no Cleartrip" role="listitem">
+          <img src="logo/logoParceiros/tripadvisor-seeklogo.png" alt="Cleartrip" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ACOMMODATION (Lista + detalhe central) ================= -->
+  <section class="accommodation-wrapper" data-aos="fade-up" data-aos-duration="900">
+    <!-- Lista à esquerda -->
+    <div class="accommodation-list" data-aos="fade-right" data-aos-duration="800" data-aos-delay="80">
+      <div class="list-item active" data-room="1" data-room-id="room-1" tabindex="0">
+        <span class="number">01</span> Chalé Premium
+      </div>
+      <div class="list-item" data-room="2" data-room-id="room-2" tabindex="0">
+        <span class="number">02</span> Estúdios com terraço
+      </div>
+      <div class="list-item" data-room="3" data-room-id="room-3" tabindex="0">
+        <span class="number">03</span> Pavilhões Premium
+      </div>
+      <div class="list-item" data-room="4" data-room-id="room-4" tabindex="0">
+        <span class="number">04</span> A Vila de Luxo
+      </div>
+      <div class="list-item" data-room="5" data-room-id="room-5" tabindex="0">
+        <span class="number">05</span> Quarto Grand Deluxe
+      </div>
+    </div>
+
+    <!-- Imagem central + overlay -->
+    <div class="accommodation-image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="120">
+      <img id="room-image" src="img/vista/vista (3).jpg" alt="Quarto" />
+      <div class="btn-container">
+        <div class="price-box">
+          <p>A partir de</p>
+          <h3 id="room-price">R$350</h3>
+        </div>
+        <a href="#reservas" class="btn-reserve">Reserve agora →</a>
+      </div>
+      <div class="image-overlay-arrow" aria-hidden="true">
+        <span class="circle"><span class="arrow"></span></span>
+      </div>
+    </div>
+
+    <!-- Detalhes à direita -->
+    <div class="accommodation-details" data-aos="fade-left" data-aos-duration="800" data-aos-delay="140">
+      <span class="subtitle" id="room-subtitle">Chalé Premium</span>
+      <h2 id="room-title">Chalé Premium</h2>
+      <p id="room-description">Quarto espaçoso com varanda, ideal para famílias que buscam conforto e privacidade.</p>
+      <div class="features" id="room-features">
+        <ul>
+          <li>Cama king-size</li>
+          <li>Estação de café</li>
+          <li>Banheira de hidromassagem</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="testimonials" data-aos="fade-up" data-aos-duration="900">
+    <div class="container">
+      <div class="section-header" data-aos="fade-right" data-aos-duration="800" data-aos-delay="80">
+        <h2>O que nossos hóspedes dizem</h2>
+        <p>A opinião de quem já se hospedou no Hotel Sul América.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+          <div class="testimonial-content">
+            <img src="https://via.placeholder.com/100" alt="Foto da Hóspede Ana Clara" />
+            <p>
+              "Atendimento nota 10! O hotel é muito bem localizado, perto de tudo. O café da manhã é espetacular e a
+              piscina aquecida é uma delícia. Voltaremos com certeza!"
+            </p>
+          </div>
+          <div class="testimonial-footer">
+            <span class="author">Ana Clara R., São Paulo - SP</span>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="180">
+          <div class="testimonial-content">
+            <img src="https://via.placeholder.com/100" alt="Foto da Família Borges" />
+            <p>
+              "Que experiência maravilhosa! Visitamos em família e fomos muito bem recebidos. Quartos limpos, comida
+              ótima e funcionários muito atenciosos. Recomendo!"
+            </p>
+          </div>
+          <div class="testimonial-footer">
+            <span class="author">Família Borges, Rio de Janeiro - RJ</span>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BOTÃO DE EVENTOS -->
+<section class="hero-cta" aria-label="Acesse nossos eventos">
+  <div class="hero-cta-inner" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out">
+    <p class="hero-cta-text">
+      Confira nossa programação de eventos — feriados, férias e celebrações para toda a família.
+    </p>
+
+    <a class="hero-cta-btn" href="eventosAnuais.html" role="button" aria-label="Ir para página de eventos">
+      Ver Eventos
+      <span class="hero-cta-btn-icon" aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" role="contentinfo">
+
+    <!-- SEÇÃO SUPERIOR PARA A MARCA -->
+    <div class="footer-brand-top">
+      <div class="footer-brand-content">
+        <img src="logo/logo(branca).png" alt="Logo Hotel Sul América">
+        <p>Conforto, sofisticação e hospitalidade em São Lourenço.</p>
+      </div>
+      <hr class="footer-divider"> <!-- LINHA HORIZONTAL ADICIONADA -->
+    </div>
+
+    <!-- CONTAINER PRINCIPAL PARA AS COLUNAS DE CONTEÚDO -->
+    <div class="footer-container">
+
+      <!-- Coluna 1: Links rápidos -->
+      <div class="footer-col footer-col--links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="index.html">Lar</a></li>
+          <li><a href="index.html#sobre">Sobre nós</a></li>
+          <li><a href="index.html#rooms">Quartos</a></li>
+          <li><a href="index.html#amenities">São Lourenço</a></li>
+          <li><a href="restaurante.html">Restaurante</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 2: Contato + Siga-nos -->
+      <div class="footer-col footer-col--contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-phone" aria-hidden="true"></i> (35) 3332-3400</p>
+        <p><i class="fas fa-envelope" aria-hidden="true"></i> contato@hotelexemplo.com</p>
+        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Central, São Lourenço - MG</p>
+
+        <!-- redes sociais aninhadas abaixo do contato -->
+        <div class="social-block">
+          <h4 class="social-title">Siga-nos</h4>
+          <div class="social-icons" aria-label="Redes sociais">
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="#" class="youtube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna 3: Galeria -->
+      <div class="footer-col footer-col--gallery">
+        <h3>Galeria</h3>
+        <!-- Miniaturas da galeria -->
+        <div class="gallery-thumbs" role="list">
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 1 da galeria">
+            <img src="img/thumb1.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 2 da galeria">
+            <img src="img/thumb2.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 3 da galeria">
+            <img src="img/thumb3.jpg" alt="">
+          </a>
+          <!-- Adicione mais miniaturas se desejar (até 6 ficam bem visualmente) -->
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 4 da galeria">
+            <img src="img/thumb4.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 5 da galeria">
+            <img src="img/thumb5.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 6 da galeria">
+            <img src="img/thumb6.jpg" alt="">
+          </a>
+        </div>
+        <!-- Botão para a galeria completa -->
+        <a class="gallery-btn" href="galeria.html" aria-label="Abrir galeria completa">Ver galeria</a>
+      </div>
+
+    </div> <!-- Fim .footer-container -->
+
+    <!-- Linha final com direitos autorais -->
+    <div class="footer-bottom">
+      <hr class="Linha">
+      <p>&copy; 2025 Hotel Sul América - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script src="js/hotel.js"></script>
+  <script src="js/loader.js"></script>
+ 
+  <script type="module" src="js/main.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,        // duração das animações
+      once: true,           // anima só 1 vez
+      easing: 'ease-out',   // suavização
+    });
+  </script>
+
+
+</body>
+
+</html>

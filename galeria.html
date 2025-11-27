@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>São Lourenço</title>
+
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pagGaleria/galeria.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Fontes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;500;700&family=Urbanist:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body class="stage-1">
+  <div class="page-transition-overlay" id="pageTransition">
+    <div class="transition-layer">
+      <!-- Partículas -->
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+    </div>
+
+    <div class="transition-content">
+      <h1 class="transition-logo">HSA</h1>
+      <div class="transition-text">Carregando</div>
+      <div class="transition-progress">
+        <div class="transition-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <!-- Telefone extremo esquerdo -->
+    <div class="nav-phone">
+      <a href="tel:+553533323400">
+        <i class="fas fa-phone phone"></i> (35) 3332-3400
+      </a>
+    </div>
+
+    <!-- Links + Logo centralizados -->
+    <div class="nav-center">
+      <nav class="nav-left-links">
+        <ul>
+          <li><a href="Comodidades.html">Comodidades</a></li>
+          <li><a href="sobreNos.html">Sobre nós</a></li>
+          <li><a href="quartos.html">Quartos</a></li>
+        </ul>
+      </nav>
+
+      <div class="logo">
+        <a href="home.html">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+
+      <nav class="nav-right-links">
+        <ul>
+          <li><a href="SaoLourenço.html">São Lourenço</a></li>
+          <li><a href="restaurante.html">Restaurante</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Calendário extremo direito -->
+    <div class="nav-book">
+      <a href="contato.html" class="book-btn">
+        <i class="fas fa-calendar-alt calendario"></i> Reserve sua estadia
+      </a>
+    </div>
+
+    <!-- ============ MOBILE ============ -->
+    <div class="navbar-mobile">
+      <div class="logo-mobile">
+        <a href="index.html">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+
+      <!-- Hamburguer simples -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="index.html">Lar</a></li>
+        <li><a href="index.html#sobre">Sobre nós</a></li>
+        <li><a href="index.html#rooms">Quartos</a></li>
+        <li><a href="index.html#amenities">São Lourenço</a></li>
+        <li><a href="restaurante.html">Restaurante</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li>
+          <a href="contato.html" class="book-btn-mobile">
+            <i class="fas fa-calendar-alt"></i> Reserve sua estadia
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="gallery-page">
+
+
+    <!-- ================= TITULOS ================= -->
+    <section class="gallery-header">
+      <img src="logo/logo(branca).png" alt="Logo Hotel Sul América" class="gallery-logo" />
+      <h1 class="gallery-title">
+        <em>Galeria Hotel Sul América</em>
+      </h1>
+
+
+      <div class="gallery-controls">
+        <div class="filters">
+          <button class="filter-btn is-active" data-filter="all">Tudo</button>
+          <button class="filter-btn" data-filter="acomodacoes">Acomodações</button>
+          <button class="filter-btn" data-filter="gastronomia">Gastronomia</button>
+          <button class="filter-btn" data-filter="lazer">Lazer</button>
+          <button class="filter-btn" data-filter="eventos">Outros</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== (Efeito Cascata) ===== -->
+    <section class="masonry">
+      <!-- Cada item pode ter uma categoria no data-category -->
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="0">
+        <img src="img/pexels-olly-774909.jpg" alt="Quarto luxo" />
+      </a>
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="1">
+        <img src="imgs/galeria2.jpg" alt="Suíte master" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="2">
+        <img src="imgs/galeria3.jpg" alt="Restaurante gourmet" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="3">
+        <img src="imgs/galeria4.jpg" alt="Café da manhã" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="4">
+        <img src="imgs/galeria5.jpg" alt="Piscina" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="5">
+        <img src="imgs/galeria6.jpg" alt="Área externa" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="6">
+        <img src="imgs/galeria7.jpg" alt="Salão de eventos" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="7">
+        <img src="imgs/galeria8.jpg" alt="Casamento no hotel" />
+      </a>
+      <!-- Cada item pode ter uma categoria no data-category -->
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="0">
+        <img src="imgs/galeria1.jpg" alt="Quarto luxo" />
+      </a>
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="1">
+        <img src="imgs/galeria2.jpg" alt="Suíte master" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="2">
+        <img src="imgs/galeria3.jpg" alt="Restaurante gourmet" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="3">
+        <img src="imgs/galeria4.jpg" alt="Café da manhã" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="4">
+        <img src="imgs/galeria5.jpg" alt="Piscina" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="5">
+        <img src="imgs/galeria6.jpg" alt="Área externa" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="6">
+        <img src="imgs/galeria7.jpg" alt="Salão de eventos" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="7">
+        <img src="imgs/galeria8.jpg" alt="Casamento no hotel" />
+      </a>
+      <!-- Cada item pode ter uma categoria no data-category -->
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="0">
+        <img src="imgs/galeria1.jpg" alt="Quarto luxo" />
+      </a>
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="1">
+        <img src="imgs/galeria2.jpg" alt="Suíte master" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="2">
+        <img src="imgs/galeria3.jpg" alt="Restaurante gourmet" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="3">
+        <img src="imgs/galeria4.jpg" alt="Café da manhã" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="4">
+        <img src="imgs/galeria5.jpg" alt="Piscina" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="5">
+        <img src="imgs/galeria6.jpg" alt="Área externa" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="6">
+        <img src="imgs/galeria7.jpg" alt="Salão de eventos" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="7">
+        <img src="imgs/galeria8.jpg" alt="Casamento no hotel" />
+      </a>
+      <!-- Cada item pode ter uma categoria no data-category -->
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="0">
+        <img src="imgs/galeria1.jpg" alt="Quarto luxo" />
+      </a>
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="1">
+        <img src="imgs/galeria2.jpg" alt="Suíte master" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="2">
+        <img src="imgs/galeria3.jpg" alt="Restaurante gourmet" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="3">
+        <img src="imgs/galeria4.jpg" alt="Café da manhã" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="4">
+        <img src="imgs/galeria5.jpg" alt="Piscina" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="5">
+        <img src="imgs/galeria6.jpg" alt="Área externa" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="6">
+        <img src="imgs/galeria7.jpg" alt="Salão de eventos" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="7">
+        <img src="imgs/galeria8.jpg" alt="Casamento no hotel" />
+      </a>
+      <!-- Cada item pode ter uma categoria no data-category -->
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="0">
+        <img src="imgs/galeria1.jpg" alt="Quarto luxo" />
+      </a>
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="1">
+        <img src="imgs/galeria2.jpg" alt="Suíte master" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="2">
+        <img src="imgs/galeria3.jpg" alt="Restaurante gourmet" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="3">
+        <img src="imgs/galeria4.jpg" alt="Café da manhã" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="4">
+        <img src="imgs/galeria5.jpg" alt="Piscina" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="5">
+        <img src="imgs/galeria6.jpg" alt="Área externa" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="6">
+        <img src="imgs/galeria7.jpg" alt="Salão de eventos" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="7">
+        <img src="imgs/galeria8.jpg" alt="Casamento no hotel" />
+      </a>
+      <!-- Cada item pode ter uma categoria no data-category -->
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="0">
+        <img src="imgs/galeria1.jpg" alt="Quarto luxo" />
+      </a>
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="1">
+        <img src="imgs/galeria2.jpg" alt="Suíte master" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="2">
+        <img src="imgs/galeria3.jpg" alt="Restaurante gourmet" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="3">
+        <img src="imgs/galeria4.jpg" alt="Café da manhã" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="4">
+        <img src="imgs/galeria5.jpg" alt="Piscina" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="5">
+        <img src="imgs/galeria6.jpg" alt="Área externa" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="6">
+        <img src="imgs/galeria7.jpg" alt="Salão de eventos" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="7">
+        <img src="imgs/galeria8.jpg" alt="Casamento no hotel" />
+      </a>
+      <!-- Cada item pode ter uma categoria no data-category -->
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="0">
+        <img src="imgs/galeria1.jpg" alt="Quarto luxo" />
+      </a>
+      <a href="#" class="masonry-item" data-category="acomodacoes" data-index="1">
+        <img src="imgs/galeria2.jpg" alt="Suíte master" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="2">
+        <img src="imgs/galeria3.jpg" alt="Restaurante gourmet" />
+      </a>
+      <a href="#" class="masonry-item" data-category="gastronomia" data-index="3">
+        <img src="imgs/galeria4.jpg" alt="Café da manhã" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="4">
+        <img src="imgs/galeria5.jpg" alt="Piscina" />
+      </a>
+      <a href="#" class="masonry-item" data-category="lazer" data-index="5">
+        <img src="imgs/galeria6.jpg" alt="Área externa" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="6">
+        <img src="imgs/galeria7.jpg" alt="Salão de eventos" />
+      </a>
+      <a href="#" class="masonry-item" data-category="eventos" data-index="7">
+        <img src="imgs/galeria8.jpg" alt="Casamento no hotel" />
+      </a>
+      <!-- adicione mais conforme necessário -->
+    </section>
+
+    <!-- ===== Controle de Tamanho (tipo barra de som) ===== -->
+    <div class="size-control">
+      <button class="size-btn size-dec" aria-label="Diminuir tamanho">
+        <i class="fas fa-minus"></i>
+      </button>
+
+      <div class="size-track">
+        <div class="size-rail"></div>
+        <div class="size-ticks">
+          <span class="tick"></span>
+          <span class="tick"></span>
+          <span class="tick"></span>
+        </div>
+        <div class="size-handle">
+          <i class="fas fa-diamond diamond"></i>
+        </div>
+      </div>
+
+      <button class="size-btn size-inc" aria-label="Aumentar tamanho">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+
+    <!-- ===== Lightbox Modal ===== -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-inner">
+        <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="lightbox-view">
+          <img src="" alt="Imagem ampliada" id="lightbox-img" />
+          <p class="lightbox-title" id="lightbox-title"></p>
+        </div>
+
+        <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        <button class="lightbox-close"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+
+    <main>
+
+
+      <!-- ================= FOOTER ================= -->
+      <footer class="footer" role="contentinfo">
+
+        <!-- SEÇÃO SUPERIOR PARA A MARCA -->
+        <div class="footer-brand-top">
+          <div class="footer-brand-content">
+            <img src="logo/logo(branca).png" alt="Logo Hotel Sul América">
+            <p>Conforto, sofisticação e hospitalidade em São Lourenço.</p>
+          </div>
+          <hr class="footer-divider"> <!-- LINHA HORIZONTAL ADICIONADA -->
+        </div>
+
+        <!-- CONTAINER PRINCIPAL PARA AS COLUNAS DE CONTEÚDO -->
+        <div class="footer-container">
+
+          <!-- Coluna 1: Links rápidos -->
+          <div class="footer-col footer-col--links">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="index.html">Lar</a></li>
+              <li><a href="index.html#sobre">Sobre nós</a></li>
+              <li><a href="index.html#rooms">Quartos</a></li>
+              <li><a href="index.html#amenities">São Lourenço</a></li>
+              <li><a href="restaurante.html">Restaurante</a></li>
+              <li><a href="contato.html">Contato</a></li>
+            </ul>
+          </div>
+
+          <!-- Coluna 2: Contato + Siga-nos -->
+          <div class="footer-col footer-col--contact">
+            <h3>Contato</h3>
+            <p><i class="fas fa-phone" aria-hidden="true"></i> (35) 3332-3400</p>
+            <p><i class="fas fa-envelope" aria-hidden="true"></i> contato@hotelexemplo.com</p>
+            <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Central, São Lourenço - MG</p>
+
+            <!-- redes sociais aninhadas abaixo do contato -->
+            <div class="social-block">
+              <h4 class="social-title">Siga-nos</h4>
+              <div class="social-icons" aria-label="Redes sociais">
+                <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"
+                    aria-hidden="true"></i></a>
+                <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"
+                    aria-hidden="true"></i></a>
+                <a href="#" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"
+                    aria-hidden="true"></i></a>
+                <a href="#" class="youtube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna 3: Galeria -->
+          <div class="footer-col footer-col--gallery">
+            <h3>Galeria</h3>
+            <!-- Miniaturas da galeria -->
+            <div class="gallery-thumbs" role="list">
+              <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 1 da galeria">
+                <img src="img/thumb1.jpg" alt="">
+              </a>
+              <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 2 da galeria">
+                <img src="img/thumb2.jpg" alt="">
+              </a>
+              <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 3 da galeria">
+                <img src="img/thumb3.jpg" alt="">
+              </a>
+              <!-- Adicione mais miniaturas se desejar (até 6 ficam bem visualmente) -->
+              <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 4 da galeria">
+                <img src="img/thumb4.jpg" alt="">
+              </a>
+              <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 5 da galeria">
+                <img src="img/thumb5.jpg" alt="">
+              </a>
+              <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 6 da galeria">
+                <img src="img/thumb6.jpg" alt="">
+              </a>
+            </div>
+            <!-- Botão para a galeria completa -->
+            <a class="gallery-btn" href="galeria.html" aria-label="Abrir galeria completa">Ver galeria</a>
+          </div>
+
+        </div> <!-- Fim .footer-container -->
+
+        <!-- Linha final com direitos autorais -->
+        <div class="footer-bottom">
+          <hr class="Linha">
+          <p>&copy; 2025 Hotel Sul América - Todos os direitos reservados.</p>
+        </div>
+      </footer>
+
+      
+
+      <script src="js/galeria.js"></script>
+      <script type="module" src="/js/main.js"></script>
+     
+</body>
+
+</html>

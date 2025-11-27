@@ -1,0 +1,1139 @@
+@use "../globals/variables" as *;
+@use "../globals/mixins" as *;
+@use "../globals/reset" as *;
+@use "../globals/animations" as *; // <--- NOVO
+@use "../globals/botaoNoiteDia" as *; // <--- NOVO
+@use "sass:color"; // <--- ADICIONE ESTA LINHA NO TOPO
+
+// ========= INTRO RESTAURANTE =========
+.intro-restaurante {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: $font-title;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: $primary;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 1.2rem;
+    color: $gray-700;
+  }
+
+  // === RESPONSIVE ===
+  @include responsive(md) {
+    padding: 3rem 1.5rem;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+    }
+  }
+
+  @include responsive(sm) {
+    padding: 2.5rem 1rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+// ========= GALERIA RESTAURANTE =========
+.galeria-restaurante {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  margin: 80px;
+
+  .galeria-track {
+    display: flex;
+    height: 100%;
+    transition: transform 1s ease;
+  }
+
+  .galeria-item {
+    flex: 0 0 auto;
+    height: 500px;
+    margin-right: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .blur-circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: none;
+  }
+
+  // === RESPONSIVE ===
+
+  @include responsive(md) {
+    height: 380px;
+    margin: 60px;
+
+    .galeria-item {
+      height: 380px;
+      margin-right: 15px;
+    }
+  }
+
+  @include responsive(sm) {
+    height: 300px;
+    margin: 40px;
+
+    .galeria-item {
+      height: 300px;
+      margin-right: 10px;
+    }
+  }
+}
+
+/* ========== SEÇÃO PENSÃO COMPLETA ========== */
+.services {
+  position: relative;
+  padding: 120px 40px;
+
+  /* Elementos decorativos sutis */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  &::before {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(
+      135deg,
+      $primary,
+      color.adjust($primary, $lightness: 20%)
+    );
+    top: -200px;
+    right: -200px;
+  }
+  &::after {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(
+      135deg,
+      color.adjust($primary, $lightness: -10%),
+      color.adjust($primary, $lightness: 15%)
+    );
+    bottom: -150px;
+    left: -150px;
+  }
+
+  /* Container */
+  .services-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Cabeçalho da seção */
+  .services-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+
+    .services-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba($primary, 0.08);
+      border: 1px solid rgba($primary, 0.2);
+      padding: 0.6rem 1.8rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+
+      i {
+        color: $primary;
+        font-size: 1.2rem;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      span {
+        font-family: $font-body; // CORRIGIDO
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: $gray-900;
+      }
+    }
+
+    .services-title {
+      font-family: $font-title; // CORRIGIDO
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      color: $black;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      position: relative;
+
+      // display: inline-block; // Removido para o título ficar abaixo do badge
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, $primary, transparent);
+      }
+    }
+
+    .services-subtitle {
+      font-family: $font-body; // CORRIGIDO
+      font-size: 1.1rem;
+      color: $gray-700;
+      max-width: 600px;
+      margin: 2rem auto 0;
+      line-height: 1.8;
+    }
+  }
+
+  /* Grid de Cards */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    position: relative;
+  }
+
+  /* Card individual */
+  .service-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background: $white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba($primary, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Imagem */
+    img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block; // Previne "vazamento" de line-height
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Overlay */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 40px 30px;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+      );
+      z-index: 3;
+
+      /* Ícone decorativo */
+      .icon-wrapper {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+
+        i {
+          font-size: 2rem;
+          color: $white;
+          transition: all 0.4s ease;
+        }
+      }
+
+      /* Título do card */
+      h3 {
+        font-family: $font-title; // CORRIGIDO
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $white;
+        text-align: center;
+        line-height: 1.4;
+        margin: 0;
+        transition: transform 0.4s ease;
+      }
+    }
+
+    /* Número decorativo */
+    .card-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba($white, 0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $font-title; // CORRIGIDO
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $primary;
+      z-index: 4;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+    }
+
+    /* Linha decorativa */
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, $primary, transparent);
+      transition: width 0.6s ease;
+      z-index: 4;
+    }
+
+    /* Efeitos de Hover no Card */
+    &:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 60px rgba($primary, 0.2);
+
+      &::before {
+        opacity: 1;
+      }
+
+      img {
+        transform: scale(1.1);
+      }
+
+      .overlay {
+        .icon-wrapper {
+          background: rgba($primary, 0.2);
+          border-color: $primary;
+          transform: translateY(-10px) scale(1.1);
+
+          i {
+            color: $secundary;
+            transform: scale(1.2);
+          }
+        }
+
+        h3 {
+          transform: translateY(-5px);
+        }
+      }
+
+      &::after {
+        width: 80%;
+      }
+
+      .card-number {
+        transform: scale(1.15) rotate(10deg);
+        background: $primary;
+        color: $white;
+      }
+    }
+  }
+
+  /* ========== RESPONSIVIDADE (COM MIXINS) ========== */
+  @include responsive(lg) {
+    // CORRIGIDO
+    padding: 100px 30px;
+
+    .services-header {
+      margin-bottom: 60px;
+    }
+    .services-grid {
+      gap: 30px;
+    }
+    .service-card {
+      img {
+        height: 380px;
+      }
+    }
+  }
+
+  @include responsive(md) {
+    // CORRIGIDO
+    padding: 80px 25px;
+
+    .services-title {
+      font-size: 2.5rem;
+    }
+    .services-subtitle {
+      font-size: 1rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+
+      .service-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
+      }
+    }
+
+    .service-card {
+      img {
+        height: 350px;
+      }
+
+      .overlay {
+        padding: 30px 20px;
+
+        .icon-wrapper {
+          width: 70px;
+          height: 70px;
+          margin-bottom: 1rem;
+
+          i {
+            font-size: 1.8rem;
+          }
+        }
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  @include responsive(sm) {
+    // CORRIGIDO
+    padding: 60px 20px;
+
+    .services-header {
+      margin-bottom: 40px;
+    }
+    .services-title {
+      font-size: 2rem;
+    }
+    .services-subtitle {
+      font-size: 0.95rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      .service-card:nth-child(3) {
+        max-width: 100%;
+      }
+    }
+
+    .service-card {
+      img {
+        height: 380px;
+      }
+      .card-number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        top: 15px;
+        right: 15px;
+      }
+    }
+  }
+}
+
+/* ========== SEÇÃO CAFÉ DA MANHã (TUDO ANINHADO AQUI) ========== */
+.breakfast-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: $light;
+
+  /* Círculos decorativos animados */
+  .floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.2;
+    animation: float 20s ease-in-out infinite;
+  }
+  .circle-1 {
+    width: 400px;
+    height: 400px;
+    // CORRIGIDO:
+    background: color.adjust($primary, $lightness: 20%);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+  .circle-2 {
+    width: 350px;
+    height: 350px;
+    background: $primary;
+    bottom: -80px;
+    right: -80px;
+    animation-delay: 5s;
+  }
+  .circle-3 {
+    width: 300px;
+    height: 300px;
+    // CORRIGIDO:
+    background: color.adjust($primary, $lightness: -10%);
+    top: 50%;
+    right: 10%;
+    animation-delay: 10s;
+  }
+
+  /* Container principal */
+  .breakfast-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+
+    /* ========== LADO ESQUERDO - CONTEÚDO ========== */
+    .content-left {
+      position: relative;
+
+      .decorative-line {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, $primary, transparent);
+        margin-bottom: 2rem;
+        animation: shimmer 3s ease-in-out infinite;
+      }
+
+      .breakfast-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba($primary, 0.1);
+        border: 1px solid rgba($primary, 0.3);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        margin-bottom: 2rem;
+
+        span {
+          color: $white;
+          font-family: $font-body;
+          font-size: 0.85rem;
+          font-weight: 500;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+        .breakfast-icon {
+          font-size: 1.2rem;
+          animation: pulse 2s ease-in-out infinite;
+        }
+      }
+
+      h1 {
+        font-family: $font-title;
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        font-weight: 300;
+        color: $black;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -1px;
+      }
+
+      .subtitle {
+        font-family: $font-body;
+        font-size: 1.1rem;
+        color: $gray-700;
+        line-height: 1.8;
+        margin-bottom: 3rem;
+        max-width: 500px;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+
+        .feature-card {
+          position: relative;
+          background: $white;
+          border: 1px solid $gray-300;
+          padding: 1.5rem;
+          border-radius: 12px;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba($primary, 0.05);
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              135deg,
+              rgba($primary, 0.1),
+              transparent
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+          }
+
+          &:hover {
+            transform: translateY(-5px);
+            border-color: rgba($primary, 0.3);
+            box-shadow: 0 20px 40px rgba($primary, 0.15);
+            &::before {
+              opacity: 1;
+            }
+          }
+
+          .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+          }
+          h3 {
+            font-family: $font-title;
+            font-size: 1.3rem;
+            color: $black;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+          }
+          p {
+            font-family: $font-body;
+            font-size: 0.85rem;
+            color: $gray-700;
+            line-height: 1.6;
+          }
+        }
+      }
+
+      /* Botão CTA */
+      .cta-button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid $primary;
+        padding: 1.2rem 3rem;
+        color: $black;
+        // CORRIGIDO (Proativamente):
+        background: rgba($white, 0.3);
+
+        font-family: $font-body;
+        font-size: 1rem;
+        font-weight: 600;
+
+        border-radius: 50px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.4s ease;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background: linear-gradient(
+            135deg,
+            $primary,
+            color.adjust($primary, $lightness: -10%)
+          );
+
+          transform: translate(-50%, -50%);
+          transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        &:hover {
+          transform: translateY(-3px);
+          color: $white;
+          box-shadow: 0 15px 40px rgba($primary, 0.4);
+          &::before {
+            width: 300px;
+            height: 300px;
+          }
+          .arrow {
+            transform: translateX(5px);
+          }
+        }
+
+        span {
+          position: relative;
+          z-index: 1;
+        }
+        .arrow {
+          position: relative;
+          z-index: 1;
+          transition: transform 0.4s ease;
+        }
+      }
+    } // Fim de .content-left
+
+    /* ========== LADO DIREITO - GALERIA ========== */
+    .gallery-right {
+      position: relative;
+      height: 600px;
+
+      .main-image-container {
+        position: relative;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba($black, 0.2);
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba($primary, 0.2), transparent);
+          z-index: 2;
+          opacity: 0;
+          transition: opacity 0.6s ease;
+        }
+        &:hover {
+          &::before {
+            opacity: 1;
+          }
+          .main-image {
+            transform: scale(1.1);
+          }
+        }
+
+        .main-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      }
+
+      /* Imagens flutuantes decorativas */
+      .floating-image {
+        position: absolute;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba($black, 0.15);
+        border: 3px solid rgba($primary, 0.3);
+        animation: floatImage 6s ease-in-out infinite;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .floating-1 {
+        width: 180px;
+        height: 180px;
+        top: -40px;
+        left: -50px;
+        animation-delay: 0s;
+      }
+      .floating-2 {
+        width: 150px;
+        height: 150px;
+        bottom: -30px;
+        right: -40px;
+        animation-delay: 2s;
+      }
+
+      /* Selo decorativo */
+      .quality-badge {
+        position: absolute;
+        top: 50%;
+        right: -60px;
+        transform: translateY(-50%);
+        width: 140px;
+        height: 140px;
+        // CORRIGIDO:
+        background: linear-gradient(
+          135deg,
+          $primary,
+          color.adjust($primary, $lightness: 20%)
+        );
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 15px 40px rgba($primary, 0.4);
+        animation: rotate 20s linear infinite;
+        z-index: 10;
+
+        span {
+          font-family: $font-title;
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: $white;
+          text-align: center;
+          line-height: 1.3;
+          animation: rotate-reverse 20s linear infinite;
+        }
+      }
+    } // Fim de .gallery-right
+  } // Fim de .breakfast-container
+
+  /* ========== RESPONSIVIDADE (Com Mixins) ========== */
+  @include responsive(lg) {
+    .breakfast-container {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      padding: 3rem 1.5rem;
+    }
+    .gallery-right {
+      height: 500px;
+    }
+    .floating-1,
+    .floating-2 {
+      display: none;
+    }
+    .quality-badge {
+      right: 20px;
+      top: 20px;
+      transform: none;
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  @include responsive(md) {
+    .breakfast-container {
+      gap: 3rem;
+      padding: 2rem 1rem;
+    }
+    .content-left {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+    .gallery-right {
+      height: 400px;
+    }
+    .circle-1,
+    .circle-2,
+    .circle-3 {
+      display: none; // Círculos somem no mobile
+    }
+  }
+}
+
+/* ========== MENU SECTION ========== */
+.menu-semana {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+
+  .menu-right {
+    flex: 1;
+    background: $white; // Corrigido
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-family: $font-title; // Adicionado
+      font-size: 28px;
+      margin-bottom: 0.5rem;
+      color: $black; // Corrigido
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: $gray-900; // Corrigido
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-dia {
+      display: none;
+
+      &.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid $gray-300; // Corrigido
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateX(10px);
+        }
+
+        h3 {
+          font-family: $font-title; // Adicionado
+          font-size: 18px;
+          margin-bottom: 0.3rem;
+          color: $black; // Corrigido
+        }
+
+        p {
+          font-family: $font-body; // Adicionado
+          font-size: 14px;
+          color: $gray-700; // Corrigido
+        }
+
+       
+      }
+    }
+  }
+
+  .accordion-horizontal {
+    flex: 2;
+    display: flex;
+    gap: 1rem;
+    height: 500px;
+
+    .accordion-item {
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.6s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.6);
+        transition: 0.6s ease;
+        display: block; // Adicionado para corrigir vazamento
+      }
+
+      &:hover img,
+      &.active img {
+        filter: brightness(1);
+      }
+
+      &.active {
+        flex: 3;
+
+        img {
+          transform: scale(1.05);
+        }
+      }
+
+      .dia-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.6);
+        color: $white; // Corrigido
+        padding: 10px;
+        font-family: $font-body; // Adicionado
+        font-size: 16px;
+      }
+    }
+  }
+  /* ========== RESPONSIVE ========== */
+  @include responsive(xl) {
+    // CORRIGIDO
+
+    flex-direction: column-reverse;
+
+    .accordion-horizontal {
+      
+      height: 500px;
+    }
+  }
+}
+
+// =============================================
+// 🔹 SEÇÃO DOWNLOAD CARDÁPIO
+// =============================================
+.download-menu-section {
+  padding: 6rem 2rem;
+  background: $light;
+  text-align: center;
+
+  .download-container {
+    max-width: 1220px;
+    margin: 0 auto;
+
+    .download-title {
+      font-family: $font-title;
+      font-size: 42px;
+      color: $black;
+      font-weight: 600;
+      
+      margin-bottom: 1rem;
+    }
+
+    .download-subtitle {
+      font-family: $font-body;
+      font-size: 18px;
+      color: $gray-700;
+      line-height: 1.7;
+      padding: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-download {
+      position: relative; // Adicionado para o ::before funcionar
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
+
+      // Cor de fundo inicial (transparente ou um pouco de primária para contraste)
+      background: rgba($primary, 0.1);
+      border: 1px solid $primary; // Borda da cor primária
+      color: $black; // Cor do texto e ícone (preto para contraste inicial)
+
+      font-family: $font-body;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      overflow: hidden; // ESSENCIAL para o ::before não vazar
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba($black, 0.08); // Sombra mais sutil inicialmente
+
+      i {
+        font-size: 1.2rem;
+        position: relative; // Garante que o ícone fique acima do ::before
+        z-index: 1; // Garante que o ícone fique acima do ::before
+      }
+
+      span {
+        position: relative; // Garante que o texto fique acima do ::before
+        z-index: 1; // Garante que o texto fique acima do ::before
+      }
+
+      // Elemento ::before para o efeito de gradiente no hover
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        // Gradiente que se expande
+        background: linear-gradient(
+          135deg,
+          $primary,
+          color.adjust($primary, $lightness: -10%)
+        );
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+        z-index: 0; // Fica por baixo do texto e ícone
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        color: $white; // Texto e ícone ficam brancos no hover
+        box-shadow: 0 15px 40px rgba($primary, 0.3); // Sombra mais proeminente no hover
+
+        &::before {
+          width: 300px; // Tamanho de expansão do gradiente
+          height: 300px;
+        }
+      }
+    }
+  }
+
+  // --- Responsividade ---
+  @include responsive(sm) {
+    padding: 4rem 1rem;
+
+    .download-container {
+      .download-title {
+        font-size: 32px;
+      }
+      .download-subtitle {
+        font-size: 16px;
+      }
+      .btn-download {
+        padding: 0.9rem 2rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

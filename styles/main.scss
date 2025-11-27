@@ -1,0 +1,26 @@
+// styles/_main.scss (ou main.scss)
+
+// ==========================================
+// 1. IMPORTS GLOBAIS
+// ==========================================
+// Importa variáveis, mixins, reset, etc., usando o _index.scss dentro de globals
+// O 'as *' torna $variáveis e @mixins disponíveis diretamente neste arquivo
+@use 'globals' as *; 
+
+// ==========================================
+// 2. IMPORTS DE COMPONENTES REUTILIZÁVEIS
+// ==========================================
+// Assumindo que _navbar.scss, _footer.scss, etc., estão dentro de /components
+
+@use 'components/navbar'; 
+@use 'components/footer'; 
+@use 'components/hero';   
+@use 'components/botaoEventos';    
+
+
+
+
+
+
+
+

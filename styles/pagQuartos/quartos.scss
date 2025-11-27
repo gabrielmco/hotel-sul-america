@@ -1,0 +1,723 @@
+@use "../globals/variables" as *;
+@use "../globals/mixins" as *;
+@use "../globals/reset" as *;
+
+// ================== NOMES QUARTOS ==================
+.nomes-quartos {
+  background: $light;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+
+  .nomes-quartos-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  a {
+    font-family: $font-title;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: $black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  hr {
+    border: none;
+    width: 1px;
+    height: 30px;
+    background-color: $gray-700;
+    margin: 0 1rem;
+    flex-shrink: 0;
+    opacity: 0.3;
+  }
+
+  // ==========================================
+  // 📱 RESPONSIVIDADE (com mixins)
+  // ==========================================
+
+  // --- Breakpoint LG (1024px) ---
+  // ==========================================
+  // 📱 RESPONSIVIDADE (3x2 e 1x1)
+  // ==========================================
+
+  // --- Breakpoint LG (1024px) ---
+  // (Mantém flex, apenas ajusta tamanhos)
+  @include responsive(lg) {
+    padding: 1.5rem 0;
+
+    .nomes-quartos-container {
+      padding: 0 1.5rem;
+    }
+
+    a {
+      font-size: 20px; // Você pediu 22px, então vamos remover isso
+      line-height: 28px; // E isso
+    }
+
+    hr {
+      height: 26px;
+      margin: 0 0.75rem;
+    }
+  }
+
+  @include responsive(md) {
+    padding: 1.25rem 0;
+
+    .nomes-quartos-container {
+      display: grid;
+      // Grid de 6 colunas para centralizar a segunda linha
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem 0; // 1.5rem vertical, 1rem horizontal
+      justify-items: center;
+    }
+
+    a {
+      // font-size: 22px; // Mantido do base
+      grid-column: span 2; // Cada link ocupa 2 colunas (3 links = 6 colunas)
+      text-align: center;
+      width: 100%;
+      margin: 0;
+      border-top: none; // Garante que não tenha borda superior
+      padding-top: 0; // Garante que não tenha padding superior
+    }
+
+    // --- Centraliza a segunda linha ---
+    // O 4º link (a:nth-of-type(4)) começa na 2ª coluna
+    a:nth-of-type(4) {
+      grid-column: 2 / 4;
+    }
+    // O 5º link (a:nth-of-type(5)) começa na 4ª coluna
+    a:nth-of-type(5) {
+      grid-column: 4 / 6;
+    }
+
+    // --- Adiciona a borda divisória ---
+    // Adiciona uma borda no TOPO dos itens da segunda linha
+    a:nth-of-type(4),
+    a:nth-of-type(5) {
+      width: 100%;
+      border-top: 1px solid rgba($black, 0.2);
+      padding-top: 1.5rem;
+    }
+
+    hr {
+      display: none; // Esconde as HRs verticais originais
+    }
+  }
+
+  // --- Breakpoint SM (680px) ---
+  // (Quebra para 1x1x1... com BORDAS SUPERIORES)
+  @include responsive(sm) {
+    .nomes-quartos-container {
+      display: grid;
+      grid-template-columns: 1fr; // Força 1 coluna
+      gap: 0; // Remove gap
+      padding: 0;
+      max-width: 100%; // Remove o max-width: 400px para ir de ponta a ponta
+    }
+
+    // Seletor FORTE para resetar TUDO
+    a,
+    a:nth-of-type(4),
+    a:nth-of-type(5) {
+      // RESETA TUDO DO MD
+      grid-column: 1; // Força todos a ficarem na coluna 1
+      padding-top: 0;
+      border-top: none;
+
+      // APLICA ESTILO 1x1
+      width: 100%;
+      text-align: center;
+      padding: 1.25rem 1rem; // Espaçamento
+      border-top: 1px solid rgba($black, 0.2); // Borda
+    }
+
+    // Remove a borda do primeiro item
+    a:first-of-type {
+      border-top: none;
+    }
+
+    // Garante que as HRs fiquem escondidas
+    hr {
+      display: none !important;
+    }
+  }
+}
+
+
+// -------------------- SOBRE (ÍCONES HOTEL) --------------------
+.sobre {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8rem;
+  width: 100%;
+  max-width: 1220px; // mesmo valor da section anterior
+  margin: 0 auto;
+  padding: 4rem 2rem; // padding lateral igual
+  position: relative;
+
+  .sobre-container {
+    position: relative;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+      box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: $box-shadow;
+    }
+
+   
+
+    .icon-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: #f7f4ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 0;
+
+      // --- Efeito de preenchimento do hover ---
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: $secundary;
+        opacity: 0.3;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
+        z-index: 1;
+        transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease;
+      }
+
+      &:hover::after {
+        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
+        opacity: 1;
+      }
+
+      i {
+        position: relative;
+        z-index: 3;
+        font-size: 2rem;
+        color: $secundary;
+        transition: transform 0.5s ease, color 0.4s ease;
+      }
+
+      &:hover i {
+        color: $light;
+        transform: scale(1.2);
+      }
+    }
+
+    /* ---------- Títulos e textos ---------- */
+    h3 {
+      font-family: $font-title;
+      font-size: 1.1rem;
+      color: #2b261f;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-family: $font-body;
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+    }
+  }
+
+  // ===================================
+  // 📱 RESPONSIVIDADE (TUDO AGRUPADO)
+  // ===================================
+
+  // --- Breakpoint LG (ex: Tablets em paisagem) ---
+  @include responsive(lg) {
+    grid-template-columns: repeat(2, 1fr); // 2 colunas
+    padding: 3rem 1.5rem;
+    gap: 1.5rem;
+
+    .sobre-container {
+      padding: 1.5rem;
+
+      // Lógica da Divisória (para 2x2):
+      // Esconde a divisória no final da nova linha (itens 2, 4, 6...)
+      &:nth-child(2n)::after {
+        display: none;
+      }
+
+      // Garante que a divisória do 4º item (que estava escondida no base) REAPAREÇA
+      &:nth-child(4n)::after {
+        display: block; // Reseta a regra do base
+      }
+
+      // Garante que o último item (se for ímpar) não tenha linha
+      &:last-child::after {
+        display: none;
+      }
+    }
+  }
+
+  // --- Breakpoint MD (ex: Tablets em retrato) ---
+  @include responsive(md) {
+    // A regra de 1 coluna (que estava no final) sobrepõe
+    // a regra de 2 colunas que estava no início.
+    grid-template-columns: 1fr; // 1 coluna
+    padding: 3rem 1rem;
+    gap: 1.5rem;
+
+    .sobre-container {
+      
+      // Lógica da Divisória (para 1x1):
+      // Esta regra sobrepõe a lógica de 2 colunas
+      &::after {
+        display: none;
+      }
+
+      // Efeito de hover em tablet (sem transform)
+      &:hover {
+        transform: none;
+        box-shadow: $box-shadow; // Mantém a sombra
+      }
+    }
+  }
+
+  // --- Breakpoint SM (ex: Celulares) ---
+  @include responsive(sm) {
+    grid-template-columns: 1fr; // 1 coluna
+    padding: 2rem 1rem;
+    gap: 1rem;
+
+    .sobre-container {
+      padding: 1.5rem 1rem;
+      text-align: center; // Centraliza no mobile
+
+      // Esconde divisória (já coberto pelo MD, mas bom garantir)
+      &::after {
+        display: none;
+      }
+
+      .icon-wrapper {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 1rem; // Centraliza e adiciona espaço
+
+        i {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
+// ================== CARROSSEL QUARTOS ==================
+
+.quartos {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  // ===============================
+  // QUARTO BASE
+  // ===============================
+  .quarto {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    background: $black;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgb(0 0 0 / 13%);
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    // ===== IMAGEM / CARROSSEL =====
+    .quarto-imagem {
+      position: relative;
+      flex: 1;
+      min-width: 60%;
+      height: 500px;
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+
+      &:active {
+        cursor: grabbing;
+      }
+
+      .carrossel-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          transform: translateX(50px);
+          transition: opacity 0.6s ease,
+            transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+          user-select: none;
+          pointer-events: none;
+          z-index: 1;
+
+          &.active {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 2;
+          }
+        }
+      }
+
+      // ===== SETAS =====
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        opacity: 0.8;
+        background: rgba($black, 0.8);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.18s ease, background 0.18s ease;
+        box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
+        pointer-events: auto;
+
+        &:hover {
+          
+          transform: translateY(-50%) scale(1.08);
+        }
+
+        i {
+          font-size: 1.2rem;
+          color: $white;
+        }
+
+        &.arrow-left {
+          left: 20px;
+        }
+        &.arrow-right {
+          right: 20px;
+        }
+      }
+
+      // ===== INDICADORES =====
+      .indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+
+        span {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: rgba($black, 0.8);
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &.active {
+            background: $white;
+            transform: scale(1.3);
+          }
+
+          &:hover {
+            background: rgb(255 255 255 / 80%);
+          }
+        }
+      }
+    }
+
+    // ===== TEXTO =====
+    .quarto-texto {
+      flex: 1;
+      min-width: 40%;
+      background: $light;
+
+      display: flex;
+      flex-direction: column;
+
+      // 1. REMOVA O SPACE-BETWEEN
+      // justify-content: space-between; // << REMOVA ISSO
+      justify-content: flex-start; // << USE ISSO
+      .quarto-descricao {
+        padding: 3rem;
+        h5 {
+          font-family: $font-body;
+          font-size: 18px;
+          font-weight: 400;
+          color: $primary;
+          margin-bottom: 0.5rem;
+        }
+
+        h2 {
+          font-family: $font-title;
+          font-size: 38px;
+          font-weight: 600;
+          color: $black;
+          margin-bottom: 1.5rem;
+          line-height: 1.2;
+        }
+        p {
+          font-size: 1rem;
+          line-height: 1.8;
+          color: #666;
+          margin-bottom: 2rem;
+        }
+      }
+
+      // 2. ESCONDA A <hr> DO HTML
+      hr {
+        display: none;
+      }
+
+      .quarto-footer {
+        display: flex;
+        padding: 3rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        // 3. ADICIONE AS PROPRIEDADES DE LINHA E ALINHAMENTO AQUI
+        width: 100%; // Garante que a borda ocupe tudo
+        margin-top: auto; // EMPURRA O FOOTER PARA O FINAL DA CAIXA
+        padding-top: 2rem; // Espaço acima do footer (abaixo da linha)
+        border-top: 1px solid rgba($black, 0.2); // A LINHA QUE VOCÊ QUER
+      }
+
+      .preco-info {
+        display: flex;
+        align-items: flex-end; // Alinha R$ e 'por noite'
+      }
+
+      .preco {
+        font-family: $font-body;
+        font-size: 38px;
+        font-weight: 600;
+        color: $black;
+        line-height: 1;
+      }
+
+      .noite {
+        font-size: 0.9rem;
+        color: #888;
+        // margin-top: 14px; // Removido
+        margin-left: 0.5rem; // Ajustado
+        padding-bottom: 4px; // Ajusta alinhamento vertical
+      }
+
+      .btn-primary {
+        background: $primary;
+        color: #fff;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 6px;
+        font-family: Poppins, sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba($primary, 0.3);
+        }
+      }
+    }
+  }
+
+  // ===============================
+  // 📱 RESPONSIVIDADE
+  // ===============================
+
+  // ===== 1220px - Ajustes Suaves =====
+  @include responsive(xl) {
+    margin: 1rem;
+
+    .quarto {
+      .quarto-texto {
+        .quarto-descricao {
+          h5 {
+            font-size: 0.92rem;
+          }
+          h2 {
+            font-size: 2.35rem;
+            margin-bottom: 1.4rem;
+          }
+          p {
+            font-size: 0.98rem;
+            margin-bottom: 1.85rem;
+          }
+        }
+
+        .quarto-footer {
+         padding: 1.2rem;
+        }
+
+        .preco-info {
+          // Quebra o preço para baixo
+          flex-direction: column;
+          align-items: flex-start; // Alinha à esquerda
+        }
+
+        .noite {
+          margin: 0; // Remove margens
+          padding-bottom: 0; // Remove padding
+          font-size: 0.85rem; // Fonte menor
+        }
+
+        .preco {
+          font-size: 2.35rem;
+          margin-top: 0;
+        }
+        .btn-primary {
+          margin-left: 1rem;
+          margin-bottom: 1rem;
+          padding: 0.95rem 2.3rem;
+          font-size: 0.98rem;
+        }
+      }
+    }
+  }
+
+  // ===== 992px - QUEBRA VERTICAL =====
+  @include responsive(lm) {
+    .quarto {
+      display: block !important; // Remove flex
+      width: 100%;
+      margin: 0 auto;
+      max-width: 750px; // Limita largura
+
+      &.reverse {
+        display: block !important;
+      } // Reseta o reverse
+
+      .quarto-imagem {
+        // Remove border-radius do container da imagem
+        border-radius: 0;
+      }
+
+      .quarto-texto {
+        text-align: left;
+        .quarto-footer {
+justify-content: flex-start;
+
+padding: 1.2rem;
+          .preco-info {
+            flex-direction: row; // Volta ao normal
+            align-items: flex-end;
+          }
+
+          .noite {
+            margin-left: 0.5rem;
+            padding-bottom: 4px;
+          }
+          .preco {
+            font-size: 2.1rem;
+          }
+        }
+        .quarto-descricao {
+          padding: 2rem;
+         
+        
+        }
+        .btn-primary{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // ===== 768px - Tablets Portrait =====
+  @include responsive(md) {
+    padding: 0 1.5rem;
+    gap: 2.5rem;
+
+    .quarto {
+      max-width: 680px;
+
+      .quarto-imagem {
+        height: 380px;
+      }
+
+      .quarto-texto {
+        padding: 0;
+.quarto-footer{
+  padding-top: 1rem;
+  padding: 1rem;
+  
+}
+        .quarto-descricao {
+          padding: 1rem;
+         
+        }
+
+        .preco {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  // ===== 680px - Mobile =====
+  @include responsive(sm) {
+    padding: 0 1rem;
+    gap: 2rem;
+
+    .quarto {
+      border-radius: 10px;
+
+      .quarto-imagem {
+        height: 340px;
+      }
+
+      .quarto-texto {
+        
+
+        
+
+        .preco {
+          font-size: 1.85rem;
+        }
+
+       
+
+        .btn-primary {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

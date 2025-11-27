@@ -1,0 +1,444 @@
+@use "../globals/variables" as *;
+@use "../globals/mixins" as *;
+@use "../globals/reset" as *;
+@use "../globals/animations" as *;
+
+@use "sass:color";
+
+
+/* ========== HERO SECTION ========== */
+.hero-eventos {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920&q=80') center/cover no-repeat;
+    filter: brightness(0.4);
+    z-index: 1;
+    transform: translateY(0) scale(1.03);
+    will-change: transform;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: $white;
+    max-width: 1200px;
+    padding: 0 2rem;
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba($primary, 0.15);
+      border: 1px solid rgba($primary, 0.3);
+      padding: 0.6rem 1.8rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+
+      i {
+        color: $primary;
+        font-size: 1.2rem;
+      }
+
+      span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+    }
+
+    .hero-title {
+      font-family: $font-title;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* ========== INTRODUÇÃO ========== */
+.intro-section {
+  padding: 120px 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+
+  .intro-title {
+    font-family: $font-title;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    color: $black;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, $primary, transparent);
+    }
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666;
+    max-width: 900px;
+    margin: 3rem auto 0;
+  }
+}
+
+/* ========== EVENTOS GRID ========== */
+.eventos-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 2rem 120px;
+
+  .evento-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 150px;
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+
+    &:nth-child(even) {
+      direction: rtl;
+
+      > * {
+        direction: ltr;
+      }
+    }
+
+    .evento-image {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 500px;
+      box-shadow: 0 20px 60px rgba(43, 38, 31, 0.15);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 80px rgba($primary, 0.25);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        background: linear-gradient(135deg, $primary, transparent, $primary);
+        border-radius: 24px;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.6s ease;
+      }
+
+      .evento-card:hover &::before {
+        opacity: 0.7;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        filter: brightness(0.9);
+        transform: scale(1.02);
+      }
+
+      .evento-card:hover & img {
+        transform: scale(1.1);
+        filter: brightness(1);
+      }
+
+      .evento-date-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba($primary, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba($primary, 0.4);
+
+        .mes {
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: $white;
+        }
+
+        .dia {
+          font-family: $font-title;
+          font-size: 2rem;
+          font-weight: 700;
+          color: $white;
+          line-height: 1;
+        }
+      }
+    }
+
+    .evento-content {
+      padding: 2rem 0;
+
+      .evento-categoria {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: $primary;
+        margin-bottom: 1rem;
+
+        i { font-size: 1rem; }
+      }
+
+      .evento-titulo {
+        font-family: $font-title;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 600;
+        color: $black;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .evento-descricao {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #666;
+        margin-bottom: 2rem;
+      }
+
+      .evento-beneficios {
+        margin: 2rem 0;
+
+        h4 {
+          font-family: $font-title;
+          font-size: 1.5rem;
+          color: $black;
+          margin-bottom: 1rem;
+        }
+
+        .beneficio-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 0.75rem;
+          padding: 0.75rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: rgba($primary, 0.05);
+            transform: translateX(10px);
+          }
+
+          .beneficio-icon {
+            width: 35px;
+            height: 35px;
+            background: $primary;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+          }
+
+          .beneficio-text {
+            font-size: 1rem;
+            color: #666;
+          }
+        }
+      }
+
+      .evento-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.2rem 3rem;
+        background: linear-gradient(135deg, $primary, $secundary);
+        color: $white;
+        font-family: $font-body;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 30px rgba($primary, 0.3);
+        text-decoration: none;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba($primary, 0.5);
+        }
+
+        i {
+          transition: transform 0.4s ease;
+        }
+
+        &:hover i {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+
+/* ========== CTA FINAL ========== */
+.cta-section {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  padding: 100px 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($primary, 0.2), transparent);
+    top: -200px;
+    right: -200px;
+    animation: rotate 20s linear infinite;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .cta-title {
+      font-family: $font-title;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: $white;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 4rem;
+      background: $primary;
+      color: $black;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 15px 40px rgba($primary, 0.4);
+      text-decoration: none;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px rgba($primary, 0.6);
+      }
+    }
+  }
+}
+
+/* ========== RESPONSIVIDADE (substituído por mixins) ========== */
+
+@include responsive(lg) {
+  .eventos-section {
+    .evento-card {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 100px;
+
+      &:nth-child(even) {
+        direction: ltr;
+      }
+
+      .evento-image {
+        height: 400px;
+      }
+    }
+  }
+}
+
+@include responsive(md) {
+  .hero-eventos {
+    height: 70vh;
+    min-height: 500px;
+  }
+
+  .intro-section {
+    padding: 80px 1.5rem;
+  }
+
+  .eventos-section {
+    padding: 60px 1.5rem 80px;
+
+    .evento-image { height: 350px; }
+    .evento-titulo { font-size: 2rem; }
+    .evento-descricao { font-size: 1rem; }
+  }
+
+  .cta-section { padding: 80px 1.5rem; }
+}
+
+@include responsive(s) {
+  .eventos-section {
+    .evento-image { height: 300px; }
+    .evento-date-badge { padding: 0.75rem 1rem; }
+
+    .evento-btn,
+    .cta-btn { padding: 1rem 2rem; font-size: 0.95rem; }
+  }
+}
+

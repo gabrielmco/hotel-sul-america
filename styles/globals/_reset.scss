@@ -1,0 +1,77 @@
+/* ===============================
+    RESET GLOBAL + FUNDO COM LINHAS VERTICAIS
+================================= */
+@use "variables" as *;
+
+html{
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $black;
+  overflow-x: hidden; /* bloqueia qualquer transbordamento lateral */
+  line-height: 1.6;
+  font-family: $font-body;
+  background-color: $white;
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: fixed;
+    z-index: -100;
+    pointer-events: none;
+    inset: 0 -280px;
+
+    // 🔥 SOLUÇÃO DEFINITIVA: Múltiplos Fundos
+    // Esta técnica evita o bug de anti-aliasing do navegador.
+
+    // 1. Criamos CINCO fundos, cada um sendo uma linha vertical de 1px
+    background-image:
+      linear-gradient(to right, rgb(0 0 0 / 10%) 1px, transparent 1px),
+      linear-gradient(to right, rgb(0 0 0 / 10%) 1px, transparent 1px),
+      linear-gradient(to right, rgb(0 0 0 / 10%) 1px, transparent 1px),
+      linear-gradient(to right, rgb(0 0 0 / 10%) 1px, transparent 1px),
+      linear-gradient(to right, rgb(0 0 0 / 10%) 1px, transparent 1px);
+
+    // 2. Definimos o tamanho de CADA linha
+    background-size: 1px 100%;
+
+    // 3. Impedimos que as linhas se repitam
+    background-repeat: no-repeat;
+
+    // 4. Posicionamos cada uma das 5 linhas nos locais exatos
+    background-position:
+      16.66% top,  // Linha 1
+      33.33% top,  // Linha 2
+      50%    top,  // Linha 3
+      66.66% top,  // Linha 4
+      83.33% top;  // Linha 5
+  }
+}
+
+/* Elementos gerais */
+img {
+  max-width: 100%;
+  
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}

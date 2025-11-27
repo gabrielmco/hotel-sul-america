@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quartos</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pagQuartos/quartos.css">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Fontes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;500;700&family=Urbanist:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+
+<body>
+
+  <div class="page-transition-overlay" id="pageTransition">
+    <div class="transition-layer">
+      <!-- Partículas -->
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+    </div>
+
+    <div class="transition-content">
+      <h1 class="transition-logo">HSA</h1>
+      <div class="transition-text">Carregando</div>
+      <div class="transition-progress">
+        <div class="transition-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="nav-phone">
+      <a href="tel:+553533323400">
+        <i class="fas fa-phone phone"></i> (35) 3332-3400
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <nav class="nav-left-links">
+        <ul>
+          <li><a href="Comodidades.html" class="page-link">Comodidades</a></li>
+          <li><a href="sobreNos.html" class="page-link">Sobre nós</a></li>
+          <li><a href="quartos.html" class="page-link">Quartos</a></li>
+        </ul>
+      </nav>
+      <div class="logo">
+        <a href="home.html" class="page-link">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+      <nav class="nav-right-links">
+        <ul>
+          <li><a href="SaoLourenco.html" class="page-link">São Lourenço</a></li>
+          <li><a href="restaurante.html" class="page-link">Restaurante</a></li>
+          <li><a href="contato.html" class="page-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-book">
+      <a href="contato.html" class="book-btn page-link">
+        <i class="fas fa-calendar-alt calendario"></i> Reserve sua estadia
+      </a>
+    </div>
+
+    <div class="navbar-mobile">
+      <div class="logo-mobile">
+        <a href="index.html" class="page-link">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="index.html" class="page-link">Lar</a></li>
+        <li><a href="index.html#sobre">Sobre nós</a></li>
+        <li><a href="index.html#rooms">Quartos</a></li>
+        <li><a href="index.html#amenities">São Lourenço</a></li>
+        <li><a href="restaurante.html" class="page-link">Restaurante</a></li>
+        <li><a href="contato.html" class="page-link">Contato</a></li>
+        <li><a href="galeria.html" class="page-link">Galeria</a></li>
+        <li>
+          <a href="contato.html" class="book-btn-mobile page-link">
+            <i class="fas fa-calendar-alt"></i> Reserve sua estadia
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="blur-circle"></div>
+
+    <div class="hero-content">
+      <div class="content-left">
+        <div class="hero-badge">
+          <span>Seu Refúgio Perfeito</span>
+        </div>
+        <h1>Quartos de Luxo e Conforto</h1>
+      </div>
+      <div class="content-right">
+        <p>
+          Acomodações sofisticadas e confortáveis, projetadas para proporcionar o máximo em elegância. Cada detalhe foi
+          pensado para seu descanso.
+        </p>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Role para explorar</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ================= NOMES DE QUARTOS ================= -->
+  <section class="nomes-quartos" data-aos="fade-down" data-aos-duration="800" data-aos-delay="0">
+    <div class="nomes-quartos-container" data-aos="fade-down" data-aos-duration="700" data-aos-delay="80">
+      <a href="#room-standard">Standard</a>
+      <hr>
+      <a href="#room-luxo">Luxo</a>
+      <hr>
+      <a href="#room-super-luxo">Super-luxo</a>
+      <hr>
+      <a href="#room-master">Master</a>
+      <hr>
+      <a href="#room-nova-master">Nova Master</a>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE (ÍCONES HOTEL) ================= -->
+  <section class="sobre" id="sobre" aria-label="Sobre o Hotel">
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+      <div class="icon-wrapper">
+        <i class="fa-solid fa-award"></i>
+      </div>
+      <h3>Resort de Luxo</h3>
+      <p>Viva uma estadia única.</p>
+    </div>
+
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+      <div class="icon-wrapper">
+        <i class="fa-solid fa-user-tie"></i>
+      </div>
+      <h3>Pessoal Treinado</h3>
+      <p>Equipe dedicada ao serviço.</p>
+    </div>
+
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+      <div class="icon-wrapper">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+      <h3>Restaurantes</h3>
+      <p>Descubra uma variedade de sabores.</p>
+    </div>
+
+    <div class="sobre-container" data-aos="fade-up" data-aos-duration="700" data-aos-delay="320">
+      <div class="icon-wrapper">
+        <i class="fa-solid fa-life-ring"></i>
+      </div>
+      <h3>Piscina</h3>
+      <p>Relaxe e aproveite momentos de lazer.</p>
+    </div>
+  </section>
+
+  <!-- ================= QUARTOS-CARROSSEL ================= -->
+  <section class="quartos">
+
+    <!-- Quarto 0 - Standard -->
+    <div id="room-standard" class="quarto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="80"
+      aria-labelledby="room-standard-title">
+      <div class="quarto-imagem carrossel" data-index="0">
+        <!-- animar o wrapper, não cada img -->
+        <div class="carrossel-container" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="140">
+          <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800" class="active"
+            alt="Quarto Standard - vista e decoração moderna">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"
+            alt="Quarto Standard - cama e iluminação aconchegante">
+          <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800"
+            alt="Quarto Standard - banheiro elegante">
+        </div>
+
+        <!-- setas: SEM AOS (conforme solicitado) -->
+        <button class="arrow arrow-left" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow arrow-right" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="indicators" aria-hidden="true" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+        </div>
+      </div>
+
+      <div class="quarto-texto" data-aos="fade-left" data-aos-duration="800" data-aos-delay="220">
+        <div class="quarto-descricao">
+          <h5>Conforto e Praticidade</h5>
+          <h2 id="room-standard-title">Standard</h2>
+          <p>O equilíbrio perfeito entre conforto e elegância, ideal para uma estadia tranquila e funcional.</p>
+        </div>
+        <div class="quarto-footer">
+          <div class="preco-info">
+            <span class="preco">R$350</span>
+            <span class="noite">por noite</span>
+          </div>
+          <button class="btn-primary">Reserve agora</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quarto 1 - Luxo -->
+    <div id="room-luxo" class="quarto reverse" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160"
+      aria-labelledby="room-luxo-title">
+      <div class="quarto-imagem carrossel" data-index="1">
+        <div class="carrossel-container" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" class="active"
+            alt="Quarto Luxo - vista panorâmica e decoração elegante">
+          <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=800"
+            alt="Quarto Luxo - interior amplo e aconchegante">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800"
+            alt="Quarto Luxo - detalhes do design e iluminação">
+        </div>
+
+        <button class="arrow arrow-left" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow arrow-right" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="indicators" aria-hidden="true" data-aos="fade-up" data-aos-duration="600" data-aos-delay="260">
+        </div>
+      </div>
+
+      <div class="quarto-texto" data-aos="fade-left" data-aos-duration="800" data-aos-delay="280">
+        <div class="quarto-descricao">
+          <h5>Uma Vista Exclusiva</h5>
+          <h2 id="room-luxo-title">Luxo</h2>
+          <p>Espaço amplo com decoração sofisticada, para quem busca exclusividade e uma vista deslumbrante.</p>
+        </div>
+        <div class="quarto-footer">
+          <div class="preco-info">
+            <span class="preco">R$490</span>
+            <span class="noite">por noite</span>
+          </div>
+          <button class="btn-primary">Reserve agora</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quarto 2 - Super-luxo -->
+    <div id="room-super-luxo" class="quarto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="240"
+      aria-labelledby="room-super-luxo-title">
+      <div class="quarto-imagem carrossel" data-index="2">
+        <div class="carrossel-container" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800" class="active"
+            alt="Quarto Super-luxo - decoração sofisticada e vista urbana">
+          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800"
+            alt="Quarto Super-luxo - suíte com design moderno">
+          <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800"
+            alt="Quarto Super-luxo - banheiro de luxo">
+        </div>
+
+        <button class="arrow arrow-left" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow arrow-right" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="indicators" aria-hidden="true" data-aos="fade-up" data-aos-duration="600" data-aos-delay="340">
+        </div>
+      </div>
+
+      <div class="quarto-texto" data-aos="fade-left" data-aos-duration="800" data-aos-delay="360">
+        <div class="quarto-descricao">
+          <h5>Elegância Superior</h5>
+          <h2 id="room-super-luxo-title">Super-luxo</h2>
+          <p>Uma experiência de acomodação superior, com serviços privativos e uma vista panorâmica da cidade.</p>
+        </div>
+        <div class="quarto-footer">
+          <div class="preco-info">
+            <span class="preco">R$620</span>
+            <span class="noite">por noite</span>
+          </div>
+          <button class="btn-primary">Reserve agora</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quarto 3 - Master -->
+    <div id="room-master" class="quarto reverse" data-aos="fade-up" data-aos-duration="800" data-aos-delay="320"
+      aria-labelledby="room-master-title">
+      <div class="quarto-imagem carrossel" data-index="3">
+        <div class="carrossel-container" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="360">
+          <img src="https://images.unsplash.com/photo-1560185893-a55de8537e49?w=800" class="active"
+            alt="Quarto Master - decoração requintada e espaçosa">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+            alt="Quarto Master - suíte premium">
+          <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800"
+            alt="Quarto Master - iluminação e conforto máximo">
+        </div>
+
+        <button class="arrow arrow-left" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow arrow-right" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="indicators" aria-hidden="true" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+        </div>
+      </div>
+
+      <div class="quarto-texto" data-aos="fade-left" data-aos-duration="800" data-aos-delay="420">
+        <div class="quarto-descricao">
+          <h5>O Auge do Conforto</h5>
+          <h2 id="room-master-title">Master</h2>
+          <p>Nossa suíte Master oferece o máximo em luxo, com espaço amplo, design requintado e amenidades premium.</p>
+        </div>
+        <div class="quarto-footer">
+          <div class="preco-info">
+            <span class="preco">R$850</span>
+            <span class="noite">por noite</span>
+          </div>
+          <button class="btn-primary">Reserve agora</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quarto 4 - Nova Master -->
+    <div id="room-nova-master" class="quarto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
+      aria-labelledby="room-nova-master-title">
+      <div class="quarto-imagem carrossel" data-index="4">
+        <div class="carrossel-container" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="420">
+          <img src="https://images.unsplash.com/photo-1598928636135-d146006ff4be?w=800" class="active"
+            alt="Nova Master - design contemporâneo e elegante">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+            alt="Nova Master - suíte moderna">
+          <img src="https://images.unsplash.com/photo-1594563703937-fdc640497dcd?w=800"
+            alt="Nova Master - iluminação e conforto">
+        </div>
+
+        <button class="arrow arrow-left" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow arrow-right" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="indicators" aria-hidden="true" data-aos="fade-up" data-aos-duration="600" data-aos-delay="460">
+        </div>
+      </div>
+
+      <div class="quarto-texto" data-aos="fade-left" data-aos-duration="800" data-aos-delay="480">
+        <div class="quarto-descricao">
+          <h5>Design Contemporâneo</h5>
+          <h2 id="room-nova-master-title">Nova Master</h2>
+          <p>Uma suíte recém-projetada com um toque moderno, combinando tecnologia e conforto para uma estadia
+            inesquecível.</p>
+        </div>
+        <div class="quarto-footer">
+          <div class="preco-info">
+            <span class="preco">R$920</span>
+            <span class="noite">por noite</span>
+          </div>
+          <button class="btn-primary">Reserve agora</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- BOTÃO DE EVENTOS -->
+<section class="hero-cta" aria-label="Acesse nossos eventos">
+  <div class="hero-cta-inner" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out">
+    <p class="hero-cta-text">
+      Confira nossa programação de eventos — feriados, férias e celebrações para toda a família.
+    </p>
+
+    <a class="hero-cta-btn" href="eventosAnuais.html" role="button" aria-label="Ir para página de eventos">
+      Ver Eventos
+      <span class="hero-cta-btn-icon" aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" role="contentinfo">
+
+    <!-- SEÇÃO SUPERIOR PARA A MARCA -->
+    <div class="footer-brand-top">
+      <div class="footer-brand-content">
+        <img src="logo/logo(branca).png" alt="Logo Hotel Sul América">
+        <p>Conforto, sofisticação e hospitalidade em São Lourenço.</p>
+      </div>
+      <hr class="footer-divider"> <!-- LINHA HORIZONTAL ADICIONADA -->
+    </div>
+
+    <!-- CONTAINER PRINCIPAL PARA AS COLUNAS DE CONTEÚDO -->
+    <div class="footer-container">
+
+      <!-- Coluna 1: Links rápidos -->
+      <div class="footer-col footer-col--links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="index.html">Lar</a></li>
+          <li><a href="index.html#sobre">Sobre nós</a></li>
+          <li><a href="index.html#rooms">Quartos</a></li>
+          <li><a href="index.html#amenities">São Lourenço</a></li>
+          <li><a href="restaurante.html">Restaurante</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 2: Contato + Siga-nos -->
+      <div class="footer-col footer-col--contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-phone" aria-hidden="true"></i> (35) 3332-3400</p>
+        <p><i class="fas fa-envelope" aria-hidden="true"></i> contato@hotelexemplo.com</p>
+        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Central, São Lourenço - MG</p>
+
+        <!-- redes sociais aninhadas abaixo do contato -->
+        <div class="social-block">
+          <h4 class="social-title">Siga-nos</h4>
+          <div class="social-icons" aria-label="Redes sociais">
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="#" class="youtube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna 3: Galeria -->
+      <div class="footer-col footer-col--gallery">
+        <h3>Galeria</h3>
+        <!-- Miniaturas da galeria -->
+        <div class="gallery-thumbs" role="list">
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 1 da galeria">
+            <img src="img/thumb1.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 2 da galeria">
+            <img src="img/thumb2.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 3 da galeria">
+            <img src="img/thumb3.jpg" alt="">
+          </a>
+          <!-- Adicione mais miniaturas se desejar (até 6 ficam bem visualmente) -->
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 4 da galeria">
+            <img src="img/thumb4.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 5 da galeria">
+            <img src="img/thumb5.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 6 da galeria">
+            <img src="img/thumb6.jpg" alt="">
+          </a>
+        </div>
+        <!-- Botão para a galeria completa -->
+        <a class="gallery-btn" href="galeria.html" aria-label="Abrir galeria completa">Ver galeria</a>
+      </div>
+
+    </div> <!-- Fim .footer-container -->
+
+    <!-- Linha final com direitos autorais -->
+    <div class="footer-bottom">
+      <hr class="Linha">
+      <p>&copy; 2025 Hotel Sul América - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+
+
+  <script src="./js/quartos.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 1000,        // duração das animações
+      once: true,           // anima só 1 vez
+      easing: 'ease-out',   // suavização
+    });
+  </script>
+</body>
+
+</html>

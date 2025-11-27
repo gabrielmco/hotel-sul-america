@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurante - Hotel Sul América</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pagRestaurante/restaurante.css">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Fontes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;500;700&family=Urbanist:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+
+<body>
+  <div class="page-transition-overlay" id="pageTransition">
+    <div class="transition-layer">
+      <!-- Partículas -->
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+      <div class="transition-particle"></div>
+    </div>
+
+    <div class="transition-content">
+      <h1 class="transition-logo">HSA</h1>
+      <div class="transition-text">Carregando</div>
+      <div class="transition-progress">
+        <div class="transition-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="nav-phone">
+      <a href="tel:+553533323400">
+        <i class="fas fa-phone phone"></i> (35) 3332-3400
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <nav class="nav-left-links">
+        <ul>
+          <li><a href="Comodidades.html" class="page-link">Comodidades</a></li>
+          <li><a href="sobreNos.html" class="page-link">Sobre nós</a></li>
+          <li><a href="quartos.html" class="page-link">Quartos</a></li>
+        </ul>
+      </nav>
+      <div class="logo">
+        <a href="home.html" class="page-link">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+      <nav class="nav-right-links">
+        <ul>
+          <li><a href="SaoLourenco.html" class="page-link">São Lourenço</a></li>
+          <li><a href="restaurante.html" class="page-link">Restaurante</a></li>
+          <li><a href="contato.html" class="page-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-book">
+      <a href="contato.html" class="book-btn page-link">
+        <i class="fas fa-calendar-alt calendario"></i> Reserve sua estadia
+      </a>
+    </div>
+
+    <div class="navbar-mobile">
+      <div class="logo-mobile">
+        <a href="index.html" class="page-link">
+          <img src="logo/logo(branca).png" alt="Hotel Sul América" />
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="index.html" class="page-link">Lar</a></li>
+        <li><a href="index.html#sobre">Sobre nós</a></li>
+        <li><a href="index.html#rooms">Quartos</a></li>
+        <li><a href="index.html#amenities">São Lourenço</a></li>
+        <li><a href="restaurante.html" class="page-link">Restaurante</a></li>
+        <li><a href="contato.html" class="page-link">Contato</a></li>
+        <li><a href="galeria.html" class="page-link">Galeria</a></li>
+        <li>
+          <a href="contato.html" class="book-btn-mobile page-link">
+            <i class="fas fa-calendar-alt"></i> Reserve sua estadia
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="blur-circle"></div>
+
+    <div class="hero-content">
+      <div class="content-left">
+        <div class="hero-badge">
+          <span>Gastronomia Completa</span>
+        </div>
+        <h1>Sabores Inesquecíveis</h1>
+      </div>
+      <div class="content-right">
+        <p>
+          Uma jornada culinária com pensão completa. Desfrute do melhor da culinária mineira em um ambiente sofisticado,
+          do café da manhã ao jantar.
+        </p>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Role para explorar</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ================= INTRO ================= -->
+  <section class="intro-restaurante">
+    <h2 class="highlight" data-aos="fade-up" data-aos-duration="900">A vida em torno da boa comida</h2>
+    <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
+      Os bistrôs são conhecidos por seu foco em pratos saborosos e de alta qualidade,
+      que destacam ingredientes locais e sazonais.
+    </p>
+  </section>
+
+  <!-- ================= GALERIA ================= -->
+  <section class="galeria-restaurante">
+    <div class="galeria-track" data-aos="fade-up" data-aos-duration="900">
+      <div class="galeria-item" style="width:380px;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="80">
+        <img src="img/restaurante/restaurante01-640x425.jpg" alt="Pizza artesanal">
+      </div>
+      <div class="galeria-item" style="width:785px;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160">
+        <img src="img/restaurante/restaurante01-640x425.jpg" alt="Prato sofisticado">
+      </div>
+      <div class="galeria-item" style="width:580px;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="240">
+        <img src="img/restaurante/restaurante01-640x425.jpg" alt="Entrada gourmet">
+      </div>
+    </div>
+    <div class="blur-circle" aria-hidden="true"></div>
+  </section>
+
+  <!-- ================= PENSÃO ================= -->
+  <section class="services">
+    <div class="services-container">
+      <div class="services-header" data-aos="fade-right" data-aos-duration="900">
+        <div class="services-badge" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
+          <i class="fas fa-concierge-bell"></i>
+          <span>Experiência Gastronômica</span>
+        </div>
+
+        <h2 class="services-title" data-aos="fade-right" data-aos-duration="900" data-aos-delay="120">Pensão Completa
+        </h2>
+
+        <p class="services-subtitle" data-aos="fade-right" data-aos-duration="900" data-aos-delay="200">
+          Desfrute de uma jornada culinária completa com três refeições diárias
+          preparadas por nossos chefs com ingredientes selecionados
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="120">
+          <span class="card-number">01</span>
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80" alt="Café da manhã" />
+          <div class="overlay">
+            <div class="icon-wrapper">
+              <i class="fas fa-coffee"></i>
+            </div>
+            <h3>Café da manhã de cortesia</h3>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <span class="card-number">02</span>
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" alt="Almoço" />
+          <div class="overlay">
+            <div class="icon-wrapper">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3>Almoço saudável e energético</h3>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="280">
+          <span class="card-number">03</span>
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Jantar" />
+          <div class="overlay">
+            <div class="icon-wrapper">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3>Jantar especial para encerrar o dia</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAFÉ DA MANHÃ ================= -->
+  <section class="breakfast-section">
+    <div class="floating-circle circle-1" aria-hidden="true"></div>
+    <div class="floating-circle circle-2" aria-hidden="true"></div>
+    <div class="floating-circle circle-3" aria-hidden="true"></div>
+
+    <div class="breakfast-container">
+      <div class="content-left" data-aos="fade-right" data-aos-duration="900">
+        <div class="decorative-line" data-aos="fade-right" data-aos-duration="700" data-aos-delay="80"></div>
+
+        <div class="breakfast-badge" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+          <span class="breakfast-icon">☀️</span>
+          <span>Café da Manhã Premium</span>
+        </div>
+
+        <h1 data-aos="fade-right" data-aos-duration="900" data-aos-delay="160">
+          Comece o Dia <br>
+          <span class="highlight--verde">Com Requinte</span>
+        </h1>
+
+        <p class="subtitle" data-aos="fade-right" data-aos-duration="900" data-aos-delay="220">
+          Uma experiência gastronômica matinal que combina ingredientes selecionados,
+          pratos artesanais e um ambiente acolhedor para despertar seus sentidos.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+            <span class="feature-icon">🥐</span>
+            <h3>Buffet Completo</h3>
+            <p>Pães artesanais frescos, frios, queijos e geleias</p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="180">
+            <span class="feature-icon">☕</span>
+            <h3>Cafés Premium</h3>
+            <p>Seleção de cafés especiais e bebidas quentes</p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+            <span class="feature-icon">🍳</span>
+            <h3>Ovos à La Carte</h3>
+            <p>Preparados na hora conforme sua preferência</p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+            <span class="feature-icon">🥗</span>
+            <h3>Opções Saudáveis</h3>
+            <p>Frutas frescas, sucos naturais e cereais</p>
+          </div>
+        </div>
+
+        <button class="cta-button" data-aos="fade-up" data-aos-duration="800" data-aos-delay="360">
+          <span>Reservar Mesa</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+
+      <div class="gallery-right" data-aos="fade-left" data-aos-duration="900">
+        <div class="main-image-container" data-aos="zoom-in" data-aos-duration="900" data-aos-delay="120">
+          <img class="main-image" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80"
+            alt="Café da manhã luxuoso">
+        </div>
+
+        <div class="floating-image floating-1" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1533920379810-6bedac961555?w=400&q=80" alt="Croissant">
+        </div>
+        <div class="floating-image floating-2" data-aos="fade-up" data-aos-duration="700" data-aos-delay="260">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="Café">
+        </div>
+
+        <div class="quality-badge" data-aos="fade-left" data-aos-duration="800" data-aos-delay="320">
+          <span>★★★★★<br>PREMIADO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Cardápio / Toggle ================= -->
+  <div class="toggle-container" data-aos="fade-up" data-aos-duration="900">
+    <span class="toggle-label active" id="label-almoco" data-aos="fade-up" data-aos-duration="700"
+      data-aos-delay="80">☀️ Almoço</span>
+
+    <label class="switch" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+      <input id="input" type="checkbox" />
+      <div class="slider round">
+        <div class="sun-moon">
+          <!-- SVGs (visuais) — sem animações AOS individuais para evitar jitter -->
+          <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+          <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50"></circle>
+          </svg>
+        </div>
+
+        <div class="stars">
+          <svg id="star-1" class="star" viewBox="0 0 20 20">
+            <path
+              d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+            </path>
+          </svg>
+          <svg id="star-2" class="star" viewBox="0 0 20 20">
+            <path
+              d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+            </path>
+          </svg>
+          <svg id="star-3" class="star" viewBox="0 0 20 20">
+            <path
+              d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+            </path>
+          </svg>
+          <svg id="star-4" class="star" viewBox="0 0 20 20">
+            <path
+              d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </label>
+
+    <span class="toggle-label" id="label-jantar" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">🌙
+      Jantar</span>
+  </div>
+
+  <!-- ================= SECTION ÚNICA (MENU DA SEMANA) ================= -->
+  <section class="menu-semana" id="menu-section">
+    <div class="menu-right">
+      <h2 id="periodo-titulo" data-aos="fade-up" data-aos-duration="900">Almoço</h2>
+      <hr />
+
+      <!-- Cada bloco .menu-dia aparece em cascata (uso de delay para harmonia) -->
+      <div class="menu-dia active almoco" data-periodo="almoco" data-dia="segunda" data-aos="fade-up"
+        data-aos-duration="800" data-aos-delay="80">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Feijoada completa</h3>
+            <p>Com arroz, farofa e couve.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Picanha grelhada</h3>
+            <p>Com batatas rústicas.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Salada caesar</h3>
+            <p>Com frango grelhado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia jantar" data-periodo="jantar" data-dia="segunda" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="140">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Sopa de cebola</h3>
+            <p>Gratinada com queijo.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Ravioli recheado</h3>
+            <p>Molho de manteiga e sálvia.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Carpaccio de carne</h3>
+            <p>Com rúcula e parmesão.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repita a mesma lógica (aplicar aos blocos para cada dia) -->
+      <div class="menu-dia almoco" data-periodo="almoco" data-dia="terca" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="200">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Frango à Parmegiana</h3>
+            <p>Acompanha arroz branco e fritas.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Strogonoff de Filé</h3>
+            <p>Com champignon e batata palha.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Salmão Grelhado</h3>
+            <p>Com purê de mandioquinha.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia jantar" data-periodo="jantar" data-dia="terca" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="260">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Risoto de Cogumelos</h3>
+            <p>Com azeite trufado e parmesão.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Sopa de Legumes Frescos</h3>
+            <p>Com torradas de pão artesanal.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Pizza Marguerita</h3>
+            <p>Fermentação natural e manjericão fresco.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue para os demais dias (quarta, quinta, sexta, sábado, domingo) -->
+      <div class="menu-dia almoco" data-periodo="almoco" data-dia="quarta" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="320">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Bife à Cavalo</h3>
+            <p>Com ovo frito, arroz e feijão.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Lasanha à Bolonhesa</h3>
+            <p>Gratinada com queijo muçarela.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Peixe Frito</h3>
+            <p>Posta de tilápia com molho tártaro.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia jantar" data-periodo="jantar" data-dia="quarta" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="380">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Noite Árabe</h3>
+            <p>Kibe cru, tabule e pão sírio.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Caldo Verde</h3>
+            <p>Com paio, couve e azeite.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Crepe Francês</h3>
+            <p>Recheio de frango com catupiry.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia almoco" data-periodo="almoco" data-dia="quinta" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="440">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Nhoque da Fortuna</h3>
+            <p>Ao molho sugo ou molho branco.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Frango Assado</h3>
+            <p>Com batatas coradas e farofa.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Virado à Paulista</h3>
+            <p>Bisteca, tutu de feijão e ovo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia jantar" data-periodo="jantar" data-dia="quinta" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="500">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Paella Valenciana</h3>
+            <p>Com frutos do mar frescos e açafrão.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Sopa de Tomate Assado</h3>
+            <p>Com manjericão e queijo de cabra.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Filé Mignon ao Poivre</h3>
+            <p>Com molho de pimenta verde.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia almoco" data-periodo="almoco" data-dia="sexta" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="560">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Moqueca de Peixe</h3>
+            <p>Com arroz branco e pirão.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Bobó de Camarão</h3>
+            <p>Creme de aipim com camarões.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Cuscuz Marroquino</h3>
+            <p>Com legumes e castanhas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia jantar" data-periodo="jantar" data-dia="sexta" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="620">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Noite de Massas</h3>
+            <p>Carbonara, Pesto e Alfredo.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Polvo à Lagareiro</h3>
+            <p>Com batatas ao murro e alho.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Sopa de Mandioquinha</h3>
+            <p>Com carne seca desfiada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia almoco" data-periodo="almoco" data-dia="sabado" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="680">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Churrasco Misto</h3>
+            <p>Seleção de carnes nobres na brasa.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Galinhada Mineira</h3>
+            <p>Com pequi e quiabo.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Salada Tropical</h3>
+            <p>Folhas, manga, kani e molho de iogurte.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia jantar" data-periodo="jantar" data-dia="sabado" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="740">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Lagosta Grelhada</h3>
+            <p>Na manteiga de ervas finas.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Risoto de Frutos do Mar</h3>
+            <p>Com lula, polvo e camarão.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Tábua de Frios e Queijos</h3>
+            <p>Seleção de queijos premiados.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia almoco" data-periodo="almoco" data-dia="domingo" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="800">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Macarronada da Nona</h3>
+            <p>Molho de tomate caseiro e almôndegas.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Frango com Quiabo</h3>
+            <p>Com angu de milho verde.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Lombo Assado</h3>
+            <p>Com tutu de feijão e torresmo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia jantar" data-periodo="jantar" data-dia="domingo" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="860">
+        <div class="menu-item">
+          <div class="text">
+            <h3>Pizza Artesanal</h3>
+            <p>Sabores variados no forno a lenha.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Caldos Variados</h3>
+            <p>Feijão, mandioca e canjiquinha.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="text">
+            <h3>Hambúrguer Gourmet</h3>
+            <p>Com pão de brioche e fritas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-horizontal" id="accordion-container" data-aos="fade-up" data-aos-duration="900"
+      data-aos-delay="120">
+      <div class="accordion-item active" data-dia="segunda" data-aos="zoom-in" data-aos-duration="700"
+        data-aos-delay="120">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400" alt="Segunda" />
+        <span class="dia-label">Segunda</span>
+      </div>
+      <div class="accordion-item" data-dia="terca" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="160">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400" alt="Terça" />
+        <span class="dia-label">Terça</span>
+      </div>
+      <div class="accordion-item" data-dia="quarta" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400" alt="Quarta" />
+        <span class="dia-label">Quarta</span>
+      </div>
+      <div class="accordion-item" data-dia="quinta" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="240">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Quinta" />
+        <span class="dia-label">Quinta</span>
+      </div>
+      <div class="accordion-item" data-dia="sexta" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="280">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400" alt="Sexta" />
+        <span class="dia-label">Sexta</span>
+      </div>
+      <div class="accordion-item" data-dia="sabado" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="320">
+        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400" alt="Sábado" />
+        <span class="dia-label">Sábado</span>
+      </div>
+      <div class="accordion-item" data-dia="domingo" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="360">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Domingo" />
+        <span class="dia-label">Domingo</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= DOWNLOAD DO CARDÁPIO ================= -->
+  <section class="download-menu-section">
+    <div class="download-container" data-aos="fade-up" data-aos-duration="900">
+      <h2 class="download-title">Nosso Cardápio Completo</h2>
+      <p class="download-subtitle">
+        Faça o download do nosso menu completo em PDF e veja todas
+        as opções de pratos, sobremesas e bebidas.
+      </p>
+
+      <a href="/caminho/para/seu-cardapio.pdf" class="btn-download" download data-aos="zoom-in" data-aos-duration="800"
+        data-aos-delay="160">
+        <i class="fas fa-file-arrow-down"></i>
+        <span>Baixar Cardápio</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- BOTÃO DE EVENTOS -->
+<section class="hero-cta" aria-label="Acesse nossos eventos">
+  <div class="hero-cta-inner" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out">
+    <p class="hero-cta-text">
+      Confira nossa programação de eventos — feriados, férias e celebrações para toda a família.
+    </p>
+
+    <a class="hero-cta-btn" href="eventosAnuais.html" role="button" aria-label="Ir para página de eventos">
+      Ver Eventos
+      <span class="hero-cta-btn-icon" aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" role="contentinfo">
+
+    <!-- SEÇÃO SUPERIOR PARA A MARCA -->
+    <div class="footer-brand-top">
+      <div class="footer-brand-content">
+        <img src="logo/logo(branca).png" alt="Logo Hotel Sul América">
+        <p>Conforto, sofisticação e hospitalidade em São Lourenço.</p>
+      </div>
+      <hr class="footer-divider"> <!-- LINHA HORIZONTAL ADICIONADA -->
+    </div>
+
+    <!-- CONTAINER PRINCIPAL PARA AS COLUNAS DE CONTEÚDO -->
+    <div class="footer-container">
+
+      <!-- Coluna 1: Links rápidos -->
+      <div class="footer-col footer-col--links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="index.html">Lar</a></li>
+          <li><a href="index.html#sobre">Sobre nós</a></li>
+          <li><a href="index.html#rooms">Quartos</a></li>
+          <li><a href="index.html#amenities">São Lourenço</a></li>
+          <li><a href="restaurante.html">Restaurante</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 2: Contato + Siga-nos -->
+      <div class="footer-col footer-col--contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-phone" aria-hidden="true"></i> (35) 3332-3400</p>
+        <p><i class="fas fa-envelope" aria-hidden="true"></i> contato@hotelexemplo.com</p>
+        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Central, São Lourenço - MG</p>
+
+        <!-- redes sociais aninhadas abaixo do contato -->
+        <div class="social-block">
+          <h4 class="social-title">Siga-nos</h4>
+          <div class="social-icons" aria-label="Redes sociais">
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="#" class="youtube" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna 3: Galeria -->
+      <div class="footer-col footer-col--gallery">
+        <h3>Galeria</h3>
+        <!-- Miniaturas da galeria -->
+        <div class="gallery-thumbs" role="list">
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 1 da galeria">
+            <img src="img/thumb1.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 2 da galeria">
+            <img src="img/thumb2.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 3 da galeria">
+            <img src="img/thumb3.jpg" alt="">
+          </a>
+          <!-- Adicione mais miniaturas se desejar (até 6 ficam bem visualmente) -->
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 4 da galeria">
+            <img src="img/thumb4.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 5 da galeria">
+            <img src="img/thumb5.jpg" alt="">
+          </a>
+          <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 6 da galeria">
+            <img src="img/thumb6.jpg" alt="">
+          </a>
+        </div>
+        <!-- Botão para a galeria completa -->
+        <a class="gallery-btn" href="galeria.html" aria-label="Abrir galeria completa">Ver galeria</a>
+      </div>
+
+    </div> <!-- Fim .footer-container -->
+
+    <!-- Linha final com direitos autorais -->
+    <div class="footer-bottom">
+      <hr class="Linha">
+      <p>&copy; 2025 Hotel Sul América - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+
+ 
+  <script src="js/restaurante.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 1000,        // duração das animações
+      once: true,           // anima só 1 vez
+      easing: 'ease-out',   // suavização
+    });
+  </script>
+</body>
+
+</html>

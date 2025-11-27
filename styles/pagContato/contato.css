@@ -1,0 +1,559 @@
+@charset "UTF-8";
+.highlight--verde {
+  font-weight: 600;
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* ===============================
+    RESET GLOBAL + FUNDO COM LINHAS VERTICAIS
+================================= */
+html {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #1c1c1c;
+  overflow-x: hidden; /* bloqueia qualquer transbordamento lateral */
+  line-height: 1.6;
+  font-family: "Urbanist", sans-serif;
+  background-color: #fff;
+  position: relative;
+  z-index: 0;
+}
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -100;
+  pointer-events: none;
+  inset: 0 -280px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+  background-position: 16.66% top, 33.33% top, 50% top, 66.66% top, 83.33% top;
+}
+
+/* Elementos gerais */
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.info {
+  padding: 4rem 2rem;
+}
+.info .group-info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1220px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+.info .group-info .content-info {
+  flex: 1;
+  text-align: left;
+}
+.info .group-info .content-info h3 {
+  font-family: "Rufina", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1c1c1c;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: none;
+  display: inline-block;
+}
+.info .group-info .content-info hr {
+  display: block;
+  width: 100%;
+  border: none;
+  border-top: 2px solid #1c1c1c;
+  margin: -0.5rem 0 1rem;
+}
+.info .group-info .content-info p {
+  font-family: "Urbanist", sans-serif;
+  font-size: 1rem;
+  color: #495057;
+  line-height: 1.7;
+}
+@media (width <= 768px) {
+  .info {
+    padding: 2.5rem 1rem;
+  }
+  .info .group-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  .info .content-info {
+    text-align: center;
+  }
+  .info .content-info h3 {
+    display: inline-block;
+    border-bottom: none;
+  }
+  .info .content-info hr {
+    border-top: 2px solid #ddd;
+    width: 80%;
+    margin: -0.5rem auto 1rem;
+  }
+}
+
+/* ==================================================
+   LAYOUT PRINCIPAL (Divisão de colunas)
+   ================================================== */
+.page-container-split {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+.page-container-split .contact-wrapper,
+.page-container-split .booking-wrapper {
+  flex: 1;
+  padding: 0 2rem;
+}
+@media (width <= 1024px) {
+  .page-container-split {
+    flex-direction: column;
+    padding: 3rem 1rem;
+  }
+  .page-container-split .contact-wrapper,
+  .page-container-split .booking-wrapper {
+    padding: 0 1rem;
+  }
+  .page-container-split .contact-wrapper {
+    margin-bottom: 4rem;
+  }
+}
+
+/* ==================================================
+   FORMULÁRIO DE CONTATO (Esquerda)
+   ================================================== */
+.contact-wrapper .contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-wrapper .contact-form .subtitle {
+  font-family: "Urbanist", sans-serif;
+  font-size: 1rem;
+  color: #086016;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+.contact-wrapper .contact-form h2 {
+  font-family: "Rufina", serif;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  color: #1c1c1c;
+}
+.contact-wrapper .contact-form form {
+  font-family: "Urbanist", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.contact-wrapper .contact-form form .input-group {
+  position: relative;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+.contact-wrapper .contact-form form .input-group:focus-within {
+  border-color: #086016;
+}
+.contact-wrapper .contact-form form .input-group label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #1c1c1c;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.contact-wrapper .contact-form form .input-group .input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 35px 8px 0;
+  font-size: 1rem;
+  font-family: inherit;
+  background: transparent;
+  resize: none;
+}
+.contact-wrapper .contact-form form .input-group .input::-moz-placeholder {
+  color: #999;
+  font-style: italic;
+}
+.contact-wrapper .contact-form form .input-group .input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+.contact-wrapper .contact-form form .input-group i {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 1.1rem;
+}
+.contact-wrapper .contact-form form .input-group textarea.input {
+  min-height: 80px;
+}
+.contact-wrapper .contact-form form .input-group textarea ~ i {
+  top: auto;
+  bottom: 15px;
+  transform: none;
+}
+.contact-wrapper .contact-form form .form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.contact-wrapper .contact-form form .form-footer p {
+  font-size: 0.8rem;
+  color: #888;
+  flex: 1;
+}
+.contact-wrapper .contact-form form .form-footer button.btn {
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  background: #1c1c1c;
+  color: #fff;
+}
+.contact-wrapper .contact-form form .form-footer button.btn:hover {
+  background: #086016;
+}
+@media (width <= 768px) {
+  .contact-wrapper .contact-form h2 {
+    font-size: 2.5rem;
+  }
+  .contact-wrapper .contact-form .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .contact-wrapper .contact-form .form-footer button.btn {
+    width: 100%;
+  }
+}
+
+/* ==================================================
+   FORMULÁRIO DE RESERVAS (Direita)
+   ================================================== */
+.booking-wrapper .booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.booking-wrapper .booking-form .subtitle {
+  font-family: "Urbanist", sans-serif;
+  font-size: 1rem;
+  color: #086016;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+.booking-wrapper .booking-form h2 {
+  font-family: "Rufina", serif;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  color: #1c1c1c;
+}
+.booking-wrapper .booking-form form {
+  font-family: "Urbanist", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.booking-wrapper .booking-form form .form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+.booking-wrapper .booking-form form .form-row .input-group {
+  flex: 1;
+}
+.booking-wrapper .booking-form form .input-group {
+  width: 100%;
+}
+.booking-wrapper .booking-form form .input-group label {
+  font-size: 0.9rem;
+  color: #1c1c1c;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.booking-wrapper .booking-form form .input-group .input {
+  width: 100%;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #f9f9f9;
+  border-radius: 5px;
+  resize: none;
+}
+.booking-wrapper .booking-form form .input-group .input:focus {
+  border-color: #086016;
+  background: #fff;
+}
+.booking-wrapper .booking-form form .input-group select.input {
+  cursor: pointer;
+}
+.booking-wrapper .booking-form form .input-group input[type=date] {
+  cursor: text;
+}
+.booking-wrapper .booking-form form button.btn {
+  margin-top: 1rem;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  background: #086016;
+  color: #fff;
+}
+.booking-wrapper .booking-form form button.btn:hover {
+  background: #1c1c1c;
+}
+@media (width <= 768px) {
+  .booking-wrapper .booking-form h2 {
+    font-size: 2.5rem;
+  }
+}
+@media (width <= 680px) {
+  .booking-wrapper .booking-form .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* ==================================================
+   SEÇÃO DE INFORMAÇÕES DO HOTEL (Nova)
+   ================================================== */
+.footer-info {
+  background: #1c1c1c;
+  color: #ccc;
+  padding: 4rem 2rem;
+}
+.footer-info .footer-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-info .footer-info-grid .info-item h3 {
+  font-family: "Rufina", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.footer-info .footer-info-grid .info-item p {
+  font-family: "Urbanist", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+@media (width <= 768px) {
+  .footer-info .footer-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+@media (width <= 680px) {
+  .footer-info .footer-info-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ========= REDES SOCIAIS ========= */
+.social-section {
+  padding: 2rem 0;
+}
+.social-section .social-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+.social-section .social-container h3 {
+  font-family: "Rufina", serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #1c1c1c;
+  white-space: nowrap;
+}
+.social-section .social-container .line {
+  flex: 1;
+  height: 1px;
+  background: #495057;
+  opacity: 0.4;
+}
+.social-section .social-container .social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 8px;
+}
+.social-section .social-container .social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #495057;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-section .social-container .social-icons a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+.social-section .social-container .social-icons a i {
+  font-size: 22px;
+}
+.social-section .social-container .social-icons a:hover::before {
+  transform: scale(1);
+}
+.social-section .social-container .social-icons a:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+.social-section .social-container .social-icons a.facebook::before {
+  background: #1877f2;
+}
+.social-section .social-container .social-icons a.instagram::before {
+  background: linear-gradient(45deg, #f09433, #dc2743, #cc2366, #bc1888);
+}
+.social-section .social-container .social-icons a.whatsapp::before {
+  background: #25d366;
+}
+.social-section .social-container .social-icons a.youtube::before {
+  background: #f00;
+}
+@media (width <= 768px) {
+  .social-section .social-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1.5rem;
+    gap: 1rem;
+  }
+  .social-section .social-container h3 {
+    font-size: 28px;
+  }
+  .social-section .social-container .line {
+    display: none;
+  }
+}
+
+/* ========= MAP ========= */
+.map-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  padding-top: 0;
+}
+.map-section .map-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 400px;
+  margin: 0 auto;
+}
+.map-section .map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  filter: grayscale(1);
+}
+@media (width <= 768px) {
+  .map-section {
+    padding: 2rem 1rem;
+  }
+  .map-section .map-container {
+    height: 300px;
+  }
+}
+@media (width <= 680px) {
+  .map-section {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+.numeroTel {
+  text-align: center;
+  margin: 60px 0;
+}
+.numeroTel h1 {
+  font-family: "Rufina", serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #1c1c1c;
+}
+@media (width <= 768px) {
+  .numeroTel {
+    padding: 0 1rem;
+  }
+  .numeroTel h1 {
+    font-size: 22px;
+  }
+}
+@media (width <= 680px) {
+  .numeroTel h1 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}/*# sourceMappingURL=contato.css.map */

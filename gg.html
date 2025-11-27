@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Anuais - Hotel Sul América</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #c9a96e;
+      --secondary: #8b7355;
+      --black: #2b261f;
+      --white: #fdfbf7;
+      --gray: #666;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(180deg, #fdfbf7 0%, #ffffff 50%, #faf8f3 100%);
+      overflow-x: hidden;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero-eventos {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920&q=80') center/cover no-repeat;
+      filter: brightness(0.4);
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: var(--white);
+      max-width: 1200px;
+      padding: 0 2rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(201, 169, 110, 0.15);
+      border: 1px solid rgba(201, 169, 110, 0.3);
+      padding: 0.6rem 1.8rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-badge i {
+      color: var(--primary);
+      font-size: 1.2rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hero-badge span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    /* ========== INTRODUÇÃO ========== */
+    .intro-section {
+      padding: 120px 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .intro-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--gray);
+      max-width: 900px;
+      margin: 3rem auto 0;
+    }
+
+    /* ========== EVENTOS GRID ========== */
+    .eventos-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 2rem 120px;
+    }
+
+    .evento-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 150px;
+      position: relative;
+    }
+
+    .evento-card:nth-child(even) {
+      direction: rtl;
+    }
+
+    .evento-card:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    /* Imagem do Evento */
+    .evento-image {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 500px;
+      box-shadow: 0 20px 60px rgba(43, 38, 31, 0.15);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .evento-card:hover .evento-image {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(201, 169, 110, 0.25);
+    }
+
+    .evento-image::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      background: linear-gradient(135deg, var(--primary), transparent, var(--primary));
+      border-radius: 24px;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.6s ease;
+    }
+
+    .evento-card:hover .evento-image::before {
+      opacity: 0.7;
+    }
+
+    .evento-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      filter: brightness(0.9);
+    }
+
+    .evento-card:hover .evento-image img {
+      transform: scale(1.1);
+      filter: brightness(1);
+    }
+
+    /* Badge de Data */
+    .evento-date-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(201, 169, 110, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      z-index: 10;
+      box-shadow: 0 10px 30px rgba(201, 169, 110, 0.4);
+    }
+
+    .evento-date-badge .mes {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .evento-date-badge .dia {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    /* Conteúdo do Evento */
+    .evento-content {
+      padding: 2rem 0;
+    }
+
+    .evento-categoria {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .evento-categoria i {
+      font-size: 1rem;
+    }
+
+    .evento-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .evento-descricao {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    /* Lista de Benefícios */
+    .evento-beneficios {
+      margin: 2rem 0;
+    }
+
+    .evento-beneficios h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .beneficio-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .beneficio-item:hover {
+      background: rgba(201, 169, 110, 0.05);
+      transform: translateX(10px);
+    }
+
+    .beneficio-icon {
+      width: 35px;
+      height: 35px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .beneficio-text {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    /* Botão de Reserva */
+    .evento-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+      text-decoration: none;
+    }
+
+    .evento-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(201, 169, 110, 0.5);
+    }
+
+    .evento-btn i {
+      transition: transform 0.4s ease;
+    }
+
+    .evento-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    /* ========== CTA FINAL ========== */
+    .cta-section {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      padding: 100px 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201, 169, 110, 0.1), transparent);
+      top: -200px;
+      right: -200px;
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 4rem;
+      background: var(--primary);
+      color: var(--black);
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
+      text-decoration: none;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(201, 169, 110, 0.6);
+    }
+
+    /* ========== RESPONSIVIDADE ========== */
+    @media (max-width: 1024px) {
+      .evento-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 100px;
+      }
+
+      .evento-card:nth-child(even) {
+        direction: ltr;
+      }
+
+      .evento-image {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-eventos {
+        height: 70vh;
+        min-height: 500px;
+      }
+
+      .intro-section {
+        padding: 80px 1.5rem;
+      }
+
+      .eventos-section {
+        padding: 60px 1.5rem 80px;
+      }
+
+      .evento-image {
+        height: 350px;
+      }
+
+      .evento-titulo {
+        font-size: 2rem;
+      }
+
+      .evento-descricao {
+        font-size: 1rem;
+      }
+
+      .cta-section {
+        padding: 80px 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .evento-image {
+        height: 300px;
+      }
+
+      .evento-date-badge {
+        padding: 0.75rem 1rem;
+      }
+
+      .evento-btn,
+      .cta-btn {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero-eventos">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-calendar-star"></i>
+        <span>Eventos Especiais</span>
+      </div>
+      <h1 class="hero-title">Celebre Conosco</h1>
+      <p class="hero-subtitle">
+        Experiências únicas em cada feriado. Momentos inesquecíveis com sua família em nosso hotel.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRODUÇÃO -->
+  <section class="intro-section">
+    <h2 class="intro-title">Eventos Anuais</h2>
+    <p class="intro-text">
+      Durante todo o ano, preparamos eventos especiais para tornar sua estadia ainda mais memorável. 
+      Cada feriado é uma oportunidade para criar momentos únicos com programações exclusivas, 
+      gastronomia de alto nível e atividades para toda a família.
+    </p>
+  </section>
+
+  <!-- EVENTOS -->
+  <section class="eventos-section">
+    
+    <!-- Carnaval -->
+    <article class="evento-card">
+      <div class="evento-image">
+        <div class="evento-date-badge">
+          <div class="mes">Fevereiro</div>
+          <div class="dia">10-13</div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Carnaval">
+      </div>
+      <div class="evento-content">
+        <div class="evento-categoria">
+          <i class="fas fa-masks-theater"></i>
+          <span>Feriado Nacional</span>
+        </div>
+        <h3 class="evento-titulo">Carnaval</h3>
+        <p class="evento-descricao">
+          Pule o Carnaval com muita alegria! Festa temática, baile de máscaras, música ao vivo 
+          e buffet especial com pratos típicos. Animação para crianças e adultos.
+        </p>
+        <div class="evento-beneficios">
+          <h4>Incluído no Pacote:</h4>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-music"></i></div>
+            <div class="beneficio-text">Banda ao vivo com sucessos do carnaval</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-cocktail"></i></div>
+            <div class="beneficio-text">Open bar com drinks tropicais</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-utensils"></i></div>
+            <div class="beneficio-text">Buffet com feijoada completa</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-child"></i></div>
+            <div class="beneficio-text">Recreação infantil temática</div>
+          </div>
+        </div>
+        <a href="#reserva" class="evento-btn">
+          <span>Reservar Agora</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Páscoa -->
+    <article class="evento-card">
+      <div class="evento-image">
+        <div class="evento-date-badge">
+          <div class="mes">Abril</div>
+          <div class="dia">18-21</div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?w=800&q=80" alt="Páscoa">
+      </div>
+      <div class="evento-content">
+        <div class="evento-categoria">
+          <i class="fas fa-egg"></i>
+          <span>Celebração Familiar</span>
+        </div>
+        <h3 class="evento-titulo">Páscoa</h3>
+        <p class="evento-descricao">
+          Páscoa em família com muita diversão! Caça aos ovos, oficinas de chocolate, 
+          decoração temática e almoço especial de Páscoa. Um fim de semana mágico para as crianças.
+        </p>
+        <div class="evento-beneficios">
+          <h4>Incluído no Pacote:</h4>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-search"></i></div>
+            <div class="beneficio-text">Caça aos ovos de chocolate nos jardins</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-cookie-bite"></i></div>
+            <div class="beneficio-text">Oficina de decoração de ovos de chocolate</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-carrot"></i></div>
+            <div class="beneficio-text">Visita do coelhinho da Páscoa</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-plate-wheat"></i></div>
+            <div class="beneficio-text">Almoço especial de Páscoa</div>
+          </div>
+        </div>
+        <a href="#reserva" class="evento-btn">
+          <span>Reservar Agora</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Festa Junina -->
+    <article class="evento-card">
+      <div class="evento-image">
+        <div class="evento-date-badge">
+          <div class="mes">Junho</div>
+          <div class="dia">23-24</div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=800&q=80" alt="Festa Junina">
+      </div>
+      <div class="evento-content">
+        <div class="evento-categoria">
+          <i class="fas fa-fire"></i>
+          <span>Tradição Brasileira</span>
+        </div>
+        <h3 class="evento-titulo">Festa Junina</h3>
+        <p class="evento-descricao">
+          Arraiá completo com quadrilha, comidas típicas, fogueira, pescaria e muitas brincadeiras. 
+          Vista seu melhor traje caipira e venha celebrar as festas juninas conosco!
+        </p>
+        <div class="evento-beneficios">
+          <h4>Incluído no Pacote:</h4>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-hat-cowboy"></i></div>
+            <div class="beneficio-text">Quadrilha tradicional com premiação</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-drumstick-bite"></i></div>
+            <div class="beneficio-text">Buffet com comidas típicas juninas</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="beneficio-text">Barraquinhas com jogos e brincadeiras</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-guitar"></i></div>
+            <div class="beneficio-text">Música ao vivo com forró e sertanejo</div>
+          </div>
+        </div>
+        <a href="#reserva" class="evento-btn">
+          <span>Reservar Agora</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Dia das Crianças -->
+    <article class="evento-card">
+      <div class="evento-image">
+        <div class="evento-date-badge">
+          <div class="mes">Outubro</div>
+          <div class="dia">12</div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80" alt="Dia das Crianças">
+      </div>
+      <div class="evento-content">
+        <div class="evento-categoria">
+          <i class="fas fa-child-reaching"></i>
+          <span>Especial Kids</span>
+        </div>
+        <h3 class="evento-titulo">Dia das Crianças</h3>
+        <p class="evento-descricao">
+          Um dia mágico para os pequenos! Recreação especial, personagens, brinquedos infláveis, 
+          cinema infantil, pintura de rosto e muitas surpresas. Diversão garantida!
+        </p>
+        <div class="evento-beneficios">
+          <h4>Incluído no Pacote:</h4>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-star"></i></div>
+            <div class="beneficio-text">Visita de personagens infantis</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-castle"></i></div>
+            <div class="beneficio-text">Brinquedos infláveis e cama elástica</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-film"></i></div>
+            <div class="beneficio-text">Sessão de cinema com pipoca</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-gift"></i></div>
+            <div class="beneficio-text">Brinde especial para todas as crianças</div>
+          </div>
+        </div>
+        <a href="#reserva" class="evento-btn">
+          <span>Reservar Agora</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Réveillon -->
+    <article class="evento-card">
+      <div class="evento-image">
+        <div class="evento-date-badge">
+          <div class="mes">Dezembro</div>
+          <div class="dia">31</div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&q=80" alt="Réveillon">
+      </div>
+      <div class="evento-content">
+        <div class="evento-categoria">
+          <i class="fas fa-champagne-glasses"></i>
+          <span>Ano Novo</span>
+        </div>
+        <h3 class="evento-titulo">Réveillon</h3>
+        <p class="evento-descricao">
+          Celebre a virada do ano com elegância! Jantar de gala, open bar premium, banda ao vivo, 
+          DJ, queima de fogos e brinde à meia-noite. Uma noite inesquecível!
+        </p>
+        <div class="evento-beneficios">
+          <h4>Incluído no Pacote:</h4>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-wine-glass"></i></div>
+            <div class="beneficio-text">Jantar de gala com menu especial</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-champagne-glasses"></i></div>
+            <div class="beneficio-text">Open bar premium com espumantes</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-music"></i></div>
+            <div class="beneficio-text">Banda ao vivo e DJ até o amanhecer</div>
+          </div>
+          <div class="beneficio-item">
+            <div class="beneficio-icon"><i class="fas fa-burst"></i></div>
+            <div class="beneficio-text">Queima de fogos à meia-noite</div>
+          </div>
+        </div>
+        <a href="#reserva" class="evento-btn">
+          <span>Reservar Agora</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">Pronto para Celebrar?</h2>
+      <p class="cta-text">
+        Reserve agora e garanta sua vaga nos melhores eventos do ano. 
+        Pacotes especiais com condições exclusivas para quem reserva antecipadamente.
+      </p>
+      <a href="tel:+553533323400" class="cta-btn">
+        <i class="fas fa-phone"></i>
+        <span>(35) 3332-3400</span>
+      </a>
+    </div>
+  </section>
+   
+  </body>
+  <script>
+(function () {
+  // ========== CONFIG ===========
+  const EASING = 'cubic-bezier(0.23, 1, 0.32, 1)';
+  const OBS_OPTIONS = { threshold: 0.18, rootMargin: '0px 0px -80px 0px' };
+
+  // ========== INTERSECTION OBSERVER (entradas dos cards) ==========
+  const cards = document.querySelectorAll('.evento-card');
+
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const el = entry.target;
+      if (entry.isIntersecting) {
+        // tornar visível com transição suave
+        el.style.transition = `opacity 700ms ${EASING}, transform 700ms ${EASING}`;
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        el.classList.add('is-visible');
+        cardObserver.unobserve(el); // anima só 1 vez
+      }
+    });
+  }, OBS_OPTIONS);
+
+  // Inicializa estados iniciais para animação (fora da viewport)
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px)';
+    cardObserver.observe(card);
+
+    // garante que imagens de eventos sejam lazy-loaded
+    const img = card.querySelector('.evento-image img');
+    if (img && !img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+  });
+
+  // ========== PARALLAX (requestAnimationFrame) ==========
+  // Elementos com parallax: hero-bg e imagens dentro de .evento-image
+  const heroBg = document.querySelector('.hero-bg');
+  const eventImgs = Array.from(document.querySelectorAll('.evento-image img'));
+
+  let latestScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateParallax() {
+    // hero parallax: pequeno deslocamento negativo (move menos que o scroll)
+    if (heroBg) {
+      // calcula com max de 40px
+      const heroShift = Math.min(Math.max(latestScrollY * -0.12, -40), 40);
+      heroBg.style.transform = `translateY(${heroShift}px) scale(1.03)`;
+      heroBg.style.willChange = 'transform';
+    }
+
+    // imagens dos cards: parallax relativo à posição do elemento na viewport
+    const viewportHeight = window.innerHeight;
+    eventImgs.forEach(img => {
+      // determina centro do elemento vs centro da viewport
+      const rect = img.getBoundingClientRect();
+      const imgCenter = rect.top + rect.height / 2;
+      const viewportCenter = viewportHeight / 2;
+      const distanceFromCenter = (imgCenter - viewportCenter); // px
+      // Normaliza e limita deslocamento a +/- 18px
+      const maxShift = 18;
+      const shift = Math.max(Math.min(-distanceFromCenter * 0.03, maxShift), -maxShift);
+      img.style.transform = `translateY(${shift}px) scale(1.02)`;
+      img.style.transition = 'transform 600ms ease-out';
+      img.style.willChange = 'transform';
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    latestScrollY = window.scrollY || window.pageYOffset;
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateParallax);
+    }
+  }
+
+  // roda uma vez para setar valores iniciais
+  updateParallax();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    // recomputa ao redimensionar para manter proporções
+    requestAnimationFrame(updateParallax);
+  });
+
+  // ========== BOTÃO: efeito "preencher" simples com JS (opcional) ==========
+  // Se desejar botões que preencham visualmente ao hover/click sem JS pesado,
+  // é melhor fazer via CSS. Aqui apenas garantimos acessibilidade de foco.
+  const buttons = document.querySelectorAll('.evento-btn, .cta-btn');
+  buttons.forEach(btn => {
+    btn.setAttribute('role', btn.tagName.toLowerCase() === 'a' ? 'link' : 'button');
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') btn.click();
+    });
+  });
+
+  // ========== CLEANUP (quando necessário) ==========
+  // Exemplo: caso queira remover listeners ao navegar via SPA, expor função:
+  // window.__destroyEventosScripts = () => {
+  //   window.removeEventListener('scroll', onScroll);
+  //   cardObserver.disconnect();
+  // };
+
+})();
+</script>
+</html>
