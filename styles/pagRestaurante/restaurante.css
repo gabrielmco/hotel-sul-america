@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -1136,14 +1136,14 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .services::before {
   width: 600px;
   height: 600px;
-  background: linear-gradient(135deg, #086016, rgb(15.8461538462, 190.1538461538, 43.5769230769));
+  background: linear-gradient(135deg, #086016, #10be2c);
   top: -200px;
   right: -200px;
 }
 .services::after {
   width: 500px;
   height: 500px;
-  background: linear-gradient(135deg, rgb(4.0769230769, 48.9230769231, 11.2115384615), rgb(13.8846153846, 166.6153846154, 38.1826923077));
+  background: linear-gradient(135deg, #04310b, #0ea726);
   bottom: -150px;
   left: -150px;
 }
@@ -1461,7 +1461,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .breakfast-section .circle-1 {
   width: 400px;
   height: 400px;
-  background: rgb(15.8461538462, 190.1538461538, 43.5769230769);
+  background: #10be2c;
   top: -100px;
   left: -100px;
   animation-delay: 0s;
@@ -1477,7 +1477,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .breakfast-section .circle-3 {
   width: 300px;
   height: 300px;
-  background: rgb(4.0769230769, 48.9230769231, 11.2115384615);
+  background: #04310b;
   top: 50%;
   right: 10%;
   animation-delay: 10s;
@@ -1624,7 +1624,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #086016, rgb(4.0769230769, 48.9230769231, 11.2115384615));
+  background: linear-gradient(135deg, #086016, #04310b);
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
 }
@@ -1722,7 +1722,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateY(-50%);
   width: 140px;
   height: 140px;
-  background: linear-gradient(135deg, #086016, rgb(15.8461538462, 190.1538461538, 43.5769230769));
+  background: linear-gradient(135deg, #086016, #10be2c);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -1957,7 +1957,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #086016, rgb(4.0769230769, 48.9230769231, 11.2115384615));
+  background: linear-gradient(135deg, #086016, #04310b);
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
   z-index: 0;
@@ -1985,4 +1985,11 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     padding: 0.9rem 2rem;
     font-size: 0.95rem;
   }
+}
+
+/* ========== HERO IMAGE OVERRIDE ========= */
+.hero-restaurante .hero-bg {
+  background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070") !important;
+  background-position: center;
+  background-size: cover;
 }/*# sourceMappingURL=restaurante.css.map */

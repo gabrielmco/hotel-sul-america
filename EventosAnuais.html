@@ -6,25 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eventos Anuais - Hotel Sul América</title>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Compiled CSS (gere a partir do styles.scss) -->
     <link rel="stylesheet" href="styles/PagEventos/eventosAnuais.css" />
     <link rel="stylesheet" href="styles/main.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;500;700&family=Urbanist:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <!-- HEAD: adicione isto -->
+
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- ================= NAVBAR ================= -->
     <header class="navbar">
         <div class="nav-phone">
             <a href="tel:+553533323400">
@@ -79,23 +73,21 @@
         <nav class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html" class="page-link">Lar</a></li>
-
                 <li><a href="index.html#sobre">Sobre nós</a></li>
                 <li><a href="index.html#rooms">Quartos</a></li>
                 <li><a href="index.html#amenities">São Lourenço</a></li>
-
                 <li><a href="restaurante.html" class="page-link">Restaurante</a></li>
                 <li><a href="contato.html" class="page-link">Contato</a></li>
                 <li><a href="galeria.html" class="page-link">Galeria</a></li>
-                <li><a href="galeria.html" class="page-link">Eventos</a></li>
-
+                <li><a href="eventosAnuais.html" class="page-link">Eventos</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero-eventos" data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="center-bottom">
-        <div class="hero-bg"></div>
+        <div class="hero-bg"
+            style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1920&auto=format&fit=crop');">
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="zoom-in" data-aos-duration="900" data-aos-delay="120">
             <div class="hero-badge" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
@@ -109,7 +101,6 @@
         </div>
     </section>
 
-    <!-- INTRODUÇÃO -->
     <section class="intro-section" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
         <h2 class="intro-title">Eventos Anuais</h2>
         <p class="intro-text">
@@ -119,9 +110,7 @@
         </p>
     </section>
 
-    <!-- EVENTOS -->
     <section class="eventos-section">
-        <!-- Férias de Verão (início do ano) -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="600"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="660">
@@ -129,8 +118,8 @@
                     <div class="mes">Jan - Fev</div>
                     <div class="dia">Período</div>
                 </div>
-                <!-- use sua imagem local em assets/eventos/ferias-verao.jpg -->
-                <img src="assets/eventos/ferias-verao.jpg" alt="Férias de Verão">
+                <img src="https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg"
+                    alt="Férias de Verão - Piscina de hotel de luxo">
             </div>
 
             <div class="evento-content" data-aos="fade-right" data-aos-duration="700" data-aos-delay="720">
@@ -149,38 +138,31 @@
 
                 <div class="evento-beneficios">
                     <h4>Incluído no Pacote:</h4>
-
                     <div class="beneficio-item">
                         <div class="beneficio-icon"><i class="fas fa-swimmer"></i></div>
                         <div class="beneficio-text">Acesso liberado às piscinas e área de lazer</div>
                     </div>
-
                     <div class="beneficio-item">
                         <div class="beneficio-icon"><i class="fas fa-child"></i></div>
                         <div class="beneficio-text">Programação infantil diária e recreação temática</div>
                     </div>
-
                     <div class="beneficio-item">
                         <div class="beneficio-icon"><i class="fas fa-music"></i></div>
                         <div class="beneficio-text">Shows e apresentações noturnas para toda a família</div>
                     </div>
-
                     <div class="beneficio-item">
                         <div class="beneficio-icon"><i class="fas fa-hiking"></i></div>
                         <div class="beneficio-text">Passeios e atividades ao ar livre (trilhas e passeios guiados)</div>
                     </div>
                 </div>
 
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-
-
-        <!-- Carnaval -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="80">
@@ -188,7 +170,8 @@
                     <div class="mes">Fevereiro</div>
                     <div class="dia">10-13</div>
                 </div>
-                <img src="assets/eventos/carnaval.jpg" alt="Carnaval">
+                <img src="https://images.pexels.com/photos/268481/pexels-photo-268481.jpeg"
+                    alt="Carnaval - Festa e cores vibrantes">
             </div>
             <div class="evento-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="160">
                 <div class="evento-categoria">
@@ -219,14 +202,13 @@
                         <div class="beneficio-text">Recreação infantil temática</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Páscoa -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
@@ -234,7 +216,8 @@
                     <div class="mes">Abril</div>
                     <div class="dia">18-21</div>
                 </div>
-                <img src="assets/eventos/pascoa.jpg" alt="Páscoa">
+                <img src="https://images.pexels.com/photos/2072158/pexels-photo-2072158.jpeg"
+                    alt="Páscoa - Ovos e decoração temática">
             </div>
             <div class="evento-content" data-aos="fade-right" data-aos-duration="700" data-aos-delay="240">
                 <div class="evento-categoria">
@@ -265,14 +248,13 @@
                         <div class="beneficio-text">Almoço especial de Páscoa</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Tiradentes -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
@@ -280,7 +262,8 @@
                     <div class="mes">Abril</div>
                     <div class="dia">21</div>
                 </div>
-                <img src="assets/eventos/tiradentes.jpg" alt="Tiradentes">
+                <img src="https://www.unisuam.edu.br/wp-content/uploads/2025/04/Dia-de-Tiradentes-Por-que-o-21-de-abril-faz-parte-da-historia-brasileira.jpg"
+                    alt="Tiradentes - Arquitetura colonial de Minas Gerais">
             </div>
             <div class="evento-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="360">
                 <div class="evento-categoria">
@@ -310,14 +293,13 @@
                         <div class="beneficio-text">Tour fotográfico pelos pontos locais</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Dia do Trabalho -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="360"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="420">
@@ -325,7 +307,8 @@
                     <div class="mes">Maio</div>
                     <div class="dia">01</div>
                 </div>
-                <img src="assets/eventos/dia-do-trabalho.jpg" alt="Dia do Trabalho">
+                <img src="https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg"
+                    alt="Dia do Trabalho - Relaxamento no Spa">
             </div>
             <div class="evento-content" data-aos="fade-right" data-aos-duration="700" data-aos-delay="480">
                 <div class="evento-categoria">
@@ -355,22 +338,24 @@
                         <div class="beneficio-text">Trilhas e atividades ao ar livre</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Corpus Christi (data variável) -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="480"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="540">
                 <div class="evento-date-badge">
                     <div class="mes">Junho</div>
-                    <div class="dia">(data variável)</div>
+                    <div class="dia">04</div>
+                    <div class="dia-semana" style="font-size: 0.8em; text-transform: uppercase; margin-top: 2px;">Quinta
+                    </div>
                 </div>
-                <img src="assets/eventos/corpus-christi.jpg" alt="Corpus Christi">
+                <img src="https://images.pexels.com/photos/1615776/pexels-photo-1615776.jpeg"
+                    alt="Corpus Christi - Paz e natureza">
             </div>
             <div class="evento-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="600">
                 <div class="evento-categoria">
@@ -400,14 +385,13 @@
                         <div class="beneficio-text">Atividades solidárias</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Férias de Verão (intervalo no meio do ano) -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="600"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="660">
@@ -415,7 +399,8 @@
                     <div class="mes">Julho</div>
                     <div class="dia">15-21</div>
                 </div>
-                <img src="assets/eventos/ferias-verao.jpg" alt="Férias de Verão">
+                <img src="https://images.pexels.com/photos/33362180/pexels-photo-33362180.jpeg"
+                    alt="Férias de Inverno - Lareira aconchegante">
             </div>
             <div class="evento-content" data-aos="fade-right" data-aos-duration="700" data-aos-delay="720">
                 <div class="evento-categoria">
@@ -445,14 +430,13 @@
                         <div class="beneficio-text">Atividades ao ar livre e passeios</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Independência do Brasil -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="720"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="780">
@@ -460,7 +444,8 @@
                     <div class="mes">Setembro</div>
                     <div class="dia">07</div>
                 </div>
-                <img src="assets/eventos/independencia.jpg" alt="Independência do Brasil">
+                <img src="https://images.pexels.com/photos/6321080/pexels-photo-6321080.jpeg"
+                    alt="Independência do Brasil - Jantar de gala">
             </div>
             <div class="evento-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="840">
                 <div class="evento-categoria">
@@ -490,14 +475,13 @@
                         <div class="beneficio-text">Atividades culturais para família</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Nossa Senhora Aparecida / Dia das Crianças -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="840"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="900">
@@ -505,7 +489,8 @@
                     <div class="mes">Outubro</div>
                     <div class="dia">12</div>
                 </div>
-                <img src="assets/eventos/dia-das-criancas.jpg" alt="Nossa Senhora Aparecida / Dia das Crianças">
+                <img src="https://images.pexels.com/photos/27551915/pexels-photo-27551915.jpeg"
+                    alt="Dia das Crianças - Brincadeiras no parque">
             </div>
             <div class="evento-content" data-aos="fade-right" data-aos-duration="700" data-aos-delay="960">
                 <div class="evento-categoria">
@@ -523,7 +508,7 @@
                         <div class="beneficio-text">Visita de personagens infantis</div>
                     </div>
                     <div class="beneficio-item">
-                        <div class="beneficio-icon"><i class="fas fa-castle"></i></div>
+                        <div class="beneficio-icon"><i class="fas fa-rocket"></i></div>
                         <div class="beneficio-text">Brinquedos infláveis e cama elástica</div>
                     </div>
                     <div class="beneficio-item">
@@ -535,14 +520,13 @@
                         <div class="beneficio-text">Brinde especial para as crianças</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Finados -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="960"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="1020">
@@ -550,7 +534,8 @@
                     <div class="mes">Novembro</div>
                     <div class="dia">02</div>
                 </div>
-                <img src="assets/eventos/finados.jpg" alt="Finados">
+                <img src="https://images.pexels.com/photos/289756/pexels-photo-289756.jpeg"
+                    alt="Finados - Jardim tranquilo">
             </div>
             <div class="evento-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="1080">
                 <div class="evento-categoria">
@@ -580,14 +565,13 @@
                         <div class="beneficio-text">Atendimento acolhedor</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Proclamação da República -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1080"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="1140">
@@ -595,7 +579,8 @@
                     <div class="mes">Novembro</div>
                     <div class="dia">15</div>
                 </div>
-                <img src="assets/eventos/proclamacao-republica.jpg" alt="Proclamação da República">
+                <img src="https://images.pexels.com/photos/2560337/pexels-photo-2560337.jpeg"
+                    alt="Proclamação da República - Cidades históricas">
             </div>
             <div class="evento-content" data-aos="fade-right" data-aos-duration="700" data-aos-delay="1200">
                 <div class="evento-categoria">
@@ -625,14 +610,13 @@
                         <div class="beneficio-text">Roteiros históricos locais</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Dia da Consciência Negra (observância estadual/nacional) -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1200"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="1260">
@@ -640,7 +624,8 @@
                     <div class="mes">Novembro</div>
                     <div class="dia">20</div>
                 </div>
-                <img src="assets/eventos/consiencia-negra.jpg" alt="Consciência Negra">
+                <img src="https://images.pexels.com/photos/8898689/pexels-photo-8898689.jpeg"
+                    alt="Consciência Negra - Celebração cultural">
             </div>
             <div class="evento-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="1320">
                 <div class="evento-categoria">
@@ -670,14 +655,13 @@
                         <div class="beneficio-text">Feira de artesanato local</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Natal -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1320"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="1380">
@@ -685,7 +669,8 @@
                     <div class="mes">Dezembro</div>
                     <div class="dia">25</div>
                 </div>
-                <img src="assets/eventos/natal.jpg" alt="Natal">
+                <img src="https://images.pexels.com/photos/35496764/pexels-photo-35496764.png"
+                    alt="Natal - Decoração dourada e vermelha">
             </div>
             <div class="evento-content" data-aos="fade-right" data-aos-duration="700" data-aos-delay="1440">
                 <div class="evento-categoria">
@@ -715,14 +700,13 @@
                         <div class="beneficio-text">Fotos com personagens</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </article>
 
-        <!-- Réveillon -->
         <article class="evento-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1440"
             data-aos-anchor-placement="top-bottom">
             <div class="evento-image" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="1500">
@@ -730,7 +714,8 @@
                     <div class="mes">Dezembro</div>
                     <div class="dia">31</div>
                 </div>
-                <img src="assets/eventos/reveillon.jpg" alt="Réveillon">
+                <img src="https://images.pexels.com/photos/1387577/pexels-photo-1387577.jpeg"
+                    alt="Réveillon - Fogos de artifício e celebração">
             </div>
             <div class="evento-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="1560">
                 <div class="evento-categoria">
@@ -761,7 +746,7 @@
                         <div class="beneficio-text">Queima de fogos e brinde à meia-noite</div>
                     </div>
                 </div>
-                <a href="#reserva" class="evento-btn">
+                <a href="contato.html" class="evento-btn">
                     <span>Reservar Agora</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -769,8 +754,6 @@
         </article>
     </section>
 
-
-    <!-- CTA FINAL -->
     <section class="cta-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">
         <div class="cta-content">
             <h2 class="cta-title">Pronto para Celebrar?</h2>
@@ -785,23 +768,18 @@
         </div>
     </section>
 
-
-    <!-- ================= FOOTER ================= -->
     <footer class="footer" role="contentinfo">
 
-        <!-- SEÇÃO SUPERIOR PARA A MARCA -->
         <div class="footer-brand-top">
             <div class="footer-brand-content">
                 <img src="logo/logo(branca).png" alt="Logo Hotel Sul América">
                 <p>Conforto, sofisticação e hospitalidade em São Lourenço.</p>
             </div>
-            <hr class="footer-divider"> <!-- LINHA HORIZONTAL ADICIONADA -->
+            <hr class="footer-divider">
         </div>
 
-        <!-- CONTAINER PRINCIPAL PARA AS COLUNAS DE CONTEÚDO -->
         <div class="footer-container">
 
-            <!-- Coluna 1: Links rápidos -->
             <div class="footer-col footer-col--links">
                 <h3>Links</h3>
                 <ul>
@@ -814,14 +792,12 @@
                 </ul>
             </div>
 
-            <!-- Coluna 2: Contato + Siga-nos -->
             <div class="footer-col footer-col--contact">
                 <h3>Contato</h3>
                 <p><i class="fas fa-phone" aria-hidden="true"></i> (35) 3332-3400</p>
                 <p><i class="fas fa-envelope" aria-hidden="true"></i> contato@hotelexemplo.com</p>
                 <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Central, São Lourenço - MG</p>
 
-                <!-- redes sociais aninhadas abaixo do contato -->
                 <div class="social-block">
                     <h4 class="social-title">Siga-nos</h4>
                     <div class="social-icons" aria-label="Redes sociais">
@@ -837,45 +813,44 @@
                 </div>
             </div>
 
-            <!-- Coluna 3: Galeria -->
             <div class="footer-col footer-col--gallery">
                 <h3>Galeria</h3>
-                <!-- Miniaturas da galeria -->
                 <div class="gallery-thumbs" role="list">
                     <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 1 da galeria">
-                        <img src="img/thumb1.jpg" alt="">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=200"
+                            alt="Quarto de hotel aconchegante">
                     </a>
                     <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 2 da galeria">
-                        <img src="img/thumb2.jpg" alt="">
+                        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=200"
+                            alt="Área da piscina relaxante">
                     </a>
                     <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 3 da galeria">
-                        <img src="img/thumb3.jpg" alt="">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=200"
+                            alt="Alta gastronomia">
                     </a>
-                    <!-- Adicione mais miniaturas se desejar (até 6 ficam bem visualmente) -->
                     <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 4 da galeria">
-                        <img src="img/thumb4.jpg" alt="">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=200"
+                            alt="Lobby luxuoso">
                     </a>
                     <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 5 da galeria">
-                        <img src="img/thumb5.jpg" alt="">
+                        <img src="https://images.pexels.com/photos/461415/pexels-photo-461415.jpeg?auto=compress&cs=tinysrgb&w=200"
+                            alt="Drinks no bar">
                     </a>
                     <a href="galeria.html" class="thumb" role="listitem" aria-label="Ver imagem 6 da galeria">
-                        <img src="img/thumb6.jpg" alt="">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=200"
+                            alt="Vista do hotel">
                     </a>
                 </div>
-                <!-- Botão para a galeria completa -->
                 <a class="gallery-btn" href="galeria.html" aria-label="Abrir galeria completa">Ver galeria</a>
             </div>
 
-        </div> <!-- Fim .footer-container -->
-
-        <!-- Linha final com direitos autorais -->
+        </div>
         <div class="footer-bottom">
             <hr class="Linha">
             <p>&copy; 2025 Hotel Sul América - Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Script externo -->
     <script src="js/eventosAnuais.js"></script>
     <script type="module" src="js/main.js"></script>
 

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -176,6 +176,9 @@ ul {
   }
 }
 
+/* =================================================================
+   SEÇÃO SOBRE (Ícones)
+   ================================================================= */
 .sobre {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -217,12 +220,16 @@ ul {
   inset: 0;
   background: #52935d;
   opacity: 0.3;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
+  -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
+          clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
   z-index: 1;
+  transition: opacity 1s ease, -webkit-clip-path 1s cubic-bezier(0.45, 0, 0.55, 1);
   transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease;
+  transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease, -webkit-clip-path 1s cubic-bezier(0.45, 0, 0.55, 1);
 }
 .sobre .sobre-container .icon-wrapper:hover::after {
-  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
+  -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
+          clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
   opacity: 1;
 }
 .sobre .sobre-container .icon-wrapper i {
@@ -616,4 +623,11 @@ ul {
   .quartos .quarto .quarto-texto .btn-primary {
     text-align: center;
   }
+}
+
+/* ========== HERO IMAGE OVERRIDE ========= */
+.hero-quartos .hero-bg {
+  background-image: url("https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070") !important;
+  background-position: center;
+  background-size: cover;
 }/*# sourceMappingURL=quartos.css.map */

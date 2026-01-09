@@ -1,5 +1,5 @@
-  
-  
+
+
 
 
 
@@ -26,8 +26,8 @@ if (document.getElementById("cardsContainer")) {
       }
 
       // --- CONFIGURAÇÕES DO EFEITO (COMO AS SUAS) ---
-      this.maxOffset = 40; 
-      this.easing = 0.09; 
+      this.maxOffset = 40;
+      this.easing = 0.09;
       this.velocityFactor = 0.09;
 
       // --- CONTROLE DE ESTADO ---
@@ -59,16 +59,16 @@ if (document.getElementById("cardsContainer")) {
 
     resetStyles() {
       cancelAnimationFrame(this.animationFrameId); // Para o loop se estiver desativado
-       this.cards.forEach((card, index) => {
-          card.style.transform = 'translateY(0px)';
-          this.currentOffsets[index] = 0;
-          this.targetOffsets[index] = 0;
-          this.scrollVelocity = 0; // Zera a velocidade também
-       });
-       // Reinicia o loop apenas se for reativado
-       if (this.isEnabled) {
-          this.animate(); 
-       }
+      this.cards.forEach((card, index) => {
+        card.style.transform = 'translateY(0px)';
+        this.currentOffsets[index] = 0;
+        this.targetOffsets[index] = 0;
+        this.scrollVelocity = 0; // Zera a velocidade também
+      });
+      // Reinicia o loop apenas se for reativado
+      if (this.isEnabled) {
+        this.animate();
+      }
     }
 
     // --- INICIALIZAÇÃO ---
@@ -76,17 +76,17 @@ if (document.getElementById("cardsContainer")) {
       // Listener de Scroll (COMO O SEU)
       window.addEventListener("scroll", () => {
         // Calcula velocidade apenas se habilitado
-        if (this.isEnabled) { 
-           const currentScroll = window.scrollY;
-           this.scrollVelocity = currentScroll - this.lastScrollY;
-           this.lastScrollY = currentScroll;
-           // A atualização dos offsets acontecerá dentro do loop animate
+        if (this.isEnabled) {
+          const currentScroll = window.scrollY;
+          this.scrollVelocity = currentScroll - this.lastScrollY;
+          this.lastScrollY = currentScroll;
+          // A atualização dos offsets acontecerá dentro do loop animate
         }
       }, { passive: true });
 
       // Listener de Resize para checar breakpoint
       window.addEventListener('resize', () => this.checkBreakpoint());
-      
+
       // Checa o breakpoint inicial
       this.checkBreakpoint();
 
@@ -98,7 +98,7 @@ if (document.getElementById("cardsContainer")) {
     updateCardPositions() {
       // Roda apenas se habilitado e container visível
       if (!this.isEnabled) return;
-      
+
       const rect = this.container.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
@@ -112,33 +112,33 @@ if (document.getElementById("cardsContainer")) {
           Math.min(this.maxOffset, this.targetOffsets[index] + offsetChange)
         );
       });
-      
+
       // Importante: Reseta a velocidade DEPOIS de usá-la para calcular os alvos
       // para que o próximo frame não acumule velocidade antiga.
-      this.scrollVelocity = 0; 
+      this.scrollVelocity = 0;
     }
 
     // --- LOOP DE ANIMAÇÃO (LÓGICA ORIGINAL + CHECAGEM) ---
     animate() {
-       // Atualiza os alvos com base na velocidade de scroll mais recente
-       this.updateCardPositions(); 
-       
-       // Aplica suavização e transform APENAS se habilitado
-       if (this.isEnabled) {
-         this.cards.forEach((card, index) => {
-           // Suaviza (LÓGICA ORIGINAL)
-           this.currentOffsets[index] +=
-             (this.targetOffsets[index] - this.currentOffsets[index]) * this.easing;
+      // Atualiza os alvos com base na velocidade de scroll mais recente
+      this.updateCardPositions();
 
-           // Aplica o transform
-           card.style.transform = `translateY(${this.currentOffsets[index]}px)`;
-         });
-       } else {
-          // Se estiver desabilitado, garante que os estilos estão resetados
-          // (Pode ser redundante se o resetStyles já foi chamado, mas seguro)
-          this.resetStyles(); 
-          return; // Para o loop se desabilitado
-       }
+      // Aplica suavização e transform APENAS se habilitado
+      if (this.isEnabled) {
+        this.cards.forEach((card, index) => {
+          // Suaviza (LÓGICA ORIGINAL)
+          this.currentOffsets[index] +=
+            (this.targetOffsets[index] - this.currentOffsets[index]) * this.easing;
+
+          // Aplica o transform
+          card.style.transform = `translateY(${this.currentOffsets[index]}px)`;
+        });
+      } else {
+        // Se estiver desabilitado, garante que os estilos estão resetados
+        // (Pode ser redundante se o resetStyles já foi chamado, mas seguro)
+        this.resetStyles();
+        return; // Para o loop se desabilitado
+      }
 
       // Continua o loop
       this.animationFrameId = requestAnimationFrame(() => this.animate());
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dadosInstalacoes = [
     {
       id: "spa",
-      imagemSrc: "img/restaurante/grupo-de-amigos-almocando-juntos-no-restaurante.jpg",
+      imagemSrc: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=900&q=80",
       categoria: "Resort - Spa",
       titulo: "Rejuvenesça seu sentido interior com uma massagem de spa.",
       descricao: "Desfrute de uma massagem revigorante em um ambiente sereno e exclusivo, com essências naturais e atendimento personalizado.",
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "fitness",
-      imagemSrc: "https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=900&q=80",
+      imagemSrc: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=900&q=80",
       categoria: "Resort - Fitness",
       titulo: "Energia e bem-estar a cada treino",
       descricao: "Nosso centro fitness conta com equipamentos modernos e vista panorâmica para as montanhas, promovendo vitalidade e equilíbrio.",
@@ -180,18 +180,18 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "piscina",
-      imagemSrc: "https://images.unsplash.com/photo-1597003030377-14ec9d7b4b0c?w=900&q=80",
+      imagemSrc: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=900&q=80",
       categoria: "Resort - Piscina",
       titulo: "Atividade saudável que você pode continuar por toda a vida.",
-      descricao: "Descubra uma casa particular no pomar, com quartos e banheiros, piscina privativa e serviço, além de vista de três lados da cama king size.",
+      descricao: "Piscinas modernas com água climatizada, perfeitas para relaxar ou praticar a natação em qualquer hora do dia.",
       destaques: [
-        "Agradecemos muito a sua confiança.",
-        "Lugar perfeito para relaxar e aproveitar o descanso.",
+        "Área exclusiva com espreguiçadeiras",
+        "Serviço de bar molhado disponível",
       ],
     },
     {
       id: "restaurante",
-      imagemSrc: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80",
+      imagemSrc: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80",
       categoria: "Resort - Restaurante",
       titulo: "Sabores locais sob o céu estrelado",
       descricao: "Deguste pratos regionais preparados com ingredientes frescos, em um ambiente ao ar livre com atmosfera acolhedora.",
@@ -202,73 +202,73 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "praia",
-      imagemSrc: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80",
+      imagemSrc: "https://images.unsplash.com/photo-1544945582-793393b43dbd?w=900&q=80",
       categoria: "Resort - Praia Privada",
       titulo: "Refúgio exclusivo à beira-mar",
       descricao: "Aproveite a tranquilidade de uma praia reservada, com atendimento personalizado e conforto de alto padrão.",
       destaques: [
-        "Espreguiçadeiras e cabanas privativas", ,
+        "Espreguiçadeiras e cabanas privativas",
         "Serviço de bar exclusivo na areia",
       ],
-      
+
     },
   ];
 
- // elementos do DOM (adicione seloImg)
-const imagem = document.getElementById("imagemInstalacao");
-const categoria = document.getElementById("categoriaInstalacao");
-const titulo = document.getElementById("tituloAba");
-const descricao = document.getElementById("descricaoAba");
-const lista = document.getElementById("listaDestaques");
-const colunaTexto = document.getElementById("conteudoTexto");
-const abas = document.querySelectorAll(".navegacao-abas button");
-const seloImg = document.querySelector(".selo-experiencia img"); // pode ser null se não existir
+  // elementos do DOM (adicione seloImg)
+  const imagem = document.getElementById("imagemInstalacao");
+  const categoria = document.getElementById("categoriaInstalacao");
+  const titulo = document.getElementById("tituloAba");
+  const descricao = document.getElementById("descricaoAba");
+  const lista = document.getElementById("listaDestaques");
+  const colunaTexto = document.getElementById("conteudoTexto");
+  const abas = document.querySelectorAll(".navegacao-abas button");
+  const seloImg = document.querySelector(".selo-experiencia img"); // pode ser null se não existir
 
 
-// Atualiza o conteúdo conforme o ID da aba
-function atualizarConteudo(id) {
-  const item = dadosInstalacoes.find((i) => i.id === id);
-  if (!item) return;
+  // Atualiza o conteúdo conforme o ID da aba
+  function atualizarConteudo(id) {
+    const item = dadosInstalacoes.find((i) => i.id === id);
+    if (!item) return;
 
-  // animação de saída
-  colunaTexto.classList.add("fade-out");
-  imagem.style.opacity = 0;
+    // animação de saída
+    colunaTexto.classList.add("fade-out");
+    imagem.style.opacity = 0;
 
-  // limpa timeout anterior se necessário
-  clearTimeout(atualizarConteudo._timeout);
-  atualizarConteudo._timeout = setTimeout(() => {
-    // atualiza imagem principal
-    imagem.src = item.imagemSrc;
+    // limpa timeout anterior se necessário
+    clearTimeout(atualizarConteudo._timeout);
+    atualizarConteudo._timeout = setTimeout(() => {
+      // atualiza imagem principal
+      imagem.src = item.imagemSrc;
 
-    // atualiza selo se existir e se o dado tiver seloSrc
-    if (seloImg && item.seloSrc) {
-      seloImg.src = item.seloSrc;
-      // opcional: seloImg.alt = item.seloAlt || 'selo';
-    }
+      // atualiza selo se existir e se o dado tiver seloSrc
+      if (seloImg && item.seloSrc) {
+        seloImg.src = item.seloSrc;
+        // opcional: seloImg.alt = item.seloAlt || 'selo';
+      }
 
-    // textos
-    categoria.textContent = item.categoria || "";
-    titulo.textContent = item.titulo || "";
-    descricao.textContent = item.descricao || "";
+      // textos
+      categoria.textContent = item.categoria || "";
+      titulo.textContent = item.titulo || "";
+      descricao.textContent = item.descricao || "";
 
-    // lista de destaques: colocar o <i> com FontAwesome antes do texto
-    // ESCAPAR/VALIDAR se os dados vierem do usuário em produção — aqui assumimos conteúdo seguro
-    lista.innerHTML = item.destaques
-  .map((d, index, arr) => `
+      // lista de destaques: colocar o <i> com FontAwesome antes do texto
+      // ESCAPAR/VALIDAR se os dados vierem do usuário em produção — aqui assumimos conteúdo seguro
+      lista.innerHTML = item.destaques
+        .map((d, index, arr) => `
     <li>
       <i class="fa-solid fa-check" aria-hidden="true"></i>
       <span>${d}</span>
     </li>
     ${index < arr.length - 1 ? '<hr class="linha-destaque">' : ''}
   `)
-  .join("");
+        .join("");
 
 
-    // animação de entrada
-    colunaTexto.classList.remove("fade-out");
-    imagem.style.opacity = 1;
-  }, 380); // 380ms para casar com sua transição (400ms anterior)
-}
+      // animação de entrada
+      colunaTexto.classList.remove("fade-out");
+      imagem.style.opacity = 1;
+    }, 380); // 380ms para casar com sua transição (400ms anterior)
+  }
 
 
   // Evento de clique nas abas
@@ -309,7 +309,7 @@ class ParallaxOverlay {
     this.maxSmallDown = 25;
     this.currentSmall = 0;
     this.targetSmall = 0;
-    
+
     // Adicione esta linha para controle de breakpoint
     this.breakpoint = 992;
     this.isEnabled = window.innerWidth > this.breakpoint;
@@ -319,10 +319,10 @@ class ParallaxOverlay {
   }
 
   bind() {
-    window.addEventListener('scroll', () => { 
-      if (this.isEnabled) this.onScroll(); 
+    window.addEventListener('scroll', () => {
+      if (this.isEnabled) this.onScroll();
     });
-    
+
     // Adicione listener de resize
     window.addEventListener('resize', () => {
       this.isEnabled = window.innerWidth > this.breakpoint;
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedPosition !== null) {
     window.scrollTo(0, parseInt(savedPosition, 10));
   }
-  
+
   // Inicializa a classe da animação (apenas uma vez)
   if (!window.__parallaxOverlayInstance) {
     window.__parallaxOverlayInstance = new ParallaxOverlay();

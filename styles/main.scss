@@ -1,26 +1,33 @@
-// styles/_main.scss (ou main.scss)
-
+// styles/_main.scss
 // ==========================================
-// 1. IMPORTS GLOBAIS
+// 1. IMPORTS GLOBAIS (ESTRITAMENTE ORDENADOS)
 // ==========================================
-// Importa variáveis, mixins, reset, etc., usando o _index.scss dentro de globals
-// O 'as *' torna $variáveis e @mixins disponíveis diretamente neste arquivo
-@use 'globals' as *; 
+@use 'globals/variables' as *;
+@use 'globals/mixins' as *;
+@use 'globals/reset' as *;
+@use 'globals/animations' as *;
+@use 'globals/botaoNoiteDia' as *;
+// (Outros globais se existirem)
 
 // ==========================================
 // 2. IMPORTS DE COMPONENTES REUTILIZÁVEIS
 // ==========================================
-// Assumindo que _navbar.scss, _footer.scss, etc., estão dentro de /components
+@use 'components/navbar';
+@use 'components/footer';
+@use 'components/hero';
+@use 'components/botaoEventos';
 
-@use 'components/navbar'; 
-@use 'components/footer'; 
-@use 'components/hero';   
-@use 'components/botaoEventos';    
+// ==========================================
+// 3. IMPORTS DE PÁGINAS (Se necessário compilar aqui)
+// ==========================================
+// Se você usa um arquivo separado compilado por página, não precisa importar aqui.
+// Mas se o objetivo for ter um CSS único (bundle):
+// @use 'pagPrincipal/principal';
+// @use 'pagQuartos/quartos';
+// etc.
+// Como o user pediu para "guardar a compilação", o ideal é garantir que
+// AS VARIÁVEIS E MIXINS ESTEJAM DISPONÍVEIS SE ESTE ARQUIVO FOR USADON COM @forward ou similar.
+// Mas como 'principal.scss' tem seus próprios @use, ele é independente.
 
-
-
-
-
-
-
-
+// No entanto, para garantir que main.scss seja um ponto de entrada seguro:
+// (Nada mais a adicionar se ele for apenas um agregador de globais/componentes)

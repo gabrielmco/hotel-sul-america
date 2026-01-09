@@ -25,14 +25,14 @@ $font-title: "Rufina", serif;
 $font-body: "Urbanist", sans-serif;
 
 // Tamanhos Essenciais
-$font-size-xs: 0.75rem;     // 12px
-$font-size-sm: 0.875rem;    // 14px
-$font-size-padrao: 1rem;    // 16px
-$font-size-lg: 1.25rem;     // 20px
-$font-size-xl: 1.5rem;      // 24px
-$font-size-h3: 1.75rem;     // 28px
-$font-size-h2: 2.5rem;      // 40px
-$font-size-h1: 3rem;        // 48px
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-padrao: 1rem; // 16px
+$font-size-lg: 1.25rem; // 20px
+$font-size-xl: 1.5rem; // 24px
+$font-size-h3: 1.75rem; // 28px
+$font-size-h2: 2.5rem; // 40px
+$font-size-h1: 3rem; // 48px
 
 // Pesos Essenciais
 $font-weight-light: 300;
@@ -48,13 +48,13 @@ $line-height-heading: 1.2;
 // =================================================================
 // 📏 ESPAÇAMENTOS E LAYOUT (SPACING & LAYOUT) - Escala Principal
 // =================================================================
-$spacing-xxs: 0.25rem;    // 4px
-$spacing-xs: 0.5rem;      // 8px
-$spacing-sm: 1rem;        // 16px
-$spacing-md: 2rem;        // 32px
-$spacing-lg: 3.5rem;      // 56px
-$spacing-xl: 5rem;        // 80px
-$spacing-xxl: 8rem;       // 128px
+$spacing-xxs: 0.25rem; // 4px
+$spacing-xs: 0.5rem; // 8px
+$spacing-sm: 1rem; // 16px
+$spacing-md: 2rem; // 32px
+$spacing-lg: 3.5rem; // 56px
+$spacing-xl: 5rem; // 80px
+$spacing-xxl: 8rem; // 128px
 
 // =================================================================
 // ✨ EFEITOS VISUAIS (VISUAL EFFECTS) - SOMBRAS ESSENCIAIS
@@ -66,21 +66,29 @@ $box-shadow-md: 0 12px 24px rgba($black, 0.1);
 $box-shadow-lg: 0 20px 40px rgba($black, 0.15);
 $easing-cubic: cubic-bezier(0.25, 0.8, 0.25, 1);
 
-
-
-
+// =================================================================
+// 📚 Z-INDEX MAP
+// =================================================================
+$z-index: (
+  loader: 99999,
+  modal: 9999,
+  modal-close: 10,
+  label: 6,
+  image-small: 5,
+  marquee-mask: 2,
+  card-btn: 2,
+  card-circle: 1,
+  background-decor: -1
+);
 
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(
-    135deg,
-    $primary 0%,
-    color.adjust($primary, $lightness: 20%) 50%,
-    $primary 100%
-  );
+  background: linear-gradient(135deg,
+      $primary 0%,
+      color.adjust($primary, $lightness: 20%) 50%,
+      $primary 100%);
   background-size: 200% auto;
-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 5s ease infinite;
 }
-

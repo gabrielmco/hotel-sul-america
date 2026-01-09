@@ -8,11 +8,11 @@ import { initHeroSection } from "./globaisJS/hero.js";
 // esperar o DOM ser carregado.
 // ===================================
 document.addEventListener("DOMContentLoaded", () => {
-  
+
 
   initNavbar();
-  
- 
+
+
   if (document.querySelector(".hero")) {
     new BlurCircleEffect(".hero");
     initHeroSection();

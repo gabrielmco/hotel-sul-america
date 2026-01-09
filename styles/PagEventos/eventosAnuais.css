@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -892,7 +892,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .intro-section .intro-text {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #666;
+  color: #495057;
   max-width: 900px;
   margin: 3rem auto 0;
 }
@@ -1011,7 +1011,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .eventos-section .evento-card .evento-content .evento-descricao {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #666;
+  color: #495057;
   margin-bottom: 2rem;
 }
 .eventos-section .evento-card .evento-content .evento-beneficios {
@@ -1050,7 +1050,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 }
 .eventos-section .evento-card .evento-content .evento-beneficios .beneficio-item .beneficio-text {
   font-size: 1rem;
-  color: #666;
+  color: #495057;
 }
 .eventos-section .evento-card .evento-content .evento-btn {
   display: inline-flex;
@@ -1138,7 +1138,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   box-shadow: 0 20px 50px rgba(8, 96, 22, 0.6);
 }
 
-/* ========== RESPONSIVIDADE (substituído por mixins) ========== */
+/* ========== RESPONSIVIDADE ========== */
 @media (width <= 1024px) {
   .eventos-section .evento-card {
     grid-template-columns: 1fr;
@@ -1176,7 +1176,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     padding: 80px 1.5rem;
   }
 }
-@media (width <= 576px) {
+@media (width <= 680px) {
   .eventos-section .evento-image {
     height: 300px;
   }

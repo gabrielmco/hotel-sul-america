@@ -1,17 +1,22 @@
 @use "../globals/variables" as *;
 @use "../globals/mixins" as *;
 @use "../globals/reset" as *;
-@use "../globals/animations" as *; // <--- NOVO
-@use "sass:color"; // <--- ADICIONE ESTA LINHA NO TOPO
+@use "../globals/animations" as *;
+@use "../globals/botaoNoiteDia" as *;
+@use "sass:color";
 
+/* =================================================================
+   LOADER
+   ================================================================= */
 body.loader-active {
   overflow: hidden;
   height: 100%;
 }
+
 #loader-container {
   position: fixed;
   inset: 0;
-  z-index: 99999;
+  z-index: z(loader);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +34,7 @@ body.loader-active {
     opacity: 0.15;
     animation: floatCircles 20s ease-in-out infinite;
   }
+
   &::before {
     width: 800px;
     height: 800px;
@@ -36,6 +42,7 @@ body.loader-active {
     top: -200px;
     left: -200px;
   }
+
   &::after {
     width: 700px;
     height: 700px;
@@ -45,7 +52,7 @@ body.loader-active {
     animation-delay: 5s;
   }
 
-  /* ========== LOGO PRINCIPAL ========== */
+  /* Logo Principal */
   .logo-container {
     position: relative;
     margin-bottom: 4rem;
@@ -58,7 +65,6 @@ body.loader-active {
       animation: logoGlow 3s ease-in-out infinite;
     }
 
-    /* Anel decorativo ao redor da logo */
     .logo-ring {
       position: absolute;
       inset: -40px;
@@ -81,7 +87,7 @@ body.loader-active {
     }
   }
 
-  /* ========== LOADER SVG ANIMADO (H S A) ========== */
+  /* Loader SVG Animado */
   .loader-wrapper {
     position: relative;
     display: flex;
@@ -92,38 +98,39 @@ body.loader-active {
     .absolute {
       position: absolute;
     }
+
     .inline-block {
       display: inline-block;
     }
+
     .loader {
       display: flex;
       margin: 0.25em 0;
       filter: drop-shadow(0 0 20px rgba($primary, 0.5));
     }
+
     .w-2 {
       width: 0.5em;
     }
 
-    // Animação 'dash' (para H, S, A)
     .dash {
-      animation: dashArray 2s ease-in-out infinite,
-        dashOffset 2s linear infinite;
+      animation: dashArray 2s ease-in-out infinite, dashOffset 2s linear infinite;
     }
   }
 
-  /* ========== TEXTO DE LOADING ========== */
+  /* Texto de Loading */
   .loading-text {
-    font-family: $font-title; // Padrão
+    font-family: $font-title;
     font-size: 2rem;
     font-weight: 600;
-    color: $primary; // Padrão
+    color: $primary;
     text-align: center;
     margin-bottom: 1.5rem;
     letter-spacing: 4px;
     animation: fadeInUp 1s ease-out 0.5s both;
   }
 
-  /* ========== BARRA DE PROGRESSO ========== */
+  /* Barra de Progresso */
   .progress-container {
     width: 300px;
     max-width: 80vw;
@@ -137,23 +144,17 @@ body.loader-active {
 
   .progress-bar {
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      $primary,
-      $secundary,
-      $primary
-    ); // Padrão
+    background: linear-gradient(90deg, $primary, $secundary, $primary);
     background-size: 200% 100%;
     border-radius: 10px;
     animation: shimmer 2s linear infinite;
-    box-shadow: 0 0 20px $primary; // Padrão
-    width: 0%; // JS controlará isso
+    box-shadow: 0 0 20px $primary;
+    width: 0%;
     transition: width 0.3s ease-out;
   }
 
-  /* Percentagem */
   .progress-percent {
-    font-family: $font-body; // Padrão
+    font-family: $font-body;
     font-size: 0.9rem;
     color: rgba($white, 0.7);
     margin-top: 1rem;
@@ -161,9 +162,8 @@ body.loader-active {
     letter-spacing: 2px;
   }
 
-  /* ========== MENSAGEM DECORATIVA ========== */
   .welcome-message {
-    font-family: $font-body; // Padrão
+    font-family: $font-body;
     font-size: 1rem;
     color: rgba($white, 0.6);
     text-align: center;
@@ -173,68 +173,39 @@ body.loader-active {
     animation: fadeInUp 1s ease-out 1s both;
   }
 
-  /* Partículas flutuantes */
+  /* Partículas (Otimizado com Loop) */
   .particle {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: $primary; // Padrão
+    background: $primary;
     border-radius: 50%;
     opacity: 0;
     animation: particleFloat 4s ease-in-out infinite;
-    box-shadow: 0 0 10px $primary; // Padrão
+    box-shadow: 0 0 10px $primary;
 
-    &:nth-child(1) {
-      left: 10%;
-      animation-delay: 0s;
-    }
-    &:nth-child(2) {
-      left: 20%;
-      animation-delay: 0.5s;
-    }
-    &:nth-child(3) {
-      left: 30%;
-      animation-delay: 1s;
-    }
-    &:nth-child(4) {
-      left: 40%;
-      animation-delay: 1.5s;
-    }
-    &:nth-child(5) {
-      left: 50%;
-      animation-delay: 2s;
-    }
-    &:nth-child(6) {
-      left: 60%;
-      animation-delay: 2.5s;
-    }
-    &:nth-child(7) {
-      left: 70%;
-      animation-delay: 3s;
-    }
-    &:nth-child(8) {
-      left: 80%;
-      animation-delay: 3.5s;
-    }
-    &:nth-child(9) {
-      left: 90%;
-      animation-delay: 4s;
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i}) {
+        left: 10% * $i;
+        animation-delay: ($i - 1) * 0.5s;
+      }
     }
   }
 
-  /* ========== ANIMAÇÃO DE SAÍDA ========== */
   &.fade-out {
     animation: fadeOutLoader 1s ease-out forwards;
   }
 
-  /* ========== RESPONSIVIDADE ========== */
+  /* Responsividade Loader */
   @include responsive(md) {
     .logo-container img {
       width: 300px;
     }
+
     .loading-text {
       font-size: 1.5rem;
     }
+
     .progress-container {
       width: 250px;
     }
@@ -244,165 +215,191 @@ body.loader-active {
     .logo-container img {
       width: 250px;
     }
+
     .loading-text {
       font-size: 1.25rem;
     }
+
     .welcome-message {
       font-size: 0.85rem;
     }
   }
 }
 
+/* =================================================================
+   SEÇÃO SOBRE (Ícones)
+   ================================================================= */
 .sobre {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // desktop: 4 colunas
-  gap: 2rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8rem;
+  width: 100%;
+  max-width: 1220px; // mesmo valor da section anterior
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem; // padding lateral igual
+  position: relative;
 
   .sobre-container {
+    position: relative;
     padding: 2rem;
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+      box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 
     &:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       box-shadow: $box-shadow;
     }
 
+
+
     .icon-wrapper {
       position: relative;
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 1rem;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
       border-radius: 50%;
-      background: #eaeaea;
+      background: #f7f4ef;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      z-index: 0;
 
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: $secundary;
-        clip-path: polygon(100% 100%, 0% 100%, 100% 0);
-        z-index: 0;
-      }
-
+      // --- Efeito de preenchimento do hover ---
       &::after {
         content: "";
         position: absolute;
         inset: 0;
         background: $secundary;
-        clip-path: circle(0% at 100% 100%);
-        transition: clip-path 0.8s ease-out;
-        z-index: 0;
-      }
-
-      .icons {
-        position: relative;
-        width: 40px;
-        height: 40px;
+        opacity: 0.3;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
         z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease;
+      }
+
+      &:hover::after {
+        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
+        opacity: 1;
+      }
+
+      i {
+        position: relative;
+        z-index: 3;
+        font-size: 2rem;
+        color: $secundary;
+        transition: transform 0.5s ease, color 0.4s ease;
+      }
+
+      &:hover i {
+        color: $light;
+        transform: scale(1.2);
       }
     }
 
-    &:hover .icon-wrapper::after {
-      clip-path: circle(150% at 100% 100%);
-    }
-
+    /* ---------- Títulos e textos ---------- */
     h3 {
       font-family: $font-title;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: #2b261f;
       margin-bottom: 0.5rem;
-      color: $primary;
-      text-align: center;
     }
 
     p {
       font-family: $font-body;
       font-size: 0.95rem;
-      color: #555;
-      text-align: center;
-      margin: 0;
+      color: #666;
+      line-height: 1.5;
     }
   }
 
-  // ====== Breakpoint necessário: tablet / laptop menores ======
+  // ===================================
+  // 📱 RESPONSIVIDADE (TUDO AGRUPADO)
+  // ===================================
+
+  // --- Breakpoint LG (ex: Tablets em paisagem) ---
   @include responsive(lg) {
-    // <= 1024px
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); // 2 colunas
+    padding: 3rem 1.5rem;
     gap: 1.5rem;
-    padding: 2.8rem 1.2rem;
 
     .sobre-container {
-      padding: 1.2rem;
+      padding: 1.5rem;
 
-      .icon-wrapper {
-        width: 72px;
-        height: 72px;
-
-        .icons {
-          width: 34px;
-          height: 34px;
-        }
+      // Lógica da Divisória (para 2x2):
+      // Esconde a divisória no final da nova linha (itens 2, 4, 6...)
+      &:nth-child(2n)::after {
+        display: none;
       }
 
-      h3 {
-        font-size: 1.02rem;
+      // Garante que a divisória do 4º item (que estava escondida no base) REAPAREÇA
+      &:nth-child(4n)::after {
+        display: block; // Reseta a regra do base
       }
 
-      p {
-        font-size: 0.9rem;
+      // Garante que o último item (se for ímpar) não tenha linha
+      &:last-child::after {
+        display: none;
       }
     }
   }
 
-  // ====== Breakpoint necessário: celulares ======
-  @include responsive(sm) {
-    // <= 680px
+  // --- Breakpoint MD (ex: Tablets em retrato) ---
+  @include responsive(md) {
+    // A regra de 1 coluna (que estava no final) sobrepõe
+    // a regra de 2 colunas que estava no início.
     grid-template-columns: 1fr; // 1 coluna
-    gap: 1rem;
-    padding: 1.6rem 0.75rem;
+    padding: 3rem 1rem;
+    gap: 1.5rem;
 
     .sobre-container {
-      padding: 0.9rem 0.8rem;
+
+      // Lógica da Divisória (para 1x1):
+      // Esta regra sobrepõe a lógica de 2 colunas
+      &::after {
+        display: none;
+      }
+
+      // Efeito de hover em tablet (sem transform)
+      &:hover {
+        transform: none;
+        box-shadow: $box-shadow; // Mantém a sombra
+      }
+    }
+  }
+
+  // --- Breakpoint SM (ex: Celulares) ---
+  @include responsive(sm) {
+    grid-template-columns: 1fr; // 1 coluna
+    padding: 2rem 1rem;
+    gap: 1rem;
+
+    .sobre-container {
+      padding: 1.5rem 1rem;
+      text-align: center; // Centraliza no mobile
+
+      // Esconde divisória (já coberto pelo MD, mas bom garantir)
+      &::after {
+        display: none;
+      }
 
       .icon-wrapper {
-        width: 56px;
-        height: 56px;
-        margin-bottom: 0.75rem;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 1rem; // Centraliza e adiciona espaço
 
-        &::after {
-          transition: clip-path 0.6s ease-out;
+        i {
+          font-size: 1.8rem;
         }
-
-        .icons {
-          width: 26px;
-          height: 26px;
-        }
-      }
-
-      h3 {
-        font-size: 1rem;
-        margin-bottom: 0.35rem;
-      }
-
-      p {
-        font-size: 0.84rem;
-        color: #666;
       }
     }
   }
 }
 
-// -------------------- ABOUT (Principal) --------------------
+/* =================================================================
+   ABOUT RESORT
+   ================================================================= */
 .about-resort {
   position: relative;
   max-width: 1520px;
@@ -472,6 +469,7 @@ body.loader-active {
         font-weight: 600;
         line-height: 30px;
         transition: opacity 0.3s;
+
         a {
           text-decoration: none;
           color: $black;
@@ -481,6 +479,7 @@ body.loader-active {
           margin-right: 1rem;
           width: 16px;
         }
+
         &:hover {
           opacity: 0.7;
         }
@@ -505,7 +504,6 @@ body.loader-active {
     }
   }
 
-  /* ===== Imagens ===== */
   .about-images {
     position: relative;
     width: 610px;
@@ -570,7 +568,7 @@ body.loader-active {
       height: 335px;
       left: -50px;
       bottom: -60px;
-      z-index: 5;
+      z-index: z(image-small);
 
       .bg {
         transform-origin: left;
@@ -578,9 +576,7 @@ body.loader-active {
     }
   }
 
-  // ========== RESPONSIVIDADE ==========
-
-  // XXL - Ajuste de margin
+  /* Responsividade About Resort */
   @include responsive(xxl) {
     .container {
       gap: 40px;
@@ -591,7 +587,6 @@ body.loader-active {
     }
   }
 
-  // XL - Reduz espaçamentos
   @include responsive(xl) {
     .container {
       margin-left: 60px;
@@ -626,30 +621,22 @@ body.loader-active {
     }
   }
 
-  // LG - Quebra layout (1024px)
   @include responsive(lm) {
     padding-bottom: 100px;
 
     .container {
       flex-direction: column;
-      max-width: 100%;
-      margin-left: 0;
       margin: 0 auto;
       gap: 60px;
       height: auto;
       padding: 0 2rem;
     }
 
-    /* Texto alinhado à direita — começa no lado direito e flui para a esquerda visualmente */
     .about-text {
       max-width: 100%;
       padding-right: 0;
-
-      /* centralizado no container, mas o conteúdo interno alinhado à direita */
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; /* empurra tudo para a direita */
-      text-align: left; /* alinha as linhas de texto à direita */
+      align-items: flex-start;
+      text-align: left;
 
       h2 {
         font-size: 42px;
@@ -663,23 +650,18 @@ body.loader-active {
 
       .actions {
         margin-top: 40px;
-        gap: 1rem;
-        justify-content: flex-start; /* botões à direita */
-        flex-wrap: wrap;
+        justify-content: flex-start;
       }
     }
 
-    /* Imagens centralizadas embaixo — mantém layout visual semelhante */
     .about-images {
       width: 650px;
       height: 619px;
-      margin: 0 auto; /* centraliza o wrapper de imagens */
+      margin: 0 auto;
 
       .image-big {
         width: 517px;
         height: 619px;
-
-        /* manter posicionamento relativo/absoluto conforme seu código base */
       }
 
       .image-small {
@@ -691,7 +673,6 @@ body.loader-active {
     }
   }
 
-  // L - Ajusta imagens para telas menores (992px)
   @include responsive(l) {
     .about-images {
       width: 540px;
@@ -710,15 +691,12 @@ body.loader-active {
       }
     }
 
-    .about-text {
-      h2 {
-        font-size: 38px;
-        line-height: 40px;
-      }
+    .about-text h2 {
+      font-size: 38px;
+      line-height: 40px;
     }
   }
 
-  // MD - Tablets (768px)
   @include responsive(md) {
     .container {
       padding: 0 1.5rem;
@@ -737,8 +715,6 @@ body.loader-active {
       }
 
       .actions {
-        gap: 1rem;
-
         .phone {
           font-size: 18px;
         }
@@ -768,7 +744,6 @@ body.loader-active {
     }
   }
 
-  // SM - Mobile (680px)
   @include responsive(sm) {
     padding-bottom: 60px;
 
@@ -786,28 +761,24 @@ body.loader-active {
 
       .subtitle {
         font-size: 16px;
-        line-height: 26px;
         margin-bottom: 0.5rem;
       }
 
       p {
         font-size: 14px;
-        line-height: 24px;
         margin-bottom: 1.5rem;
       }
 
       .actions {
         margin-top: 30px;
-        display: flex;
-        flex-wrap: nowrap;
-
-        .phone {
-          font-size: 16px;
-        }
 
         .btn {
           font-size: 15px;
           padding: 0.6rem 1.2rem;
+        }
+
+        .phone {
+          font-size: 16px;
         }
       }
     }
@@ -831,16 +802,17 @@ body.loader-active {
   }
 }
 
+/* =================================================================
+   INFINITE TEXT (MARQUEE)
+   ================================================================= */
 .infinite-text {
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  width: 100%; // evita problemas com 100vw + scrollbars
+  width: 100%;
   margin: 100px 0 0;
-  left: 0;
-  right: 0;
 
-  // máscara lateral suave
+  // Mascaras laterais
   &::before,
   &::after {
     content: "";
@@ -848,29 +820,20 @@ body.loader-active {
     top: 0;
     width: 60px;
     height: 100%;
-    z-index: 2;
+    z-index: z(marquee-mask);
     pointer-events: none;
   }
 
   &::before {
     left: 0;
-    background: linear-gradient(
-      to right,
-      rgb(255 255 255 / 90%),
-      rgb(255 255 255 / 0%)
-    );
+    background: linear-gradient(to right, rgba($white, 0.9), rgba($white, 0));
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(
-      to left,
-      rgb(255 255 255 / 90%),
-      rgb(255 255 255 / 0%)
-    );
+    background: linear-gradient(to left, rgba($white, 0.9), rgba($white, 0));
   }
 
-  // animação (assume conteúdo duplicado para loop contínuo)
   @keyframes scroll {
     0% {
       transform: translateX(0);
@@ -878,7 +841,7 @@ body.loader-active {
 
     100% {
       transform: translateX(-50%);
-    } /* move metade do conteúdo duplicado */
+    }
   }
 
   .marquee {
@@ -888,7 +851,6 @@ body.loader-active {
     will-change: transform;
     animation: scroll 20s linear infinite;
 
-    // cada item textual
     span {
       font-family: $font-title;
       font-size: 28px;
@@ -905,25 +867,20 @@ body.loader-active {
     }
   }
 
-  // ------- Responsividade necessária (apenas lm e sm) -------
-
-  // empilha visualmente / reduz espaçamentos em telas <= 992px
+  /* Responsividade Marquee */
   @include responsive(lm) {
     margin: 60px 0 0;
 
     &::before,
     &::after {
-      width: 8px; // menos máscara
-      background: linear-gradient(
-        to right,
-        rgb(255 255 255 / 95%),
-        rgb(255 255 255 / 0%)
-      );
+      width: 8px;
     }
 
+    // Menos máscara
     .marquee {
       gap: 1.25rem;
-      animation-duration: 16s; // um pouco mais rápido em telas menores
+      animation-duration: 16s;
+
       span {
         font-size: 22px;
         line-height: 34px;
@@ -931,19 +888,12 @@ body.loader-active {
     }
   }
 
-  // ajustes para celulares <= 680px
   @include responsive(sm) {
     margin: 40px 0 0;
 
-    &::before,
-    &::after {
-      width: 8px;
-    }
-
     .marquee {
       gap: 1rem;
-      animation-duration: 12s; // mais rápido para telas pequenas
-      animation-timing-function: linear;
+      animation-duration: 12s;
 
       span {
         font-size: 18px;
@@ -953,17 +903,19 @@ body.loader-active {
   }
 }
 
-/* ========== SEÇÃO FACILITIES (RE-ESTILIZADA E CORRIGIDA) ========== */
+/* =================================================================
+   SEÇÃO FACILITIES
+   ================================================================= */
 .facilities {
   position: relative;
   width: 100%;
   text-align: center;
   margin-top: 3rem;
-  padding: 120px 0 180px; // Corrigido
+  padding: 120px 0 180px;
   overflow: hidden;
   background: linear-gradient(180deg, $light 0%, $white 50%, $light 100%);
 
-  /* Elementos decorativos de fundo */
+  /* Elementos decorativos */
   &::before,
   &::after {
     content: "";
@@ -973,7 +925,9 @@ body.loader-active {
     opacity: 0.05;
     pointer-events: none;
     animation: float 20s ease-in-out infinite;
+    z-index: z(background-decor);
   }
+
   &::before {
     width: 800px;
     height: 800px;
@@ -981,6 +935,7 @@ body.loader-active {
     top: -200px;
     left: -200px;
   }
+
   &::after {
     width: 700px;
     height: 700px;
@@ -990,9 +945,8 @@ body.loader-active {
     animation-delay: 5s;
   }
 
-  /* Header (Padrão do Site) */
+  /* Header */
   .facilities-header {
-    text-align: center;
     margin-bottom: 2rem;
     position: relative;
     z-index: 1;
@@ -1028,7 +982,7 @@ body.loader-active {
     }
   }
 
-  /* ===== GRID BASE ===== */
+  /* Grid Facilities */
   .facilities-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1041,11 +995,10 @@ body.loader-active {
     z-index: 1;
   }
 
-  /* ===== CARD ===== */
+  /* Cards */
   .facility-card {
     perspective: 1200px;
-    // Animação de entrada (fade-in) removida
-    transition: transform 0.3s ease-out; // JS de parallax irá controlar isso
+    transition: transform 0.3s ease-out;
     will-change: transform;
 
     .card-inner {
@@ -1054,28 +1007,26 @@ body.loader-active {
       height: 380px;
       transform-style: preserve-3d;
       transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-      border-radius: 6px; // CORRIGIDO
+      border-radius: 6px;
       box-shadow: 0 20px 60px rgba($black, 0.12);
     }
-
-    // .card-inner::before { ... } // Borda verde REMOVIDA
 
     .card-front,
     .card-back {
       position: absolute;
       inset: 0;
       backface-visibility: hidden;
-      border-radius: 6px; // CORRIGIDO
+      border-radius: 6px;
       overflow: hidden;
     }
 
     .card-front {
       img {
         object-fit: cover;
-        transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        filter: brightness(0.85) contrast(1.1);
         width: 100%;
         height: 100%;
+        transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        filter: brightness(0.85) contrast(1.1);
         display: block;
       }
 
@@ -1083,12 +1034,7 @@ body.loader-active {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          to bottom,
-          transparent 0%,
-          rgba($black, 0.3) 60%,
-          rgba($black, 0.8) 100%
-        );
+        background: linear-gradient(to bottom, transparent 0%, rgba($black, 0.3) 60%, rgba($black, 0.8) 100%);
         transition: opacity 0.6s ease;
       }
     }
@@ -1109,8 +1055,8 @@ body.loader-active {
         margin-bottom: 1.5rem;
         color: $white;
         animation: iconFloat 3s ease-in-out infinite;
-        filter: none;
       }
+
       p {
         font-family: $font-body;
         font-size: 1.1rem;
@@ -1142,40 +1088,39 @@ body.loader-active {
       }
     }
 
-    /* === Efeitos de Hover === */
+    /* Hover Effects */
     &:hover {
       .card-inner {
         transform: rotateY(180deg);
       }
-      // .card-inner::before { ... } // REMOVIDO
 
       .card-front img {
         transform: scale(1.15);
         filter: brightness(1) contrast(1.2);
       }
+
       .card-front::after {
         opacity: 0.5;
       }
+
       .titulo-card::after {
         width: 80%;
       }
     }
 
-    /* === LÓGICA DE PARALLAX (DO JS) === */
+    /* Parallax Classes */
     &.left,
     &.right {
-      transform: translateY(60px);
       margin-top: 5rem;
+      transform: translateY(60px);
     }
+
     &.middle {
       transform: translateY(-120px);
     }
-
-    // &.visible { ... } // Bloco REMOVIDO
   }
 
-  /* ========== RESPONSIVIDADE ========== */
-
+  /* Responsividade Facilities */
   @include responsive(xl) {
     padding: 100px 0 160px;
 
@@ -1195,23 +1140,17 @@ body.loader-active {
     .facilities-grid {
       max-width: 90%;
     }
+
     .facilities-header {
       margin-bottom: 70px;
     }
-    .facilities-title {
-      font-size: 2.5rem;
-    }
-    .facilities-subtitle {
-      font-size: 1rem;
-    }
+
     .facility-card .card-inner {
       height: 350px;
+
       .card-front img {
         height: 350px;
       }
-    }
-    .facility-card .titulo-card {
-      font-size: 1.3rem;
     }
   }
 
@@ -1223,77 +1162,59 @@ body.loader-active {
       gap: 3rem;
       padding: 0 1.5rem;
     }
-    .facilities-title {
-      font-size: 2.5rem;
-    }
-    .facilities-subtitle {
-      font-size: 1rem;
-    }
   }
 
   @include responsive(sm) {
     padding: 60px 0 120px;
-    margin-bottom: 0;
 
     .facilities-header {
       margin-bottom: 60px;
     }
+
     .facilities-title {
       font-size: 2rem;
     }
-    .facilities-subtitle {
-      font-size: 0.95rem;
-    }
-    .facilities-grid {
-      padding: 0 1rem;
-    }
+
     .facility-card .card-inner {
       height: 320px;
-      border-radius: 6px; // CORRIGIDO
-      .card-front,
-      .card-back {
-        border-radius: 6px; // CORRIGIDO
-      }
+
       .card-front img {
         height: 320px;
       }
     }
-    .facility-card .titulo-card {
-      font-size: 1.2rem;
-    }
   }
 }
 
+/* =================================================================
+   HOTEL QUOTE
+   ================================================================= */
 .hotel-quote {
   position: relative;
   max-width: 1200px;
   width: min(1200px, calc(100% - 4rem));
-  margin: 0 auto 0;
-  background: $white; // Fundo branco como nas imagens
+  margin: 0 auto;
+  background: $white;
   border-radius: 10px;
   box-shadow: 0 8px 30px rgb(0 0 0 / 10%);
   display: flex;
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-
-  // Gutter lateral + espaço para o label (54px + 3rem de gap)
   padding: 3rem;
   padding-left: calc(54px + 3rem);
 
-  // Label lateral vertical
   .quote-label {
     position: absolute;
-    left: 0; // Colado na borda esquerda
+    left: 0;
     top: 0;
     bottom: 0;
-    width: 54px; // Largura fixa do label
+    width: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px 0 0 8px; // Arredonda só o canto
+    border-radius: 8px 0 0 8px;
     background: $primary;
-    z-index: 6;
+    z-index: z(label);
 
     .label-text {
       writing-mode: vertical-rl;
@@ -1301,26 +1222,23 @@ body.loader-active {
       font-family: $font-body;
       font-weight: 600;
       letter-spacing: 4px;
-      transform-origin: center;
-      transform: rotate(180deg); // Gira o texto de baixo para cima
-      display: inline-block;
+      transform: rotate(180deg);
       white-space: nowrap;
     }
   }
 
-  // Conteúdo principal
   .quote-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex: 1;
-    gap: 3rem; // Gap entre o texto e o logo
+    gap: 3rem;
 
     p {
       font-family: $font-title;
       font-size: 26px;
       color: $black;
-      flex: 1; // Permite que o texto cresça
+      flex: 1;
       text-align: left;
 
       strong {
@@ -1329,71 +1247,54 @@ body.loader-active {
       }
     }
 
-    .author {
-      flex-shrink: 0; // Impede que o logo encolha
-      img {
-        width: 160px;
-        height: auto;
-        object-fit: contain;
-        transition: transform 1s ease;
+    .author img {
+      width: 160px;
+      height: auto;
+      object-fit: contain;
+      transition: transform 1s ease;
 
-        &:hover {
-          transform: translateY(-1rem);
-        }
+      &:hover {
+        transform: translateY(-1rem);
       }
     }
   }
 
-  /* ============================
-     RESPONSIVIDADE: md (stack vertical)
-     - layout da Imagem 1 (sem o ícone)
-     - label permanece VERTICAL no lado esquerdo
-     - conteúdo empilha: LOGO em cima, TEXTO embaixo
-     ============================ */
   @include responsive(md) {
-    // Ajusta o padding para o mobile, mas mantém o espaço para o label
     padding: 3rem 1.5rem;
-    padding-left: calc(54px + 1.5rem); // 54px do label + 1.5rem de gap
+    padding-left: calc(54px + 1.5rem);
     margin: 80px auto 60px;
 
-    /* label continua fixa no lado esquerdo (vertical) */
-    .quote-label {
-      left: 0; // Mantém colado na borda
-    }
-
-    /* conteúdo empilha */
     .quote-content {
-      flex-direction: column; // Força empilhamento
-      align-items: center; // Centraliza os itens empilhados
-      justify-content: center;
-      gap: 2rem; // Espaço entre o logo e o texto
+      flex-direction: column;
+      gap: 2rem;
 
-      // Reordena os elementos
       .author {
-        order: 1; // Logo vem primeiro
+        order: 1;
+
         img {
-          width: 140px; // Logo um pouco menor
+          width: 140px;
         }
       }
 
       p {
-        order: 2; // Texto vem depois
+        order: 2;
         font-size: 1.25rem;
-        line-height: 1.6;
-        text-align: center; // Centraliza o texto
+        text-align: center;
       }
     }
-  } /* fim responsive(md) */
+  }
 }
 
-/* ========== SEÇÃO EVENTOS ========== */
+/* =================================================================
+   SEÇÃO EVENTOS
+   ================================================================= */
 .eventos {
   position: relative;
   padding: 3rem 0 5rem;
   overflow: hidden;
   background: linear-gradient(180deg, $light 0%, $white 50%, $light 100%);
 
-  /* Elementos decorativos de fundo */
+  /* Background Glows */
   &::before,
   &::after {
     content: "";
@@ -1404,23 +1305,25 @@ body.loader-active {
     pointer-events: none;
     animation: floatSlow 25s ease-in-out infinite;
   }
+
   &::before {
     width: 700px;
     height: 700px;
-    background: linear-gradient(135deg, $primary, $secundary); // Corrigido
+    background: linear-gradient(135deg, $primary, $secundary);
     top: -150px;
     right: -150px;
   }
+
   &::after {
     width: 600px;
     height: 600px;
-    background: linear-gradient(135deg, $secundary, $primary); // Corrigido
+    background: linear-gradient(135deg, $secundary, $primary);
     bottom: -100px;
     left: -100px;
     animation-delay: 8s;
   }
 
-  /* ========== HEADER ========== */
+  /* Header */
   .eventos-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -1431,33 +1334,34 @@ body.loader-active {
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      background: rgba($primary, 0.1); // Corrigido
-      border: 1px solid rgba($primary, 0.2); // Corrigido
+      background: rgba($primary, 0.1);
+      border: 1px solid rgba($primary, 0.2);
       padding: 0.6rem 1.8rem;
       border-radius: 50px;
       margin-top: 1.5rem;
       backdrop-filter: blur(10px);
 
       i {
-        color: $primary; // Corrigido
+        color: $primary;
         font-size: 1.2rem;
         animation: sparkle 2s ease-in-out infinite;
       }
+
       span {
-        font-family: $font-body; // Corrigido
+        font-family: $font-body;
         font-size: 0.9rem;
         font-weight: 500;
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: $black; // Corrigido
+        color: $black;
       }
     }
 
     .eventos-title {
-      font-family: $font-title; // Corrigido
+      font-family: $font-title;
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 600;
-      color: $black; // Corrigido
+      color: $black;
       margin-bottom: 1rem;
       position: relative;
       display: inline-block;
@@ -1470,27 +1374,21 @@ body.loader-active {
         transform: translateX(-50%);
         width: 150px;
         height: 3px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          $primary,
-          transparent
-        ); // Corrigido
+        background: linear-gradient(90deg, transparent, $primary, transparent);
         animation: lineGlow 3s ease-in-out infinite;
       }
     }
 
     .eventos-subtitle {
-      font-family: $font-body; // Corrigido
+      font-family: $font-body;
       font-size: 1.1rem;
-      color: $gray-700; // Corrigido
+      color: $gray-700;
       max-width: 700px;
       margin: 2rem auto 0;
       line-height: 1.8;
     }
   }
 
-  /* ========== GRID DE EVENTOS ========== */
   .eventos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1502,8 +1400,7 @@ body.loader-active {
     z-index: 1;
   }
 
-  /* ========== EVENTO CARD ========== */
-  /* ========== EVENTO CARD ========== */
+  /* Evento Card */
   .evento-card {
     position: relative;
     width: 100%;
@@ -1516,10 +1413,6 @@ body.loader-active {
     box-shadow: 0 20px 60px rgba($black, 0.15);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 
-    // ... (::before, &:hover, img, .overlay, .day-badge, .evento-icon, .central) ...
-    // O código acima disso está correto.
-
-    /* Borda verde animada */
     &::before {
       content: "";
       position: absolute;
@@ -1530,17 +1423,7 @@ body.loader-active {
       z-index: -1;
       transition: opacity 0.6s ease;
     }
-    &:hover::before {
-      opacity: 0.7;
-      animation: borderPulse 2s ease-in-out infinite;
-    }
 
-    &:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 30px 80px rgba($primary, 0.25);
-    }
-
-    /* Imagem */
     img {
       position: absolute;
       inset: 0;
@@ -1550,36 +1433,15 @@ body.loader-active {
       filter: brightness(0.65) contrast(1.1);
       transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    &:hover img {
-      filter: brightness(0.85) contrast(1.2);
-      transform: scale(1.1);
-    }
 
-    /* Overlay gradiente */
     .overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba($black, 0.3) 0%,
-        transparent 30%,
-        transparent 50%,
-        rgba($black, 0.7) 100%
-      );
+      background: linear-gradient(to bottom, rgba($black, 0.3) 0%, transparent 50%, rgba($black, 0.7) 100%);
       transition: all 0.6s ease;
       z-index: 1;
     }
-    &:hover .overlay {
-      background: linear-gradient(
-        to bottom,
-        rgba($primary, 0.2) 0%,
-        transparent 30%,
-        transparent 50%,
-        rgba($black, 0.85) 100%
-      );
-    }
 
-    /* Conteúdo do Card */
     .evento-content {
       position: absolute;
       inset: 0;
@@ -1592,7 +1454,6 @@ body.loader-active {
       padding: 2rem;
     }
 
-    /* Badge do dia da semana */
     .day-badge {
       position: absolute;
       top: 25px;
@@ -1608,15 +1469,9 @@ body.loader-active {
       text-transform: uppercase;
       color: $white;
       box-shadow: 0 8px 25px rgba($primary, 0.4);
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    &:hover .day-badge {
-      transform: scale(1.1);
-      background: $white;
-      color: $primary;
+      transition: all 0.6s;
     }
 
-    /* Ícone decorativo grande */
     .evento-icon {
       position: absolute;
       top: 30%;
@@ -1624,14 +1479,9 @@ body.loader-active {
       transform: translate(-50%, -50%);
       font-size: 5rem;
       color: rgba($white, 0.15);
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    &:hover .evento-icon {
-      transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
-      color: rgba($primary, 0.3);
+      transition: all 0.6s;
     }
 
-    /* Conteúdo central */
     .central {
       margin-top: auto;
       margin-bottom: auto;
@@ -1647,6 +1497,7 @@ body.loader-active {
         color: rgba($white, 0.8);
         margin-bottom: 0.75rem;
       }
+
       hr {
         width: 80px;
         height: 2px;
@@ -1655,6 +1506,7 @@ body.loader-active {
         margin: 1rem auto;
         opacity: 0.7;
       }
+
       h3 {
         font-family: $font-title;
         font-size: 2.2rem;
@@ -1665,12 +1517,7 @@ body.loader-active {
         transition: all 0.4s ease;
       }
     }
-    &:hover .central h3 {
-      transform: translateY(-5px);
-      text-shadow: 0 6px 20px rgba($primary, 0.6);
-    }
 
-    /* Botão / Círculo */
     .btn-wrapper {
       position: absolute;
       bottom: 35px;
@@ -1679,6 +1526,7 @@ body.loader-active {
       width: 220px;
       height: 60px;
     }
+
     .btn-evento {
       position: absolute;
       inset: 0;
@@ -1693,10 +1541,11 @@ body.loader-active {
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      z-index: 2; // Começa na frente
+      z-index: z(card-btn);
       box-shadow: 0 10px 30px rgba($primary, 0.4);
+      transition: all 0.4s;
     }
+
     .circle {
       position: absolute;
       top: 50%;
@@ -1711,144 +1560,68 @@ body.loader-active {
       justify-content: center;
       opacity: 0;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      z-index: 1; // Começa atrás
+      z-index: z(card-circle);
       box-shadow: 0 15px 40px rgba($primary, 0.5);
+      transition: all 0.4s;
 
       i {
         color: $white;
         font-size: 1.5rem;
-        transition: transform 0.4s ease;
       }
     }
 
-    // CORREÇÃO DO Z-INDEX NO HOVER
+    /* Hover States do Card */
     &:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 80px rgba($primary, 0.25);
+
+      &::before {
+        opacity: 0.7;
+        animation: borderPulse 2s ease-in-out infinite;
+      }
+
+      img {
+        filter: brightness(0.85) contrast(1.2);
+        transform: scale(1.1);
+      }
+
+      .overlay {
+        background: linear-gradient(to bottom, rgba($primary, 0.2) 0%, transparent 50%, rgba($black, 0.85) 100%);
+      }
+
+      .day-badge {
+        transform: scale(1.1);
+        background: $white;
+        color: $primary;
+      }
+
+      .evento-icon {
+        transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+        color: rgba($primary, 0.3);
+      }
+
+      .central h3 {
+        transform: translateY(-5px);
+        text-shadow: 0 6px 20px rgba($primary, 0.6);
+      }
+
       .btn-evento {
         opacity: 0;
         transform: scale(0.8);
-        z-index: 1; // Botão vai para trás
+        z-index: 1;
       }
+
       .circle {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
-        z-index: 2; // Círculo vem para frente
-      }
-
-      // O hover do círculo (que já estava correto)
-      .circle:hover {
-        transform: translate(-50%, -50%) scale(1.15);
-        background: $white;
-      }
-      .circle:hover i {
-        color: $primary;
-        transform: translateX(5px);
+        z-index: 2;
       }
     }
   }
 
-  /* ========== MODAL ========== */
-  .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba($black, 0.92); // Corrigido
-    backdrop-filter: blur(15px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-    z-index: 9999;
-    padding: 2rem;
 
-    &.show {
-      opacity: 1;
-      visibility: visible;
-    }
 
-    .modal-content {
-      background: $white; // Corrigido
-      border-radius: 24px;
-      max-width: 700px;
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
-      animation: modalSlideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-
-      img {
-        width: 100%;
-        height: 350px;
-        object-fit: cover;
-      }
-
-      .modal-body {
-        padding: 2.5rem;
-
-        h2 {
-          font-family: $font-title; // Corrigido
-          font-size: 2.5rem;
-          font-weight: 600;
-          color: $black; // Corrigido
-          margin-bottom: 1rem;
-          position: relative;
-          display: inline-block;
-
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(
-              90deg,
-              $primary,
-              transparent
-            ); // Corrigido
-          }
-        }
-
-        p {
-          font-family: $font-body; // Corrigido
-          font-size: 1.1rem;
-          color: $gray-700; // Corrigido
-          line-height: 1.8;
-          margin-top: 1.5rem;
-        }
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        background: rgba($white, 0.95); // Corrigido
-        backdrop-filter: blur(10px);
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: $black; // Corrigido
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-
-        &:hover {
-          background: $primary; // Corrigido
-          color: $white; // Corrigido
-          transform: rotate(90deg) scale(1.1);
-        }
-      }
-    }
-  }
-
-  /* ========== RESPONSIVIDADE ========== */
+  /* Responsividade Eventos */
   @include responsive(lg) {
     padding: 100px 0 140px;
 
@@ -1856,6 +1629,7 @@ body.loader-active {
       grid-template-columns: repeat(2, 1fr);
       gap: 2.5rem;
     }
+
     .evento-card:last-child {
       grid-column: 1 / -1;
       max-width: 100%;
@@ -1865,94 +1639,50 @@ body.loader-active {
   @include responsive(md) {
     padding: 80px 0 120px;
 
-    .eventos-header {
-      margin-bottom: 70px;
-    }
-    .eventos-title {
-      font-size: 2.5rem;
-    }
-    .eventos-subtitle {
-      font-size: 1rem;
-    }
     .eventos-grid {
-      grid-template-columns: 1fr; // 1 coluna
+      grid-template-columns: 1fr;
       gap: 3rem;
-      padding: 0 1.5rem;
     }
+
     .evento-card {
-      max-width: 100%; // Todos os cards ocupam 100%
+      max-width: 100%;
       height: 520px;
 
-      // ===================================
-      // 🔹 CORREÇÃO AQUI 🔹
-      // ===================================
-      // Reseta a regra do breakpoint 'lg'
       &:last-child {
         max-width: 100%;
       }
     }
-    .evento-icon {
-      font-size: 4rem;
-    }
-    .central h3 {
-      font-size: 2rem;
-    }
+
     .modal-content img {
       height: 280px;
-    }
-    .modal-body {
-      padding: 2rem;
-      h2 {
-        font-size: 2rem;
-      }
-      p {
-        font-size: 1rem;
-      }
     }
   }
 
   @include responsive(sm) {
     padding: 60px 0 100px;
 
-    .eventos-grid {
-      padding: 0 1rem;
-      gap: 2.5rem;
-    }
     .evento-card {
       height: 500px;
       border-radius: 20px;
     }
-    .day-badge {
-      top: 20px;
-      left: 20px;
-      font-size: 0.7rem;
-      padding: 0.4rem 1.2rem;
-    }
-    .evento-icon {
-      font-size: 3.5rem;
-    }
-    .central h3 {
-      font-size: 1.8rem;
-    }
+
     .btn-wrapper {
       width: 200px;
       height: 55px;
       bottom: 30px;
     }
+
     .circle {
       width: 65px;
       height: 65px;
     }
-    .circle i {
-      font-size: 1.3rem;
-    }
   }
 }
 
-/* ========== ESTILOS DA SEÇÃO DE PARCEIROS ========== */
-
+/* =================================================================
+   PARCEIROS
+   ================================================================= */
 .partners-section {
-  // Estilos da seção principal
   padding: 4rem 2rem;
 
   .partners-container {
@@ -1970,7 +1700,6 @@ body.loader-active {
         display: inline-block;
 
         img {
-          filter: saturate(2) brightness(2.12) contrast(1.05);
           filter: saturate(1.3) brightness(1.12) contrast(1.05);
           height: 55px;
           max-width: 192px;
@@ -1978,19 +1707,18 @@ body.loader-active {
           transition: opacity 0.6s, transform 0.6s ease;
         }
 
-        // Efeito ao passar o mouse
-        &:hover {
-          img {
-            transform: translateY(-20px);
-            opacity: 0.6;
-          }
+        &:hover img {
+          transform: translateY(-20px);
+          opacity: 0.6;
         }
       }
     }
   }
 }
 
-// -------------------- ACOMODAÇÕES --------------------
+/* =================================================================
+   ACOMODAÇÕES
+   ================================================================= */
 .accommodation-wrapper {
   display: flex;
   align-items: flex-start;
@@ -2002,7 +1730,7 @@ body.loader-active {
     .list-item {
       position: relative;
       height: 110.8px;
-      line-height: 110.8px; // centralizar texto verticalmente
+      line-height: 110.8px;
       font-size: 1.2rem;
       font-weight: 500;
       padding-left: 1.5rem;
@@ -2053,23 +1781,7 @@ body.loader-active {
         }
       }
 
-      &:hover {
-        color: #fff;
-
-        .number {
-          color: #fff;
-        }
-
-        &::before {
-          left: 0;
-        }
-
-        .circle {
-          right: -25px;
-          transform: translateY(-50%) scale(1);
-        }
-      }
-
+      &:hover,
       &.active {
         color: #fff;
 
@@ -2102,11 +1814,9 @@ body.loader-active {
       transition: transform 0.6s ease;
     }
 
-    // caixinha de preço e botão reserva
     .btn-container {
       position: absolute;
       bottom: 0;
-      left: auto; // não preencher tudo
       right: 0;
       display: flex;
 
@@ -2140,13 +1850,11 @@ body.loader-active {
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    gap: 0;
-    padding: 0 2rem; // Adiciona um padding lateral
+    padding: 0 2rem;
 
-    /* === Estilos para o texto (para ficar igual à foto) === */
     .subtitle {
       font-size: 1.1rem;
-      color: $primary; // Cor $primary (marrom/dourado)
+      color: $primary;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 500;
@@ -2155,50 +1863,45 @@ body.loader-active {
 
     h2 {
       text-align: left;
-      font-family: $font-title; // Fonte de título
+      font-family: $font-title;
       font-size: 2.8rem;
-      margin: 0.5rem 0;
-      margin-left: 32px;
+      margin: 0.5rem 0 0.5rem 32px;
       color: $black;
     }
 
     p {
-      font-family: $font-body; // Fonte de corpo
+      font-family: $font-body;
       font-size: 1rem;
       line-height: 1.6;
       color: #666;
       margin-left: 32px;
       margin-bottom: 1.5rem;
-      max-width: 480px; // Limita a largura do parágrafo
+      max-width: 480px;
     }
-
-    /* ====================================================== */
 
     .features {
       display: flex;
       justify-content: center;
-      gap: 0; // Gap será controlado pelo padding
 
       .feature {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.8rem; // Espaço entre o ícone e o texto
+        gap: 0.8rem;
         color: #555;
         font-size: 0.9rem;
         font-weight: 500;
         text-align: center;
-        padding: 0 2rem; // Espaçamento para as linhas
-        border-right: 1px solid #dcd1c0; // Linha vertical
+        padding: 0 2rem;
+        border-right: 1px solid #dcd1c0;
 
         &:last-child {
-          border-right: none; // Remove a linha do último item
+          border-right: none;
         }
 
-        // CORRIGIDO: de 'img' para 'i'
         i {
-          font-size: 2rem; // Tamanho do ícone
-          color: $primary; // Cor do ícone
+          font-size: 2rem;
+          color: $primary;
           margin-bottom: 0.5rem;
         }
 
@@ -2212,55 +1915,44 @@ body.loader-active {
 
   @include responsive(xl) {
     display: grid;
-    grid-template-columns: 380.2px 1fr; // Coluna da lista com largura fixa, resto flexível
-    grid-template-rows: auto auto; // Duas linhas automáticas
-    align-items: start; // Alinha os itens ao topo
+    grid-template-columns: 380.2px 1fr;
+    grid-template-rows: auto auto;
 
     .accommodation-list {
-      grid-column: 1 / 2; // Coluna 1
-      grid-row: 1 / 3; // Ocupa as duas linhas
-      width: 100%; // Ocupa a largura total da coluna do grid
-      height: 100%; // Ocupa a altura total
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      width: 100%;
+      height: 100%;
     }
 
     .accommodation-image {
-      grid-column: 2 / 3; // Coluna 2
-      grid-row: 1 / 2; // Linha 1
-      width: 100%; // Ocupa a largura total da coluna
-      height: 553.2px; // Mantém a altura original do desktop
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      width: 100%;
+      height: 553.2px;
     }
 
     .accommodation-details {
-      grid-column: 2 / 3; // Coluna 2
-      grid-row: 2 / 3; // Linha 2
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
       width: 100%;
       height: auto;
-      padding: 3rem 2rem; // Adiciona padding interno para o texto
+      padding: 3rem 2rem;
       text-align: center;
 
       h2 {
-        font-size: 2.2rem;
         text-align: center;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-
-      .features {
-        gap: 1.5rem;
       }
     }
   }
 
   @include responsive(l) {
-    display: flex; // Volta para flex
+    display: flex;
     flex-direction: column;
     align-items: center;
 
     .accommodation-list {
       width: 100%;
-      margin-bottom: 0; // REMOVIDO
       overflow: hidden;
 
       .list-item {
@@ -2273,103 +1965,46 @@ body.loader-active {
     .accommodation-image {
       width: 100%;
       height: 400px;
-      margin-bottom: 0; // REMOVIDO
     }
 
     .accommodation-details {
       width: 100%;
       max-width: 900px;
-      height: auto;
-      padding: 2rem 1rem; // Adiciona padding interno
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 0.9rem;
-        margin: auto;
-        margin-bottom: 1rem;
-      }
-
-      .features {
-        justify-content: center; // Ícones horizontais
-        gap: 1rem;
-      }
+      padding: 2rem 1rem;
     }
   }
 
   @include responsive(sm) {
-    // padding: 0 10px; // REMOVIDO conforme solicitado
-
-    .accommodation-list {
-      margin-bottom: 0; // REMOVIDO
-      .list-item {
-        height: 70px;
-        line-height: 70px;
-        font-size: 0.95rem;
-        padding-left: 1rem;
-      }
+    .accommodation-list .list-item {
+      height: 70px;
+      line-height: 70px;
+      font-size: 0.95rem;
     }
 
     .accommodation-image {
       height: 300px;
-      margin-bottom: 0; // REMOVIDO
-
-      .btn-container {
-        .price-box {
-          width: 140px;
-          height: 90px;
-
-          p {
-            font-size: 0.8rem;
-          }
-
-          h3 {
-            font-size: 1.3rem;
-          }
-        }
-
-        .btn-reserve {
-          width: 160px;
-          height: 90px;
-          font-size: 1rem;
-        }
-      }
     }
 
     .accommodation-details {
-      padding: 1.5rem 1rem; // Adiciona padding interno
-      h2 {
-        font-size: 1.8rem;
-      }
-
-      p {
-        font-size: 0.85rem;
-      }
+      padding: 1.5rem 1rem;
 
       .features {
-        flex-direction: column; // Ícones verticais
+        flex-direction: column;
         gap: 0.8rem;
-        align-items: center; // Centraliza os ícones
+        align-items: center;
 
         .feature {
-          gap: 0.8rem;
-          align-items: center;
-          width: auto; // Não precisa de 100%
-          justify-content: center;
-          font-size: 1rem;
-
-          i {
-            font-size: 1.8rem;
-          }
+          width: auto;
+          border-right: none;
         }
       }
     }
   }
 }
 
-// -------------------- CLASSIFICAÇÃO --------------------
+/* =================================================================
+   CLASSIFICAÇÃO / TESTIMONIALS
+   ================================================================= */
 .testimonials {
   padding: 6rem 2rem;
 
@@ -2444,35 +2079,17 @@ body.loader-active {
       }
 
       .stars {
-        color: #ff9800;
+        color: $warning;
         font-size: 1.2rem;
       }
     }
   }
 
-  // --- Breakpoint MD (768px) ---
   @include responsive(md) {
     padding: 4rem 1rem;
 
-    .section-header {
-      h2 {
-        font-size: 44px;
-        line-height: 48px;
-      }
-    }
-
     .testimonials-grid {
       grid-template-columns: 1fr;
-    }
-  }
-
-  // --- Breakpoint SM (680px) ---
-  @include responsive(sm) {
-    .section-header {
-      h2 {
-        font-size: 32px;
-        line-height: 38px;
-      }
     }
 
     .testimonial-card {
@@ -2485,8 +2102,119 @@ body.loader-active {
       .testimonial-footer {
         flex-direction: column;
         gap: 0.8rem;
-        padding: 1rem 1.5rem;
       }
     }
   }
+}
+
+/* =================================================================
+   MODAL (MOVED TO ROOT TO AVOID CLIPPING)
+   ================================================================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba($black, 0.92);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: z(modal);
+  padding: 2rem;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background: $white;
+    border-radius: 24px;
+    max-width: 700px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+    animation: modalSlideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+    img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 2.5rem;
+
+      h2 {
+        font-family: $font-title;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: $black;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, $primary, transparent);
+        }
+      }
+
+      p {
+        font-family: $font-body;
+        font-size: 1.1rem;
+        color: $gray-700;
+        line-height: 1.8;
+        margin-top: 1.5rem;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background: rgba($white, 0.95);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: $black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: z(modal-close);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $primary;
+        color: $white;
+        transform: rotate(90deg) scale(1.1);
+      }
+    }
+  }
+
+  @include responsive(md) {
+    .modal-content img {
+      height: 280px;
+    }
+  }
+}
+
+/* ========== HERO IMAGE OVERRIDE ========= */
+.hero-home .hero-bg {
+  background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070') !important;
+  background-position: center bottom;
+  background-size: cover;
 }

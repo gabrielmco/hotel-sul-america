@@ -1,8 +1,10 @@
-@use '../globals' as *;
-
+@use "../globals/variables" as *;
+@use "../globals/mixins" as *;
+@use "../globals/reset" as *;
+@use "sass:color";
 
 .info {
-  padding: 4rem 2rem; // Padding lateral
+  padding: 4rem 2rem;
 
   .group-info {
     display: flex;
@@ -13,28 +15,25 @@
 
     .content-info {
       flex: 1;
-      text-align: left; // Alinhado à esquerda
+      text-align: left;
 
       h3 {
-        font-family: $font-title; // Estilo Imagem 2
+        font-family: $font-title;
         font-size: 1.5rem;
         font-weight: 500;
         color: $black;
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-
-        // CORREÇÃO: Remove a borda do H3
         border-bottom: none;
         display: inline-block;
       }
 
       hr {
-        // CORREÇÃO: Faz o HR ser a linha
-        display: block; // Garante que ele seja visível
-        width: 100%; // Ocupa 100% do .content-info
+        display: block;
+        width: 100%;
         border: none;
         border-top: 2px solid $black;
-        margin: -0.5rem 0 1rem; // Puxa para perto do h3
+        margin: -0.5rem 0 1rem;
       }
 
       p {
@@ -60,14 +59,14 @@
       text-align: center;
 
       h3 {
-        display: inline-block; // Mantém o texto
+        display: inline-block;
         border-bottom: none;
       }
 
       hr {
-        border-top: 2px solid #ddd;
-        width: 80%; // Não 100% no mobile
-        margin: -0.5rem auto 1rem; // Centraliza
+        border-top: 2px solid $gray-300; // #ddd -> $gray-300
+        width: 80%;
+        margin: -0.5rem auto 1rem;
       }
     }
   }
@@ -81,7 +80,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 6rem 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $gray-100; // #eee -> $gray-100
 
   // As duas colunas
   .contact-wrapper,
@@ -89,19 +88,19 @@
     flex: 1;
     padding: 0 2rem;
   }
-  
+
   // ========= RESPONSIVIDADE (Split Container) =========
-  @include responsive(lg) { // Quebra em 1024px
+  @include responsive(lg) {
     flex-direction: column;
     padding: 3rem 1rem;
-    
+
     .contact-wrapper,
     .booking-wrapper {
       padding: 0 1rem;
     }
-    
+
     .contact-wrapper {
-      margin-bottom: 4rem; // Espaço entre os formulários no mobile
+      margin-bottom: 4rem;
     }
   }
 }
@@ -113,8 +112,7 @@
   .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    
-    // --- Regras de título ---
+
     .subtitle {
       font-family: $font-body;
       font-size: 1rem;
@@ -143,7 +141,7 @@
         position: relative;
         width: 100%;
         padding-bottom: 10px;
-        border-bottom: 2px solid #ddd;
+        border-bottom: 2px solid $gray-300; // #ddd -> $gray-300
         transition: border-color 0.3s ease;
 
         &:focus-within {
@@ -170,22 +168,29 @@
           resize: none;
 
           &::placeholder {
-            color: #999;
+            color: $gray-500; // #999 -> $gray-500 (aprox)
             font-style: italic;
           }
         }
-        
+
         i {
           position: absolute;
           right: 5px;
           top: 50%;
           transform: translateY(-50%);
-          color: #aaa;
+          color: $gray-500; // #aaa -> $gray-500 (aprox)
           font-size: 1.1rem;
         }
-        
-        textarea.input { min-height: 80px; }
-        textarea ~ i { top: auto; bottom: 15px; transform: none; }
+
+        textarea.input {
+          min-height: 80px;
+        }
+
+        textarea~i {
+          top: auto;
+          bottom: 15px;
+          transform: none;
+        }
       }
 
       .form-footer {
@@ -195,9 +200,12 @@
         margin-top: 1rem;
         gap: 1rem;
 
-        p { font-size: 0.8rem; color: #888; flex: 1; }
-        
-        // --- Estilos do Botão Aninhados ---
+        p {
+          font-size: 0.8rem;
+          color: $gray-500; // #888 -> $gray-500
+          flex: 1;
+        }
+
         button.btn {
           padding: 0.9rem 1.8rem;
           border: none;
@@ -208,27 +216,31 @@
           font-size: 0.9rem;
           transition: all 0.3s ease;
           white-space: nowrap;
-          background: $black; // .btn-dark
-          color: #fff;
-          
-          &:hover { 
-            background: $primary; // hover do .btn-dark
+          background: $black;
+          color: $white;
+
+          &:hover {
+            background: $primary;
           }
         }
       }
     }
   }
-  
+
   // ========= RESPONSIVIDADE (Contact Form) =========
   @include responsive(md) {
-    .contact-form h2 { font-size: 2.5rem; }
+    .contact-form h2 {
+      font-size: 2.5rem;
+    }
 
     .contact-form .form-footer {
       flex-direction: column;
       align-items: flex-start;
       gap: 1.5rem;
-      
-      button.btn { width: 100%; }
+
+      button.btn {
+        width: 100%;
+      }
     }
   }
 }
@@ -240,8 +252,7 @@
   .booking-form {
     max-width: 600px;
     margin: 0 auto;
-    
-    // --- Regras de título ---
+
     .subtitle {
       font-family: $font-body;
       font-size: 1rem;
@@ -259,17 +270,17 @@
       margin-bottom: 2.5rem;
       color: $black;
     }
-    
+
     form {
       font-family: $font-body;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      
+
       .form-row {
         display: flex;
         gap: 1.5rem;
-        
+
         .input-group {
           flex: 1;
         }
@@ -277,7 +288,7 @@
 
       .input-group {
         width: 100%;
-        
+
         label {
           font-size: 0.9rem;
           color: $black;
@@ -287,31 +298,30 @@
 
         .input {
           width: 100%;
-          border: 1px solid #ccc;
+          border: 1px solid $gray-300; // #ccc -> $gray-300
           outline: none;
           padding: 0.8rem 1rem;
           font-size: 1rem;
           font-family: inherit;
-          background: #f9f9f9;
+          background: $gray-100; // #f9f9f9 -> $gray-100
           border-radius: 5px;
           resize: none;
-          
+
           &:focus {
             border-color: $primary;
-            background: #fff;
+            background: $white;
           }
         }
-        
+
         select.input {
-           cursor: pointer;
+          cursor: pointer;
         }
-        
+
         input[type="date"] {
-           cursor: text;
+          cursor: text;
         }
       }
 
-      // --- Estilos do Botão Aninhados ---
       button.btn {
         margin-top: 1rem;
         padding: 0.9rem 1.8rem;
@@ -323,51 +333,53 @@
         font-size: 0.9rem;
         transition: all 0.3s ease;
         white-space: nowrap;
-        background: $primary; // .btn-primary
-        color: #fff;
-        
-        &:hover { 
-          background: $black; // hover do .btn-primary
+        background: $primary;
+        color: $white;
+
+        &:hover {
+          background: $black;
         }
       }
     }
   }
-  
+
   // ========= RESPONSIVIDADE (Booking Form) =========
   @include responsive(md) {
-    .booking-form h2 { font-size: 2.5rem; }
+    .booking-form h2 {
+      font-size: 2.5rem;
+    }
   }
 
   @include responsive(sm) {
     .booking-form .form-row {
-       flex-direction: column;
-       gap: 1.5rem;
+      flex-direction: column;
+      gap: 1.5rem;
     }
   }
 }
 
 
 /* ==================================================
-   SEÇÃO DE INFORMAÇÕES DO HOTEL (Nova)
+   SEÇÃO DE INFORMAÇÕES DO HOTEL
    ================================================== */
 .footer-info {
   background: $black;
-  color: #ccc;
+  color: $gray-300; // #ccc -> $gray-300
   padding: 4rem 2rem;
-  
+
   .footer-info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    
+
     .info-item {
       h3 {
         font-family: $font-title;
         font-size: 1.2rem;
         font-weight: 600;
-        color: #fff;
+        color: $white;
         margin-bottom: 1rem;
       }
 
@@ -375,19 +387,18 @@
         font-family: $font-body;
         font-size: 0.9rem;
         line-height: 1.7;
-        color: #ccc;
+        color: $gray-300; // #ccc -> $gray-300
       }
     }
   }
-  
-  // ========= RESPONSIVIDADE (Footer Info) =========
+
   @include responsive(md) {
     .footer-info-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 2.5rem;
     }
   }
-  
+
   @include responsive(sm) {
     .footer-info-grid {
       grid-template-columns: 1fr;
@@ -462,7 +473,7 @@
 
         &:hover {
           transform: scale(1.05);
-          color: #fff;
+          color: $white;
         }
 
         &.facebook::before {
@@ -470,13 +481,11 @@
         }
 
         &.instagram::before {
-          background: linear-gradient(
-            45deg,
-            #f09433,
-            #dc2743,
-            #cc2366,
-            #bc1888
-          );
+          background: linear-gradient(45deg,
+              #f09433,
+              #dc2743,
+              #cc2366,
+              #bc1888);
         }
 
         &.whatsapp::before {
@@ -530,7 +539,6 @@
     }
   }
 
-  // ========= RESPONSIVIDADE (Map) =========
   @include responsive(md) {
     padding: 2rem 1rem;
 
@@ -555,7 +563,6 @@
     color: $black;
   }
 
-  // ========= RESPONSIVIDADE (Numero) =========
   @include responsive(md) {
     h1 {
       font-size: 22px;
@@ -572,4 +579,9 @@
   }
 }
 
-
+/* ========== HERO IMAGE OVERRIDE ========= */
+.hero-contato .hero-bg {
+  background-image: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=2069') !important;
+  background-position: center;
+  background-size: cover;
+}

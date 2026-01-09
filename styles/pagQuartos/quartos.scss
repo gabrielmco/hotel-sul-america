@@ -1,6 +1,7 @@
 @use "../globals/variables" as *;
 @use "../globals/mixins" as *;
 @use "../globals/reset" as *;
+@use "sass:color";
 
 // ================== NOMES QUARTOS ==================
 .nomes-quartos {
@@ -45,16 +46,9 @@
   }
 
   // ==========================================
-  // 📱 RESPONSIVIDADE (com mixins)
+  // 📱 RESPONSIVIDADE
   // ==========================================
 
-  // --- Breakpoint LG (1024px) ---
-  // ==========================================
-  // 📱 RESPONSIVIDADE (3x2 e 1x1)
-  // ==========================================
-
-  // --- Breakpoint LG (1024px) ---
-  // (Mantém flex, apenas ajusta tamanhos)
   @include responsive(lg) {
     padding: 1.5rem 0;
 
@@ -63,8 +57,8 @@
     }
 
     a {
-      font-size: 20px; // Você pediu 22px, então vamos remover isso
-      line-height: 28px; // E isso
+      font-size: 20px;
+      line-height: 28px;
     }
 
     hr {
@@ -80,32 +74,29 @@
       display: grid;
       // Grid de 6 colunas para centralizar a segunda linha
       grid-template-columns: repeat(6, 1fr);
-      gap: 1.5rem 0; // 1.5rem vertical, 1rem horizontal
+      gap: 1.5rem 0;
       justify-items: center;
     }
 
     a {
-      // font-size: 22px; // Mantido do base
-      grid-column: span 2; // Cada link ocupa 2 colunas (3 links = 6 colunas)
+      grid-column: span 2;
       text-align: center;
       width: 100%;
       margin: 0;
-      border-top: none; // Garante que não tenha borda superior
-      padding-top: 0; // Garante que não tenha padding superior
+      border-top: none;
+      padding-top: 0;
     }
 
     // --- Centraliza a segunda linha ---
-    // O 4º link (a:nth-of-type(4)) começa na 2ª coluna
     a:nth-of-type(4) {
       grid-column: 2 / 4;
     }
-    // O 5º link (a:nth-of-type(5)) começa na 4ª coluna
+
     a:nth-of-type(5) {
       grid-column: 4 / 6;
     }
 
     // --- Adiciona a borda divisória ---
-    // Adiciona uma borda no TOPO dos itens da segunda linha
     a:nth-of-type(4),
     a:nth-of-type(5) {
       width: 100%;
@@ -114,43 +105,35 @@
     }
 
     hr {
-      display: none; // Esconde as HRs verticais originais
+      display: none;
     }
   }
 
-  // --- Breakpoint SM (680px) ---
-  // (Quebra para 1x1x1... com BORDAS SUPERIORES)
   @include responsive(sm) {
     .nomes-quartos-container {
       display: grid;
-      grid-template-columns: 1fr; // Força 1 coluna
-      gap: 0; // Remove gap
+      grid-template-columns: 1fr;
+      gap: 0;
       padding: 0;
-      max-width: 100%; // Remove o max-width: 400px para ir de ponta a ponta
+      max-width: 100%;
     }
 
-    // Seletor FORTE para resetar TUDO
     a,
     a:nth-of-type(4),
     a:nth-of-type(5) {
-      // RESETA TUDO DO MD
-      grid-column: 1; // Força todos a ficarem na coluna 1
+      grid-column: 1;
       padding-top: 0;
       border-top: none;
-
-      // APLICA ESTILO 1x1
       width: 100%;
       text-align: center;
-      padding: 1.25rem 1rem; // Espaçamento
-      border-top: 1px solid rgba($black, 0.2); // Borda
+      padding: 1.25rem 1rem;
+      border-top: 1px solid rgba($black, 0.2);
     }
 
-    // Remove a borda do primeiro item
     a:first-of-type {
       border-top: none;
     }
 
-    // Garante que as HRs fiquem escondidas
     hr {
       display: none !important;
     }
@@ -158,7 +141,10 @@
 }
 
 
-// -------------------- SOBRE (ÍCONES HOTEL) --------------------
+
+/* =================================================================
+   SEÇÃO SOBRE (Ícones)
+   ================================================================= */
 .sobre {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -182,7 +168,7 @@
       box-shadow: $box-shadow;
     }
 
-   
+
 
     .icon-wrapper {
       position: relative;
@@ -284,7 +270,7 @@
     gap: 1.5rem;
 
     .sobre-container {
-      
+
       // Lógica da Divisória (para 1x1):
       // Esta regra sobrepõe a lógica de 2 colunas
       &::after {
@@ -326,8 +312,8 @@
     }
   }
 }
-// ================== CARROSSEL QUARTOS ==================
 
+// ================== CARROSSEL QUARTOS ==================
 .quartos {
   max-width: 1220px;
   margin: 0 auto;
@@ -412,7 +398,6 @@
         pointer-events: auto;
 
         &:hover {
-          
           transform: translateY(-50%) scale(1.08);
         }
 
@@ -424,6 +409,7 @@
         &.arrow-left {
           left: 20px;
         }
+
         &.arrow-right {
           right: 20px;
         }
@@ -464,15 +450,13 @@
       flex: 1;
       min-width: 40%;
       background: $light;
-
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
 
-      // 1. REMOVA O SPACE-BETWEEN
-      // justify-content: space-between; // << REMOVA ISSO
-      justify-content: flex-start; // << USE ISSO
       .quarto-descricao {
         padding: 3rem;
+
         h5 {
           font-family: $font-body;
           font-size: 18px;
@@ -489,6 +473,7 @@
           margin-bottom: 1.5rem;
           line-height: 1.2;
         }
+
         p {
           font-size: 1rem;
           line-height: 1.8;
@@ -497,7 +482,6 @@
         }
       }
 
-      // 2. ESCONDA A <hr> DO HTML
       hr {
         display: none;
       }
@@ -508,17 +492,15 @@
         align-items: center;
         justify-content: space-between;
         gap: 1.5rem;
-
-        // 3. ADICIONE AS PROPRIEDADES DE LINHA E ALINHAMENTO AQUI
-        width: 100%; // Garante que a borda ocupe tudo
-        margin-top: auto; // EMPURRA O FOOTER PARA O FINAL DA CAIXA
-        padding-top: 2rem; // Espaço acima do footer (abaixo da linha)
-        border-top: 1px solid rgba($black, 0.2); // A LINHA QUE VOCÊ QUER
+        width: 100%;
+        margin-top: auto;
+        padding-top: 2rem;
+        border-top: 1px solid rgba($black, 0.2);
       }
 
       .preco-info {
         display: flex;
-        align-items: flex-end; // Alinha R$ e 'por noite'
+        align-items: flex-end;
       }
 
       .preco {
@@ -532,9 +514,8 @@
       .noite {
         font-size: 0.9rem;
         color: #888;
-        // margin-top: 14px; // Removido
-        margin-left: 0.5rem; // Ajustado
-        padding-bottom: 4px; // Ajusta alinhamento vertical
+        margin-left: 0.5rem;
+        padding-bottom: 4px;
       }
 
       .btn-primary {
@@ -543,6 +524,7 @@
         border: none;
         padding: 1rem 2.5rem;
         border-radius: 6px;
+        // Mantendo Poppins, conforme original, mas idealmente seria $font-body
         font-family: Poppins, sans-serif;
         font-size: 1rem;
         font-weight: 500;
@@ -562,52 +544,51 @@
   // 📱 RESPONSIVIDADE
   // ===============================
 
-  // ===== 1220px - Ajustes Suaves =====
   @include responsive(xl) {
     margin: 1rem;
 
-    .quarto {
-      .quarto-texto {
-        .quarto-descricao {
-          h5 {
-            font-size: 0.92rem;
-          }
-          h2 {
-            font-size: 2.35rem;
-            margin-bottom: 1.4rem;
-          }
-          p {
-            font-size: 0.98rem;
-            margin-bottom: 1.85rem;
-          }
+    .quarto .quarto-texto {
+      .quarto-descricao {
+        h5 {
+          font-size: 0.92rem;
         }
 
-        .quarto-footer {
-         padding: 1.2rem;
-        }
-
-        .preco-info {
-          // Quebra o preço para baixo
-          flex-direction: column;
-          align-items: flex-start; // Alinha à esquerda
-        }
-
-        .noite {
-          margin: 0; // Remove margens
-          padding-bottom: 0; // Remove padding
-          font-size: 0.85rem; // Fonte menor
-        }
-
-        .preco {
+        h2 {
           font-size: 2.35rem;
-          margin-top: 0;
+          margin-bottom: 1.4rem;
         }
-        .btn-primary {
-          margin-left: 1rem;
-          margin-bottom: 1rem;
-          padding: 0.95rem 2.3rem;
+
+        p {
           font-size: 0.98rem;
+          margin-bottom: 1.85rem;
         }
+      }
+
+      .quarto-footer {
+        padding: 1.2rem;
+      }
+
+      .preco-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .noite {
+        margin: 0;
+        padding-bottom: 0;
+        font-size: 0.85rem;
+      }
+
+      .preco {
+        font-size: 2.35rem;
+        margin-top: 0;
+      }
+
+      .btn-primary {
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.95rem 2.3rem;
+        font-size: 0.98rem;
       }
     }
   }
@@ -615,28 +596,28 @@
   // ===== 992px - QUEBRA VERTICAL =====
   @include responsive(lm) {
     .quarto {
-      display: block !important; // Remove flex
+      display: block !important;
       width: 100%;
       margin: 0 auto;
-      max-width: 750px; // Limita largura
+      max-width: 750px;
 
       &.reverse {
         display: block !important;
-      } // Reseta o reverse
+      }
 
       .quarto-imagem {
-        // Remove border-radius do container da imagem
         border-radius: 0;
       }
 
       .quarto-texto {
         text-align: left;
-        .quarto-footer {
-justify-content: flex-start;
 
-padding: 1.2rem;
+        .quarto-footer {
+          justify-content: flex-start;
+          padding: 1.2rem;
+
           .preco-info {
-            flex-direction: row; // Volta ao normal
+            flex-direction: row;
             align-items: flex-end;
           }
 
@@ -644,23 +625,23 @@ padding: 1.2rem;
             margin-left: 0.5rem;
             padding-bottom: 4px;
           }
+
           .preco {
             font-size: 2.1rem;
           }
         }
+
         .quarto-descricao {
           padding: 2rem;
-         
-        
         }
-        .btn-primary{
+
+        .btn-primary {
           margin-bottom: 0;
         }
       }
     }
   }
 
-  // ===== 768px - Tablets Portrait =====
   @include responsive(md) {
     padding: 0 1.5rem;
     gap: 2.5rem;
@@ -674,14 +655,14 @@ padding: 1.2rem;
 
       .quarto-texto {
         padding: 0;
-.quarto-footer{
-  padding-top: 1rem;
-  padding: 1rem;
-  
-}
+
+        .quarto-footer {
+          padding-top: 1rem;
+          padding: 1rem;
+        }
+
         .quarto-descricao {
           padding: 1rem;
-         
         }
 
         .preco {
@@ -691,7 +672,6 @@ padding: 1.2rem;
     }
   }
 
-  // ===== 680px - Mobile =====
   @include responsive(sm) {
     padding: 0 1rem;
     gap: 2rem;
@@ -704,15 +684,9 @@ padding: 1.2rem;
       }
 
       .quarto-texto {
-        
-
-        
-
         .preco {
           font-size: 1.85rem;
         }
-
-       
 
         .btn-primary {
           text-align: center;
@@ -720,4 +694,11 @@ padding: 1.2rem;
       }
     }
   }
+}
+
+/* ========== HERO IMAGE OVERRIDE ========= */
+.hero-quartos .hero-bg {
+  background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070') !important;
+  background-position: center;
+  background-size: cover;
 }

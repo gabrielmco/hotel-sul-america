@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -116,7 +116,7 @@ ul {
     border-bottom: none;
   }
   .info .content-info hr {
-    border-top: 2px solid #ddd;
+    border-top: 2px solid #dee2e6;
     width: 80%;
     margin: -0.5rem auto 1rem;
   }
@@ -130,7 +130,7 @@ ul {
   max-width: 1400px;
   margin: 0 auto;
   padding: 6rem 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f8f9fa;
 }
 .page-container-split .contact-wrapper,
 .page-container-split .booking-wrapper {
@@ -184,7 +184,7 @@ ul {
   position: relative;
   width: 100%;
   padding-bottom: 10px;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #dee2e6;
   transition: border-color 0.3s ease;
 }
 .contact-wrapper .contact-form form .input-group:focus-within {
@@ -209,11 +209,11 @@ ul {
   resize: none;
 }
 .contact-wrapper .contact-form form .input-group .input::-moz-placeholder {
-  color: #999;
+  color: #adb5bd;
   font-style: italic;
 }
 .contact-wrapper .contact-form form .input-group .input::placeholder {
-  color: #999;
+  color: #adb5bd;
   font-style: italic;
 }
 .contact-wrapper .contact-form form .input-group i {
@@ -221,7 +221,7 @@ ul {
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
-  color: #aaa;
+  color: #adb5bd;
   font-size: 1.1rem;
 }
 .contact-wrapper .contact-form form .input-group textarea.input {
@@ -241,7 +241,7 @@ ul {
 }
 .contact-wrapper .contact-form form .form-footer p {
   font-size: 0.8rem;
-  color: #888;
+  color: #adb5bd;
   flex: 1;
 }
 .contact-wrapper .contact-form form .form-footer button.btn {
@@ -321,12 +321,12 @@ ul {
 }
 .booking-wrapper .booking-form form .input-group .input {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #dee2e6;
   outline: none;
   padding: 0.8rem 1rem;
   font-size: 1rem;
   font-family: inherit;
-  background: #f9f9f9;
+  background: #f8f9fa;
   border-radius: 5px;
   resize: none;
 }
@@ -370,11 +370,11 @@ ul {
 }
 
 /* ==================================================
-   SEÇÃO DE INFORMAÇÕES DO HOTEL (Nova)
+   SEÇÃO DE INFORMAÇÕES DO HOTEL
    ================================================== */
 .footer-info {
   background: #1c1c1c;
-  color: #ccc;
+  color: #dee2e6;
   padding: 4rem 2rem;
 }
 .footer-info .footer-info-grid {
@@ -395,7 +395,7 @@ ul {
   font-family: "Urbanist", sans-serif;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #ccc;
+  color: #dee2e6;
 }
 @media (width <= 768px) {
   .footer-info .footer-info-grid {
@@ -556,4 +556,11 @@ ul {
     font-size: 18px;
     line-height: 1.5;
   }
+}
+
+/* ========== HERO IMAGE OVERRIDE ========= */
+.hero-contato .hero-bg {
+  background-image: url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=2069") !important;
+  background-position: center;
+  background-size: cover;
 }/*# sourceMappingURL=contato.css.map */

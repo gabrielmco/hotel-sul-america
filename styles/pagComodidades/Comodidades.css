@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -846,7 +846,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   /* Badge pequeno acima do título */
   /* Título principal */
   /* Subtítulo/descrição */
-  /* Stats row (REMOVIDO) */
 }
 .hero-intro .hero-intro-content::before {
   content: "";
@@ -1165,7 +1164,8 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   line-height: 42px;
   font-weight: 400;
   color: #1c1c1c;
-  flex: 0 0 auto; /* não encolhe */
+  flex: 0 0 auto;
+  /* não encolhe */
 }
 .infinite-text .dot::before {
   content: "•";
@@ -1458,40 +1458,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     padding: 60px 2rem;
   }
   .instalacoes .instalacoes-header .instalacoes-title {
-    font-size: 3rem;
-  }
-  .instalacoes .coluna-imagem img {
-    height: 450px;
-  }
-  .instalacoes .coluna-imagem .selo-experiencia {
-    width: 120px;
-    height: 120px;
-    top: 50px;
-    left: -35px;
-    font-size: 0.65rem;
-  }
-  .instalacoes .coluna-imagem .selo-experiencia img {
-    width: 45px;
-    height: 45px;
-  }
-  .instalacoes .coluna-texto h2 {
-    font-size: 36px;
-  }
-  .instalacoes .coluna-texto p, .instalacoes .coluna-texto li {
-    font-size: 17px;
-  }
-  .instalacoes .navegacao-abas ul li button {
-    font-size: 18px;
-    padding: 22px 15px;
-  }
-}
-@media (width <= 1024px) {
-  .instalacoes .conteudo-display {
-    max-width: 950px;
-    gap: 2rem;
-    padding: 50px 1.5rem;
-  }
-  .instalacoes .instalacoes-header .instalacoes-title {
     font-size: 2.8rem;
   }
   .instalacoes .coluna-imagem img {
@@ -1511,7 +1477,8 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   .instalacoes .coluna-texto h2 {
     font-size: 34px;
   }
-  .instalacoes .coluna-texto p, .instalacoes .coluna-texto li {
+  .instalacoes .coluna-texto p,
+  .instalacoes .coluna-texto li {
     font-size: 16px;
   }
   .instalacoes .coluna-texto ul li i {
@@ -1522,6 +1489,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   .instalacoes .navegacao-abas ul li button {
     font-size: 17px;
     padding: 20px 12px;
+  }
+}
+@media (width <= 1024px) {
+  .instalacoes .conteudo-display {
+    max-width: 950px;
+    gap: 2rem;
+    padding: 50px 1.5rem;
   }
 }
 @media (width <= 768px) {
@@ -1932,4 +1906,11 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     width: 220px;
     height: 220px;
   }
+}
+
+/* ========== HERO IMAGE OVERRIDE ========= */
+.hero-comodidades .hero-bg {
+  background-image: url("https://images.unsplash.com/photo-1571896349842-68c697412e6e?q=80&w=2070") !important;
+  background-position: center;
+  background-size: cover;
 }/*# sourceMappingURL=Comodidades.css.map */

@@ -2,9 +2,7 @@
 @use "../globals/mixins" as *;
 @use "../globals/reset" as *;
 @use "../globals/animations" as *;
-
 @use "sass:color";
-
 
 /* ========== HERO SECTION ========== */
 .hero-eventos {
@@ -115,7 +113,7 @@
   .intro-text {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #666;
+    color: $gray-700; // #666 -> $gray-700
     max-width: 900px;
     margin: 3rem auto 0;
   }
@@ -140,7 +138,7 @@
     &:nth-child(even) {
       direction: rtl;
 
-      > * {
+      >* {
         direction: ltr;
       }
     }
@@ -230,7 +228,9 @@
         color: $primary;
         margin-bottom: 1rem;
 
-        i { font-size: 1rem; }
+        i {
+          font-size: 1rem;
+        }
       }
 
       .evento-titulo {
@@ -245,7 +245,7 @@
       .evento-descricao {
         font-size: 1.1rem;
         line-height: 1.8;
-        color: #666;
+        color: $gray-700; // #666 -> $gray-700
         margin-bottom: 2rem;
       }
 
@@ -288,7 +288,7 @@
 
           .beneficio-text {
             font-size: 1rem;
-            color: #666;
+            color: $gray-700; // #666 -> $gray-700
           }
         }
       }
@@ -391,7 +391,7 @@
   }
 }
 
-/* ========== RESPONSIVIDADE (substituído por mixins) ========== */
+/* ========== RESPONSIVIDADE ========== */
 
 @include responsive(lg) {
   .eventos-section {
@@ -424,21 +424,40 @@
   .eventos-section {
     padding: 60px 1.5rem 80px;
 
-    .evento-image { height: 350px; }
-    .evento-titulo { font-size: 2rem; }
-    .evento-descricao { font-size: 1rem; }
+    .evento-image {
+      height: 350px;
+    }
+
+    .evento-titulo {
+      font-size: 2rem;
+    }
+
+    .evento-descricao {
+      font-size: 1rem;
+    }
   }
 
-  .cta-section { padding: 80px 1.5rem; }
+  .cta-section {
+    padding: 80px 1.5rem;
+  }
 }
 
-@include responsive(s) {
+@include responsive(sm) {
+
+  // s -> sm (standard)
   .eventos-section {
-    .evento-image { height: 300px; }
-    .evento-date-badge { padding: 0.75rem 1rem; }
+    .evento-image {
+      height: 300px;
+    }
+
+    .evento-date-badge {
+      padding: 0.75rem 1rem;
+    }
 
     .evento-btn,
-    .cta-btn { padding: 1rem 2rem; font-size: 0.95rem; }
+    .cta-btn {
+      padding: 1rem 2rem;
+      font-size: 0.95rem;
+    }
   }
 }
-

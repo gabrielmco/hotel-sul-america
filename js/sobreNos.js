@@ -28,13 +28,13 @@ class BlurCircleEffect {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   // =================================================================
   // 🔹 SEÇÃO 1: CONTROLES DA GALERIA (CÓDIGO CORRIGIDO)
   // =================================================================
 
   const galeriaContainer = document.getElementById('galeriaSobreNos');
-  
+
   // Verifica se a galeria existe na página antes de executar o código
   if (galeriaContainer) {
     const blurCircle = galeriaContainer.querySelector('.blur-circle');
@@ -88,42 +88,42 @@ document.addEventListener('DOMContentLoaded', () => {
   new BlurCircleEffect('.hero');
 
 
- // =================================================================
+  // =================================================================
   // 🔹 SEÇÃO 2: Infinite Gallery
   // =================================================================
   class InfiniteScroller {
-  constructor(selector, speed = 1) {
-    this.container = document.querySelector(selector);
-    if (!this.container) return;
+    constructor(selector, speed = 1) {
+      this.container = document.querySelector(selector);
+      if (!this.container) return;
 
-    this.track = this.container.querySelector('.sobre-nos-track');
-    this.speed = speed;
-    this.position = 0;
-    this.items = Array.from(this.track.children);
-
-    // Duplicar o conteúdo para criar o loop infinito
-    this.items.forEach(item => {
-      const clone = item.cloneNode(true);
-      this.track.appendChild(clone);
-    });
-
-    this.loop();
-  }
-
-  loop() {
-    this.position -= this.speed;
-    const width = this.track.scrollWidth / 2;
-
-    // Quando metade da faixa já passou, reseta
-    if (Math.abs(this.position) >= width) {
+      this.track = this.container.querySelector('.sobre-nos-track');
+      this.speed = speed;
       this.position = 0;
+      this.items = Array.from(this.track.children);
+
+      // Duplicar o conteúdo para criar o loop infinito
+      this.items.forEach(item => {
+        const clone = item.cloneNode(true);
+        this.track.appendChild(clone);
+      });
+
+      this.loop();
     }
 
-    this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
-    requestAnimationFrame(this.loop.bind(this));
+    loop() {
+      this.position -= this.speed;
+      const width = this.track.scrollWidth / 2;
+
+      // Quando metade da faixa já passou, reseta
+      if (Math.abs(this.position) >= width) {
+        this.position = 0;
+      }
+
+      this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
+      requestAnimationFrame(this.loop.bind(this));
+    }
   }
-}
-const galeria = new InfiniteScroller('#galeriaSobreNos', 0.6);
+  const galeria = new InfiniteScroller('#galeriaSobreNos', 0.6);
 
 
 
@@ -132,9 +132,9 @@ const galeria = new InfiniteScroller('#galeriaSobreNos', 0.6);
   // 🔹 SEÇÃO 4: PARALLAX CARDS CONTROLLER (CÓDIGO ORIGINAL)
   // =================================================================
   // Verifique se os elementos dos cards existem antes de instanciar a classe
-  
+
   if (document.getElementById('cardsContainer')) {
-    
+
     class ParallaxCards {
       constructor() {
         // ===== ELEMENTOS DO DOM =====
@@ -142,16 +142,16 @@ const galeria = new InfiniteScroller('#galeriaSobreNos', 0.6);
         this.cardLeft = document.getElementById('card1');
         this.cardCenter = document.getElementById('card2');
         this.cardRight = document.getElementById('card3');
-        
+
         // Se algum card não existir, interrompe a inicialização
         if (!this.cardLeft || !this.cardCenter || !this.cardRight) {
-            console.warn("Um ou mais cards para o efeito parallax não foram encontrados.");
-            return;
+          console.warn("Um ou mais cards para o efeito parallax não foram encontrados.");
+          return;
         }
 
         // ===== CONFIGURAÇÕES =====
         this.scrollY = 0;
-        this.maxOffset = 80; 
+        this.maxOffset = 80;
         this.easing = 1;
 
         // ===== ESTADOS DE ANIMAÇÃO =====
@@ -178,12 +178,12 @@ const galeria = new InfiniteScroller('#galeriaSobreNos', 0.6);
       handleScroll() {
         this.scrollY = window.scrollY;
       }
-      
+
       updateCardPositions() {
         // Otimização: só calcula se o container estiver na tela
         const rect = this.container.getBoundingClientRect();
         if (rect.bottom < 0 || rect.top > window.innerHeight) {
-            return;
+          return;
         }
 
         // Normaliza o scroll relativo à posição do container para maior precisão
@@ -211,7 +211,7 @@ const galeria = new InfiniteScroller('#galeriaSobreNos', 0.6);
         this.cardRight.style.transform = `translateY(calc(30px + ${this.currentOffsetRight}px))`;
       }
     }
-    
+
     // Instancia a classe
     new ParallaxCards();
   }
@@ -219,58 +219,53 @@ const galeria = new InfiniteScroller('#galeriaSobreNos', 0.6);
 
 });
 
-  // =================================================================
-  // 🔹 SEÇÃO 5: PARALLAX LOGO CONTROLLER (CÓDIGO ORIGINAL)
-  // =================================================================
+// =================================================================
+// 🔹 SEÇÃO 5: PARALLAX LOGO CONTROLLER (CÓDIGO ORIGINAL)
+// =================================================================
+// =================================================================
+// 🔹 SEÇÃO 5: PARALLAX LOGO CONTROLLER (REFATORADO)
+// =================================================================
 const discoverSection = document.querySelector(".discover-section");
 const discoverImg = document.querySelector(".discover-img");
+const videoWrapper = document.querySelector(".discover-videos"); // Referência para limitar
 
-let offsetX = 0;
-let lastScrollY = window.scrollY;
+if (discoverSection && discoverImg && videoWrapper) {
+  // Variáveis de estado para interpolação (Lerp)
+  let currentX = 0;
+  let targetX = 0;
+  const smoothFactor = 0.08; // Quanto menor, mais suave (e mais "lento" para alcançar)
 
-const speed = 6;        // 🔹 velocidade do movimento
-const maxOffset = 200;  // 🔹 limite máximo de deslocamento
-const disableWidth = 1220; // 🔹 largura máxima para ativar o efeito
+  const updateParallaxTarget = () => {
+    const sectionRect = discoverSection.getBoundingClientRect();
+    const sectionHeight = sectionRect.height;
+    const windowHeight = window.innerHeight;
 
-window.addEventListener("scroll", () => {
-  if (!discoverSection || !discoverImg) return;
+    // Calcula progresso: 0 quando topo da seção entra, 1 quando fundo sai
+    let progress = (windowHeight - sectionRect.top) / (windowHeight + sectionHeight);
+    progress = Math.max(0, Math.min(1, progress));
 
-  const scrollY = window.scrollY;
-  const viewportHeight = window.innerHeight;
-  const sectionTop = discoverSection.offsetTop;
-  const sectionHeight = discoverSection.offsetHeight;
-  const sectionBottom = sectionTop + sectionHeight;
+    // Define o alvo do movimento (ex: de 0 a -400px)
+    const maxMove = -400;
+    targetX = maxMove * progress;
+  };
 
-  const inView =
-    scrollY + viewportHeight > sectionTop && scrollY < sectionBottom;
+  const animate = () => {
+    // Interpolação Linear (Lerp): current aproxima-se de target
+    currentX += (targetX - currentX) * smoothFactor;
 
-  // ✅ Só aplica o movimento se for maior que 1220px e a seção estiver visível
-  if (window.innerWidth > disableWidth && inView) {
-    if (scrollY > lastScrollY) {
-      // ⬇️ Scrolando para baixo → move para a esquerda até o limite
-      offsetX = Math.max(offsetX - speed, -maxOffset);
-    } else {
-      // ⬆️ Scrolando para cima → retorna lentamente ao centro
-      offsetX = Math.min(offsetX + speed, 0);
-    }
+    // Aplica a transformação
+    // Arredondar para 2 casas decimais ajuda na performance de composição
+    const x = Math.round(currentX * 100) / 100;
+    discoverImg.style.transform = `translateX(${x}px)`;
 
-    discoverImg.style.transform = `translateX(${offsetX}px)`;
-    discoverImg.style.transition = "transform 0.4s ease-out";
-  } else {
-    // 🔹 Em telas menores ou fora da área, centraliza suavemente
-    offsetX = 0;
-    discoverImg.style.transform = "translateX(0)";
-    discoverImg.style.transition = "transform 0.6s ease-out";
-  }
+    requestAnimationFrame(animate);
+  };
 
-  lastScrollY = scrollY;
-});
+  // Listeners
+  window.addEventListener("scroll", updateParallaxTarget);
+  window.addEventListener("resize", updateParallaxTarget);
 
-// 🔹 Reseta o efeito ao redimensionar
-window.addEventListener("resize", () => {
-  if (window.innerWidth <= disableWidth) {
-    offsetX = 0;
-    discoverImg.style.transform = "translateX(0)";
-    discoverImg.style.transition = "transform 0.6s ease-out";
-  }
-});
+  // Inicia loop e cálculo inicial
+  updateParallaxTarget();
+  animate();
+}

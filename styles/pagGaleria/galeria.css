@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -72,12 +72,12 @@ ul {
   box-sizing: border-box;
   /* Header / título */
   /* CONTROLE DE TAMANHO (overlay) - compacto */
-  /* tick ativo (JS aplica body.stage-0/1/2) */
-  /* MASONRY: layout por colunas (JS deve criar .masonry-col) */
+  /* tick ativo */
+  /* MASONRY: layout por colunas */
   /* ===== LIGHTBOX / CARROSSEL ===== */
 }
 .gallery-page .gallery-header {
-  max-width: 1520px; /* pedido: até 1520 */
+  max-width: 1520px;
   margin: 0 auto 28px;
   text-align: center;
   z-index: 5;
@@ -209,8 +209,8 @@ ul {
   margin: 10px auto 80px;
   padding: 0 1.2rem;
   width: 100%;
-  display: flex; /* colunas lado a lado */
-  gap: 28px; /* espaço horizontal entre colunas */
+  display: flex;
+  gap: 28px;
   align-items: flex-start;
   box-sizing: border-box;
 }
@@ -218,7 +218,7 @@ ul {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  gap: 32px; /* espaço vertical entre items */
+  gap: 32px;
   min-width: 0;
   box-sizing: border-box;
 }
@@ -232,8 +232,6 @@ ul {
   text-decoration: none;
   transition: transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1), opacity 180ms ease;
   will-change: transform, opacity;
-  /* IMPORTANT: não forçamos height por CSS (JS define image.height inline com pattern).
-     Mantemos height:auto como fallback para responsabilidade. */
 }
 .gallery-page .masonry-item img {
   display: block;
@@ -326,7 +324,7 @@ ul {
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   font-size: 18px;
-  color: #000;
+  color: #1c1c1c;
   transition: all 0.25s ease;
 }
 .gallery-page .lightbox .lightbox-inner .lightbox-close:hover,
@@ -350,9 +348,6 @@ ul {
   right: 0;
 }
 @media (width <= 1220px) {
-  .gallery-page {
-    /* 🔧 Lightbox (ajuste leve) */
-  }
   .gallery-page .gallery-header .gallery-title {
     font-size: 2.4rem;
   }
@@ -370,10 +365,7 @@ ul {
     right: -40px;
   }
 }
-@media (width <= 892px) {
-  .gallery-page {
-    /* 🔧 Lightbox (mantém botões visíveis e dentro do viewport) */
-  }
+@media (width <= 1024px) {
   .gallery-page .gallery-header .gallery-title {
     font-size: 2rem;
   }
@@ -395,9 +387,6 @@ ul {
   }
 }
 @media (width <= 768px) {
-  .gallery-page {
-    /* 🔧 Lightbox — mobile/tablet */
-  }
   .gallery-page .gallery-header .gallery-title {
     font-size: 1.8rem;
   }

@@ -1,11 +1,7 @@
 @use "../globals/variables" as *;
 @use "../globals/mixins" as *;
-
 @use "../globals/reset" as *;
-
-
-
-
+@use "sass:color";
 
 .gallery-page {
   width: 100%;
@@ -18,7 +14,7 @@
 
   /* Header / título */
   .gallery-header {
-    max-width: 1520px; /* pedido: até 1520 */
+    max-width: 1520px;
     margin: 0 auto 28px;
     text-align: center;
     z-index: 5;
@@ -69,7 +65,7 @@
         }
       }
     }
-  } // fim .gallery-header
+  }
 
   /* CONTROLE DE TAMANHO (overlay) - compacto */
   .size-control {
@@ -156,7 +152,7 @@
     }
   }
 
-  /* tick ativo (JS aplica body.stage-0/1/2) */
+  /* tick ativo */
   body.stage-0 .size-ticks .tick:nth-child(1),
   body.stage-1 .size-ticks .tick:nth-child(2),
   body.stage-2 .size-ticks .tick:nth-child(3) {
@@ -164,14 +160,14 @@
     transform: scale(1.18);
   }
 
-  /* MASONRY: layout por colunas (JS deve criar .masonry-col) */
+  /* MASONRY: layout por colunas */
   .masonry {
     max-width: 1520px;
     margin: 10px auto 80px;
     padding: 0 1.2rem;
     width: 100%;
-    display: flex; /* colunas lado a lado */
-    gap: 28px; /* espaço horizontal entre colunas */
+    display: flex;
+    gap: 28px;
     align-items: flex-start;
     box-sizing: border-box;
   }
@@ -180,7 +176,7 @@
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
-    gap: 32px; /* espaço vertical entre items */
+    gap: 32px;
     min-width: 0;
     box-sizing: border-box;
   }
@@ -196,8 +192,6 @@
     transition: transform 300ms $easing-cubic, opacity 180ms ease;
     will-change: transform, opacity;
 
-    /* IMPORTANT: não forçamos height por CSS (JS define image.height inline com pattern).
-       Mantemos height:auto como fallback para responsabilidade. */
     img {
       display: block;
       width: 100%;
@@ -296,7 +290,7 @@
         cursor: pointer;
         box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
         font-size: 18px;
-        color: #000;
+        color: $black;
         transition: all 0.25s ease;
 
         &:hover {
@@ -338,21 +332,20 @@
       bottom: 26vh;
     }
 
-    /* 🔧 Lightbox (ajuste leve) */
-    .lightbox {
-      .lightbox-inner {
-        .lightbox-prev {
-          left: -40px;
-        }
+    .lightbox .lightbox-inner {
+      .lightbox-prev {
+        left: -40px;
+      }
 
-        .lightbox-next {
-          right: -40px;
-        }
+      .lightbox-next {
+        right: -40px;
       }
     }
   }
 
-  @include responsive(l) {
+  @include responsive(lg) {
+
+    // lg is usually 1024px, user used 'l' which might be typo in previous files or custom mixin. adjusting to standard 'lg'
     .gallery-header .gallery-title {
       font-size: 2rem;
     }
@@ -370,16 +363,13 @@
       bottom: 24vh;
     }
 
-    /* 🔧 Lightbox (mantém botões visíveis e dentro do viewport) */
-    .lightbox {
-      .lightbox-inner {
-        .lightbox-prev {
-          left: -20px;
-        }
+    .lightbox .lightbox-inner {
+      .lightbox-prev {
+        left: -20px;
+      }
 
-        .lightbox-next {
-          right: -20px;
-        }
+      .lightbox-next {
+        right: -20px;
       }
     }
   }
@@ -398,7 +388,6 @@
       gap: 18px;
     }
 
-    /* 🔧 Lightbox — mobile/tablet */
     .lightbox {
       width: auto;
       margin: auto;
@@ -410,6 +399,7 @@
         gap: 12px;
 
         .lightbox-view {
+
           #lightbox-img,
           .lightbox-img {
             width: 100%;
@@ -454,4 +444,3 @@
     }
   }
 }
-

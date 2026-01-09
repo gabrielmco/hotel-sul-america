@@ -1,3 +1,5 @@
+@use "sass:map";
+@use "variables" as *;
 
 // ============================================================
 // RESPONSIVIDADE
@@ -5,32 +7,76 @@
 
 // 🔹 Atalhos para breakpoints
 @mixin responsive($breakpoint) {
-  @if $breakpoint == s {
-    @media (width <= 576px) { @content; }
+  @if $breakpoint ==s {
+    @media (width <=576px) {
+      @content;
+    }
   }
-  @if $breakpoint == sm {
-    @media (width <= 680px) { @content; }
-  } @else if $breakpoint == md {
-    @media (width <= 768px) { @content; }
-  } @else if $breakpoint == l {
-    @media (width <= 892px) { @content; }
-  } @else if $breakpoint == lm {
-    @media (width <= 992px) { @content; }
-  } @else if $breakpoint == lg {
-    @media (width <= 1024px) { @content; }
-  } @else if $breakpoint == lg-plus {
-    @media (width <= 1144px) { @content; }
-  } @else if $breakpoint == xl {
-    @media (width <= 1220px) { @content; }
-  } @else if $breakpoint == xxl {
-    @media (width <= 1280px) { @content; }
+
+  @if $breakpoint ==sm {
+    @media (width <=680px) {
+      @content;
+    }
   }
-   @else if $breakpoint == xxx {
-    @media (width <= 1467px) { @content; }
+
+  @else if $breakpoint ==md {
+    @media (width <=768px) {
+      @content;
+    }
   }
-  
+
+  @else if $breakpoint ==l {
+    @media (width <=892px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==lm {
+    @media (width <=992px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==lg {
+    @media (width <=1024px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==lg-plus {
+    @media (width <=1144px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==xl {
+    @media (width <=1220px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==xxl {
+    @media (width <=1280px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==xxx {
+    @media (width <=1467px) {
+      @content;
+    }
+  }
 }
 
+// ============================================================
+// HELPERS
+// ============================================================
 
+// 🔹 Função para acessar Z-Index
+@function z($key) {
+  @if not map.has-key($z-index, $key) {
+    @warn "No z-index found for `#{$key}` in $z-index map. Property omitted.";
+  }
 
-
+  @return map.get($z-index, $key);
+}
