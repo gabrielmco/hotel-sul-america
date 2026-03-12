@@ -1,10 +1,9 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 5s ease infinite;
 }
@@ -1285,16 +1284,12 @@ body.loader-active {
   inset: 0;
   background: #52935d;
   opacity: 0.3;
-  -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
-          clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
   z-index: 1;
-  transition: opacity 1s ease, -webkit-clip-path 1s cubic-bezier(0.45, 0, 0.55, 1);
   transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease;
-  transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease, -webkit-clip-path 1s cubic-bezier(0.45, 0, 0.55, 1);
 }
 .sobre .sobre-container .icon-wrapper:hover::after {
-  -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
-          clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
   opacity: 1;
 }
 .sobre .sobre-container .icon-wrapper i {
@@ -1496,8 +1491,7 @@ body.loader-active {
 .about-resort .about-images .image-small img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   position: relative;
   opacity: 0;
   z-index: 2;
@@ -1902,9 +1896,9 @@ body.loader-active {
   width: 100%;
   height: 380px;
   transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.8s ease-out;
   border-radius: 6px;
-  box-shadow: 0 20px 60px rgba(28, 28, 28, 0.12);
+  box-shadow: 0 20px 40px rgba(28, 28, 28, 0.05);
 }
 .facilities .facility-card .card-front,
 .facilities .facility-card .card-back {
@@ -1915,8 +1909,7 @@ body.loader-active {
   overflow: hidden;
 }
 .facilities .facility-card .card-front img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
   height: 100%;
   transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -1938,20 +1931,66 @@ body.loader-active {
   background: linear-gradient(135deg, #52935d, #086016);
   color: #fff;
   transform: rotateY(180deg);
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.facilities .facility-card .card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.15), transparent 70%);
+  pointer-events: none;
 }
 .facilities .facility-card .card-back .icon {
-  font-size: 3.5rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
   color: #fff;
-  animation: iconFloat 3s ease-in-out infinite;
+  backdrop-filter: blur(5px);
+  animation: iconFloat 4s ease-in-out infinite;
+  transition: all 0.4s ease;
+}
+.facilities .facility-card .card-back h4 {
+  font-family: "Rufina", serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 .facilities .facility-card .card-back p {
   font-family: "Urbanist", sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 250px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+.facilities .facility-card .card-back .card-btn {
+  font-family: "Urbanist", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.8rem 1.8rem;
+  background: #fff;
+  color: #086016;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+.facilities .facility-card .card-back .card-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.9);
 }
 .facilities .facility-card .titulo-card {
   margin-top: 1.5rem;
@@ -1975,7 +2014,8 @@ body.loader-active {
   transition: width 0.4s ease;
 }
 .facilities .facility-card:hover .card-inner {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateY(-8px);
+  box-shadow: 0 30px 60px rgba(28, 28, 28, 0.08);
 }
 .facilities .facility-card:hover .card-front img {
   transform: scale(1.15);
@@ -2111,8 +2151,7 @@ body.loader-active {
 .hotel-quote .quote-content .author img {
   width: 160px;
   height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: transform 1s ease;
 }
 .hotel-quote .quote-content .author img:hover {
@@ -2193,8 +2232,7 @@ body.loader-active {
   padding: 0.6rem 1.8rem;
   border-radius: 50px;
   margin-top: 1.5rem;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .eventos .eventos-header .eventos-badge i {
   color: #086016;
@@ -2256,8 +2294,8 @@ body.loader-active {
   border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 20px 60px rgba(28, 28, 28, 0.15);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 20px 40px rgba(28, 28, 28, 0.05);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease-out;
   /* Hover States do Card */
 }
 .eventos .evento-card::before {
@@ -2275,8 +2313,7 @@ body.loader-active {
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   filter: brightness(0.65) contrast(1.1);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -2303,8 +2340,7 @@ body.loader-active {
   top: 25px;
   left: 25px;
   background: rgba(8, 96, 22, 0.9);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   font-family: "Urbanist", sans-serif;
@@ -2387,7 +2423,7 @@ body.loader-active {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.5);
+  transform: translate(-50%, -50%) scale(0);
   width: 70px;
   height: 70px;
   background: #086016;
@@ -2407,7 +2443,7 @@ body.loader-active {
 }
 .eventos .evento-card:hover {
   transform: translateY(-15px);
-  box-shadow: 0 30px 80px rgba(8, 96, 22, 0.25);
+  box-shadow: 0 30px 60px rgba(28, 28, 28, 0.08);
 }
 .eventos .evento-card:hover::before {
   opacity: 0.7;
@@ -2518,8 +2554,7 @@ body.loader-active {
   filter: saturate(1.3) brightness(1.12) contrast(1.05);
   height: 55px;
   max-width: 192px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   transition: opacity 0.6s, transform 0.6s ease;
 }
 .partners-section .partners-container .logo-bar .logo-link:hover img {
@@ -2602,7 +2637,7 @@ body.loader-active {
   transform: translateY(-50%) scale(1);
 }
 .accommodation-wrapper .accommodation-image {
-  width: 570.3px;
+  width: 680px;
   height: 553.2px;
   position: relative;
   overflow: hidden;
@@ -2610,8 +2645,7 @@ body.loader-active {
 .accommodation-wrapper .accommodation-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.6s ease;
 }
 .accommodation-wrapper .accommodation-image .btn-container {
@@ -2782,7 +2816,13 @@ body.loader-active {
    CLASSIFICAÇÃO / TESTIMONIALS
    ================================================================= */
 .testimonials {
-  padding: 6rem 2rem;
+  padding: 6rem 0;
+  background-color: transparent;
+}
+.testimonials .container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 .testimonials .section-header {
   text-align: center;
@@ -2825,8 +2865,7 @@ body.loader-active {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   flex-shrink: 0;
 }
 .testimonials .testimonial-card .testimonial-content p {
@@ -2875,8 +2914,7 @@ body.loader-active {
   position: fixed;
   inset: 0;
   background: rgba(28, 28, 28, 0.92);
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2903,8 +2941,7 @@ body.loader-active {
 .modal .modal-content img {
   width: 100%;
   height: 350px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .modal .modal-content .modal-body {
   padding: 2.5rem;
@@ -2943,8 +2980,7 @@ body.loader-active {
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.95);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   cursor: pointer;
   font-size: 1.5rem;
   color: #1c1c1c;
@@ -2971,4 +3007,6 @@ body.loader-active {
   background-image: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070") !important;
   background-position: center bottom;
   background-size: cover;
-}/*# sourceMappingURL=principal.css.map */
+}
+
+/*# sourceMappingURL=principal.css.map */

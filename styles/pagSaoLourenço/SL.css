@@ -1,10 +1,8 @@
 @charset "UTF-8";
-
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
-  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 5s ease infinite;
@@ -30,15 +28,13 @@ body {
   margin: 0;
   padding: 0;
   color: #1c1c1c;
-  overflow-x: hidden;
-  /* bloqueia qualquer transbordamento lateral */
+  overflow-x: hidden; /* bloqueia qualquer transbordamento lateral */
   line-height: 1.6;
   font-family: "Urbanist", sans-serif;
   background-color: #fff;
   position: relative;
   z-index: 0;
 }
-
 body::before {
   content: "";
   position: fixed;
@@ -66,389 +62,284 @@ ul {
 }
 
 @keyframes float {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   33% {
     transform: translate(30px, -30px) scale(1.1);
   }
-
   66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
 }
-
 @keyframes floatSlow {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   50% {
     transform: translate(60px, -60px) scale(1.1);
   }
 }
-
 @keyframes floatGentle {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   50% {
     transform: translate(40px, -40px) scale(1.08);
   }
 }
-
 @keyframes floatImage {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotate(0deg);
   }
-
   50% {
     transform: translateY(-20px) rotate(5deg);
   }
 }
-
 @keyframes iconFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-10px);
   }
 }
-
 @keyframes bounce {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(10px);
   }
 }
-
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
 }
-
 @keyframes pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.15);
   }
 }
-
 @keyframes pulseRing {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
     opacity: 0.3;
   }
-
   50% {
     transform: scale(1.1);
     opacity: 0.6;
   }
 }
-
 @keyframes shimmer {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.5;
     transform: scaleX(1);
   }
-
   50% {
     opacity: 1;
     transform: scaleX(1.2);
   }
 }
-
 @keyframes lineShimmer {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.5;
     transform: scaleX(1);
   }
-
   50% {
     opacity: 1;
     transform: scaleX(1.2);
   }
 }
-
 @keyframes gradient-shift {
-
-  0%,
-  100% {
+  0%, 100% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
 }
-
 @keyframes borderGlow {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.5;
   }
-
   50% {
     opacity: 1;
   }
 }
-
 @keyframes sparkle {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1) rotate(0deg);
     opacity: 1;
   }
-
   50% {
     transform: scale(1.2) rotate(180deg);
     opacity: 0.8;
   }
 }
-
 @keyframes rotate {
   from {
     transform: translateY(-50%) rotate(0deg);
   }
-
   to {
     transform: translateY(-50%) rotate(360deg);
   }
 }
-
 @keyframes rotate-reverse {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(-360deg);
   }
 }
-
 @keyframes rotateInfinite {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes lineExpand {
   to {
     width: 180px;
   }
 }
-
 /* ========== SEÇÃO FACILITIES (RE-ESTILIZADA) ========== */
 /* ========== ANIMAÇÕES GLOBAIS (Mantidas para o Padrão do Site) ========== */
 @keyframes float {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0);
   }
-
   50% {
     transform: translate(50px, -50px);
   }
 }
-
 @keyframes pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.15);
   }
 }
-
 @keyframes iconFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-10px);
   }
 }
-
 @keyframes floatCircles {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   50% {
     transform: translate(50px, -50px) scale(1.1);
   }
 }
-
 @keyframes fadeInScale {
   from {
     opacity: 0;
     transform: scale(0.8);
   }
-
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
-
 @keyframes logoGlow {
-
-  0%,
-  100% {
+  0%, 100% {
     filter: drop-shadow(0 0 40px rgba(8, 96, 22, 0.6));
-  }
-
-  /* $primary */
+  } /* $primary */
   50% {
     filter: drop-shadow(0 0 60px rgba(8, 96, 22, 0.9));
-  }
-
-  /* $primary */
+  } /* $primary */
 }
-
 @keyframes rotateRing {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes dashArray {
   0% {
     stroke-dasharray: 0 1 359 0;
   }
-
   50% {
     stroke-dasharray: 0 359 1 0;
   }
-
   100% {
     stroke-dasharray: 359 1 0 0;
   }
 }
-
 @keyframes dashOffset {
   0% {
     stroke-dashoffset: 365;
   }
-
   100% {
     stroke-dashoffset: 5;
   }
 }
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes shimmer {
   0% {
     background-position: 200% 0;
   }
-
   100% {
     background-position: -200% 0;
   }
 }
-
 @keyframes particleFloat {
   0% {
     opacity: 0;
     transform: translateY(0) translateX(0);
   }
-
   10% {
     opacity: 1;
   }
-
   90% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     transform: translateY(-100vh) translateX(50px);
   }
 }
-
 @keyframes fadeOutLoader {
   to {
     opacity: 0;
     visibility: hidden;
   }
 }
-
 /* ========================================
 ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 (Adicione ao seu _animations.scss)
@@ -457,56 +348,44 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes logoFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
     filter: drop-shadow(0 0 30px rgba(8, 96, 22, 0.6));
   }
-
   50% {
     transform: translateY(-10px);
     filter: drop-shadow(0 0 50px rgba(8, 96, 22, 0.9));
   }
 }
-
 @keyframes progressShimmer {
   0% {
     background-position: 200% 0;
   }
-
   100% {
     background-position: -200% 0;
   }
 }
-
 @keyframes particleRise {
   0% {
     opacity: 0;
     transform: translateY(0) translateX(0);
   }
-
   10% {
     opacity: 1;
   }
-
   90% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     transform: translateY(-100vh) translateX(30px);
   }
 }
-
 /* ========================================
    ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
    (Adicione ao seu _animations.scss)
@@ -515,56 +394,44 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes logoFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
     filter: drop-shadow(0 0 30px rgba(8, 96, 22, 0.6));
   }
-
   50% {
     transform: translateY(-10px);
     filter: drop-shadow(0 0 50px rgba(8, 96, 22, 0.9));
   }
 }
-
 @keyframes progressShimmer {
   0% {
     background-position: 200% 0;
   }
-
   100% {
     background-position: -200% 0;
   }
 }
-
 @keyframes particleRise {
   0% {
     opacity: 0;
     transform: translateY(0) translateX(0);
   }
-
   10% {
     opacity: 1;
   }
-
   90% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     transform: translateY(-100vh) translateX(30px);
   }
 }
-
 /* ========================================
    ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA (BRANCA)
    (Adicione ao seu _animations.scss)
@@ -573,240 +440,173 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes logoFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
     filter: drop-shadow(0 0 20px rgba(8, 96, 22, 0.35));
   }
-
   50% {
     transform: translateY(-6px);
     filter: drop-shadow(0 0 36px rgba(8, 96, 22, 0.55));
   }
 }
-
 @keyframes progressShimmer {
   0% {
     background-position: 100% 0;
   }
-
   100% {
     background-position: -100% 0;
   }
 }
-
 @keyframes particleRise {
   0% {
     opacity: 0;
     transform: translateY(0) translateX(0) scale(0.9);
   }
-
   10% {
     opacity: 1;
   }
-
   85% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     transform: translateY(-110vh) translateX(18px) scale(1.1);
   }
 }
-
 /* ========================================
    1. ANIMAÇÕES DE LOOP (Movimento)
    ======================================== */
 @keyframes float {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   33% {
     transform: translate(30px, -30px) scale(1.1);
   }
-
   66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
 }
-
 @keyframes floatSlow {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   50% {
     transform: translate(60px, -60px) scale(1.1);
   }
 }
-
 @keyframes floatGentle {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   50% {
     transform: translate(40px, -40px) scale(1.08);
   }
 }
-
 @keyframes floatImage {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotate(0deg);
   }
-
   50% {
     transform: translateY(-20px) rotate(5deg);
   }
 }
-
 @keyframes iconFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-10px);
   }
 }
-
 @keyframes bounce {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(10px);
   }
 }
-
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
 }
-
 /* ========================================
    2. ANIMAÇÕES DE LOOP (Visuais/Brilho)
    ======================================== */
 @keyframes pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.15);
   }
 }
-
 @keyframes pulseRing {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
     opacity: 0.3;
   }
-
   50% {
     transform: scale(1.1);
     opacity: 0.6;
   }
 }
-
 @keyframes shimmer {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.5;
     transform: scaleX(1);
   }
-
   50% {
     opacity: 1;
     transform: scaleX(1.2);
   }
 }
-
 @keyframes lineShimmer {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.5;
     transform: scaleX(1);
   }
-
   50% {
     opacity: 1;
     transform: scaleX(1.2);
   }
 }
-
 @keyframes gradient-shift {
-
-  0%,
-  100% {
+  0%, 100% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
 }
-
 @keyframes borderGlow {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.5;
   }
-
   50% {
     opacity: 1;
   }
 }
-
 @keyframes sparkle {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1) rotate(0deg);
     opacity: 1;
   }
-
   50% {
     transform: scale(1.2) rotate(180deg);
     opacity: 0.8;
   }
 }
-
 /* ========================================
    3. ANIMAÇÕES DE ROTAÇÃO
    ======================================== */
@@ -814,142 +614,112 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   from {
     transform: translateY(-50%) rotate(0deg);
   }
-
   to {
     transform: translateY(-50%) rotate(360deg);
   }
 }
-
 @keyframes rotate-reverse {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(-360deg);
   }
 }
-
 @keyframes rotateInfinite {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 /* ========================================
    4. ANIMAÇÕES DE LOADER (HSA)
    ======================================== */
 @keyframes floatCircles {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-
   50% {
     transform: translate(50px, -50px) scale(1.1);
   }
 }
-
 @keyframes fadeInScale {
   from {
     opacity: 0;
     transform: scale(0.8);
   }
-
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
-
 @keyframes logoGlow {
-
-  0%,
-  100% {
+  0%, 100% {
     filter: drop-shadow(0 0 40px rgba(8, 96, 22, 0.6));
   }
-
   50% {
     filter: drop-shadow(0 0 60px rgba(8, 96, 22, 0.9));
   }
 }
-
 @keyframes rotateRing {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes dashArray {
   0% {
     stroke-dasharray: 0 1 359 0;
   }
-
   50% {
     stroke-dasharray: 0 359 1 0;
   }
-
   100% {
     stroke-dasharray: 359 1 0 0;
   }
 }
-
 @keyframes dashOffset {
   0% {
     stroke-dashoffset: 365;
   }
-
   100% {
     stroke-dashoffset: 5;
   }
 }
-
 @keyframes particleFloat {
   0% {
     opacity: 0;
     transform: translateY(0) translateX(0);
   }
-
   10% {
     opacity: 1;
   }
-
   90% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     transform: translateY(-100vh) translateX(50px);
   }
 }
-
 @keyframes fadeOutLoader {
   to {
     opacity: 0;
     visibility: hidden;
   }
 }
-
 /* ========================================
    5. ANIMAÇÕES DA TRANSIÇÃO (CORTINA)
    ======================================== */
@@ -957,56 +727,44 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes logoFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
     filter: drop-shadow(0 0 20px rgba(8, 96, 22, 0.35));
   }
-
   50% {
     transform: translateY(-6px);
     filter: drop-shadow(0 0 36px rgba(8, 96, 22, 0.55));
   }
 }
-
 @keyframes progressShimmer {
   0% {
     background-position: 100% 0;
   }
-
   100% {
     background-position: -100% 0;
   }
 }
-
 @keyframes particleRise {
   0% {
     opacity: 0;
     transform: translateY(0) translateX(0) scale(0.9);
   }
-
   10% {
     opacity: 1;
   }
-
   85% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     transform: translateY(-110vh) translateX(18px) scale(1.1);
   }
 }
-
 /* ========================================
    6. ANIMAÇÕES DE ENTRADA (AOS / JS-SCROLL)
    ======================================== */
@@ -1015,29 +773,24 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes lineExpand {
   to {
     width: 180px;
   }
 }
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 /* ========== TOGGLE CONTAINER ========== */
 .toggle-container {
   display: flex;
@@ -1047,14 +800,12 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin: 2rem auto 3rem;
   max-width: 300px;
 }
-
 .toggle-container .toggle-label {
   font-size: 18px;
   font-weight: 600;
   color: #333;
   transition: all 0.3s ease;
 }
-
 .toggle-container .toggle-label.active {
   color: #2196f3;
   transform: scale(1.1);
@@ -1067,13 +818,11 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 60px;
   height: 34px;
 }
-
 .switch #input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .switch .slider {
   position: absolute;
   cursor: pointer;
@@ -1086,7 +835,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   z-index: 0;
   overflow: hidden;
 }
-
 .switch .slider .sun-moon {
   position: absolute;
   content: "";
@@ -1097,76 +845,63 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background-color: #ffd700;
   transition: 0.4s;
 }
-
 .switch .slider .sun-moon .moon-dot {
   opacity: 0;
   transition: 0.4s;
   fill: #666;
 }
-
 .switch .slider .stars {
   transform: translateY(-32px);
   opacity: 0;
   transition: 0.4s;
 }
-
 .switch .slider .stars .star {
   fill: white;
   position: absolute;
   transition: 0.4s;
   animation: star-twinkle 2s infinite;
 }
-
 .switch .slider .stars #star-1 {
   width: 20px;
   top: 2px;
   left: 3px;
   animation-delay: 0.3s;
 }
-
 .switch .slider .stars #star-2 {
   width: 6px;
   top: 16px;
   left: 3px;
 }
-
 .switch .slider .stars #star-3 {
   width: 12px;
   top: 20px;
   left: 10px;
   animation-delay: 0.6s;
 }
-
 .switch .slider .stars #star-4 {
   width: 18px;
   top: 0;
   left: 18px;
   animation-delay: 1.3s;
 }
-
-.switch #input:checked+.slider {
+.switch #input:checked + .slider {
   background-color: #1a237e;
 }
-
-.switch #input:checked+.slider .sun-moon {
+.switch #input:checked + .slider .sun-moon {
   transform: translateX(26px);
   background-color: white;
   animation: rotate-center 0.6s ease-in-out both;
 }
-
-.switch #input:checked+.slider .sun-moon .moon-dot {
+.switch #input:checked + .slider .sun-moon .moon-dot {
   opacity: 1;
 }
-
-.switch #input:checked+.slider .stars {
+.switch #input:checked + .slider .stars {
   transform: translateY(0);
   opacity: 1;
 }
-
 .switch .slider.round {
   border-radius: 34px;
 }
-
 .switch .slider.round .sun-moon {
   border-radius: 50%;
 }
@@ -1297,39 +1032,33 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   text-align: center;
   /* Elementos decorativos de fundo */
 }
-
 .hero-mosaic .texto-inicial {
   width: 1220px;
   position: relative;
   display: flex;
   z-index: 10;
 }
-
 .hero-mosaic .texto-inicial .icone {
   position: absolute;
   right: 340px;
   border-radius: 100%;
   border: 1px solid rgba(8, 96, 22, 0.8);
 }
-
 .hero-mosaic .texto-inicial .icone img {
   padding: 18px;
   width: 150px;
 }
-
 .hero-mosaic .texto-inicial .texto-1 {
   width: 680px;
   margin: auto;
   margin-right: 155px;
   margin-bottom: -30px;
 }
-
 .hero-mosaic .texto-inicial .texto-1 h1 {
   display: flex;
   font-size: 45px;
   font-family: "Rufina", serif;
 }
-
 .hero-mosaic .texto-inicial .texto-1 p {
   display: flex;
   text-align: start;
@@ -1338,13 +1067,11 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   color: #495057;
   width: 700px;
 }
-
 .hero-mosaic .texto-inicial .texto-2 {
   margin: auto;
   width: 400px;
   margin-bottom: -38px;
 }
-
 .hero-mosaic .texto-inicial .texto-2 h4 {
   display: flex;
   justify-content: end;
@@ -1352,7 +1079,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   color: #086016;
   font-family: "Urbanist", sans-serif;
 }
-
 .hero-mosaic .texto-inicial .texto-2 p {
   display: flex;
   text-align: end;
@@ -1360,7 +1086,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   font-size: 18px;
   color: #495057;
 }
-
 .hero-mosaic .mosaic-wrap {
   display: grid;
   grid-template-columns: 288px 384px 448px 384px 288px;
@@ -1372,29 +1097,24 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   box-sizing: border-box;
   transition: transform 0.4s ease, margin 0.4s ease;
 }
-
 .hero-mosaic .mosaic-wrap .tile {
   position: relative;
   overflow: visible;
   box-sizing: border-box;
 }
-
 .hero-mosaic .mosaic-wrap .tile img {
   width: 100%;
   height: 100%;
   display: block;
-  -o-object-fit: cover;
   object-fit: cover;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
   transition: transform 0.4s ease;
 }
-
 .hero-mosaic .mosaic-wrap .tile--frame img {
   border: 10px solid #fff;
   box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
 }
-
 .hero-mosaic .mosaic-wrap .tile--left {
   grid-column: 1;
   width: 288px;
@@ -1402,7 +1122,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateX(65px) translateY(-20%);
   z-index: 3;
 }
-
 .hero-mosaic .mosaic-wrap .tile--second {
   grid-column: 2;
   width: 384px;
@@ -1410,7 +1129,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateX(-10px);
   z-index: 2;
 }
-
 .hero-mosaic .mosaic-wrap .tile--center {
   grid-column: 3;
   width: 448px;
@@ -1420,7 +1138,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   z-index: 4;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
-
 .hero-mosaic .mosaic-wrap .tile--fourth {
   grid-column: 4;
   width: 384px;
@@ -1428,7 +1145,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateX(10px);
   z-index: 2;
 }
-
 .hero-mosaic .mosaic-wrap .tile--right {
   grid-column: 5;
   width: 288px;
@@ -1436,30 +1152,25 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateX(-65px) translateY(-20%);
   z-index: 3;
 }
-
-@media (width <=1220px) {
+@media (width <= 1220px) {
   .hero-mosaic {
     padding: 20px 20px 0;
     margin-bottom: 0;
   }
-
   .hero-mosaic .texto-inicial {
     flex-direction: column;
     width: 100%;
     margin-bottom: 0;
   }
-
   .hero-mosaic .texto-inicial .texto-2 {
     margin-top: 3rem;
     margin-bottom: -5rem;
   }
-
   .hero-mosaic .texto-inicial .texto-1,
   .hero-mosaic .texto-inicial .texto-2 {
     width: 100%;
     text-align: center;
   }
-
   .hero-mosaic .texto-inicial .texto-1 h1,
   .hero-mosaic .texto-inicial .texto-1 p,
   .hero-mosaic .texto-inicial .texto-1 h4,
@@ -1470,7 +1181,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     text-align: center;
     justify-content: center;
   }
-
   .hero-mosaic .mosaic-wrap {
     padding-top: 0;
     margin-top: 0;
@@ -1488,9 +1198,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   /* Container Principal */
   /* ========== RESPONSIVIDADE ========== */
 }
-
-.secao-destinos::before,
-.secao-destinos::after {
+.secao-destinos::before, .secao-destinos::after {
   content: "";
   position: absolute;
   border-radius: 50%;
@@ -1498,7 +1206,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   opacity: 0.06;
   pointer-events: none;
 }
-
 .secao-destinos::before {
   width: 600px;
   height: 600px;
@@ -1506,7 +1213,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   top: -150px;
   right: -150px;
 }
-
 .secao-destinos::after {
   width: 500px;
   height: 500px;
@@ -1514,7 +1220,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   bottom: -100px;
   left: -100px;
 }
-
 .secao-destinos .destinos-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -1528,13 +1233,11 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   /* ========== CONTEÚDO DE TEXTO ========== */
   /* ========== CARDS EMPILHADOS ========== */
 }
-
 .secao-destinos .destinos-container .coluna-texto {
   position: relative;
   /* Linha decorativa */
   /* Contador decorativo */
 }
-
 .secao-destinos .destinos-container .coluna-texto::before {
   content: "";
   position: absolute;
@@ -1545,7 +1248,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: linear-gradient(90deg, #086016, transparent);
   animation: shimmer 3s ease-in-out infinite;
 }
-
 .secao-destinos .destinos-container .coluna-texto .texto-emblema {
   display: inline-flex;
   align-items: center;
@@ -1560,16 +1262,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   border: 1px solid rgba(8, 96, 22, 0.2);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
-
 .secao-destinos .destinos-container .coluna-texto .texto-emblema::before {
   content: "✦";
   font-size: 1rem;
   animation: pulse 2s ease-in-out infinite;
 }
-
 .secao-destinos .destinos-container .coluna-texto .texto-titulo {
   font-family: "Rufina", serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -1579,7 +1278,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   line-height: 1.2;
   position: relative;
 }
-
 .secao-destinos .destinos-container .coluna-texto .texto-titulo::after {
   content: "";
   position: absolute;
@@ -1590,7 +1288,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: linear-gradient(90deg, #086016, transparent);
   animation: lineExpand 2s ease-out forwards;
 }
-
 .secao-destinos .destinos-container .coluna-texto .texto-descricao {
   font-family: "Urbanist", sans-serif;
   font-size: 1.1rem;
@@ -1599,18 +1296,15 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin-top: 2.5rem;
   max-width: 540px;
 }
-
 .secao-destinos .destinos-container .coluna-texto .linha-estatisticas {
   display: flex;
   gap: 3rem;
   margin-top: 3rem;
 }
-
 .secao-destinos .destinos-container .coluna-texto .linha-estatisticas .estatistica-item {
   position: relative;
   padding-left: 1.5rem;
 }
-
 .secao-destinos .destinos-container .coluna-texto .linha-estatisticas .estatistica-item::before {
   content: "";
   position: absolute;
@@ -1621,7 +1315,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   height: 40px;
   background: linear-gradient(180deg, #086016, transparent);
 }
-
 .secao-destinos .destinos-container .coluna-texto .linha-estatisticas .estatistica-numero {
   font-family: "Rufina", serif;
   font-size: 2.5rem;
@@ -1629,7 +1322,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   color: #086016;
   line-height: 1;
 }
-
 .secao-destinos .destinos-container .coluna-texto .linha-estatisticas .estatistica-rotulo {
   font-family: "Urbanist", sans-serif;
   font-size: 0.85rem;
@@ -1638,7 +1330,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .secao-destinos .destinos-container .pilha-cartoes {
   position: relative;
   width: 100%;
@@ -1650,7 +1341,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   /* Posicionamento inicial (escadinha) */
   /* Efeito hover (leque/escadinha) (CORRIGIDO) */
 }
-
 .secao-destinos .destinos-container .pilha-cartoes .cartao-item {
   position: absolute;
   width: 340px;
@@ -1662,26 +1352,8 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform;
   overflow: hidden;
-  /* Borda verde (glow) */
   /* Overlay nos cards (CORRIGIDO) */
-  /* Ícone decorativo (Substituído) */
 }
-
-.secao-destinos .destinos-container .pilha-cartoes .cartao-item::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, #086016, transparent, #086016);
-  border-radius: 24px;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.6s ease;
-}
-
-.secao-destinos .destinos-container .pilha-cartoes .cartao-item:hover::before {
-  opacity: 0.6;
-}
-
 .secao-destinos .destinos-container .pilha-cartoes .cartao-item::after {
   content: "";
   position: absolute;
@@ -1690,209 +1362,147 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transition: opacity 0.6s ease;
   border-radius: 24px;
 }
-
 .secao-destinos .destinos-container .pilha-cartoes .cartao-item:hover::after {
   opacity: 0.5;
 }
-
-.secao-destinos .destinos-container .pilha-cartoes .cartao-item .cartao-icone {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  background: rgba(8, 96, 22, 0.9);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #fff;
-  z-index: 10;
-  box-shadow: 0 8px 25px rgba(8, 96, 22, 0.4);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.secao-destinos .destinos-container .pilha-cartoes .cartao-item:hover .cartao-icone {
-  transform: scale(1.2) rotate(360deg);
-  background: #fff;
-  color: #086016;
-}
-
 .secao-destinos .destinos-container .pilha-cartoes .cartao-1 {
   transform: translate(-8%, -6%) rotate(-6deg);
   z-index: 1;
 }
-
 .secao-destinos .destinos-container .pilha-cartoes .cartao-2 {
   transform: translate(0, 0) rotate(-2deg);
   z-index: 2;
 }
-
 .secao-destinos .destinos-container .pilha-cartoes .cartao-3 {
   transform: translate(8%, 6%) rotate(2deg);
   z-index: 3;
 }
-
 .secao-destinos .destinos-container .pilha-cartoes:hover .cartao-1 {
   transform: translate(-50%, -8%) rotate(-12deg) scale(0.95);
   z-index: 1;
 }
-
 .secao-destinos .destinos-container .pilha-cartoes:hover .cartao-2 {
   transform: translate(0, -5%) rotate(0deg) scale(1.05);
   z-index: 2;
 }
-
 .secao-destinos .destinos-container .pilha-cartoes:hover .cartao-3 {
   transform: translate(50%, 8%) rotate(12deg) scale(0.95);
   z-index: 3;
 }
-
-@media (width <=1024px) {
+@media (width <= 1024px) {
   .secao-destinos {
     padding: 100px 0;
   }
-
   .secao-destinos .destinos-container {
     grid-template-columns: 1fr;
     gap: 5rem;
   }
-
   .secao-destinos .coluna-texto {
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
   }
-
   .secao-destinos .coluna-texto::before {
     left: 50%;
     transform: translateX(-50%);
   }
-
   .secao-destinos .texto-titulo::after {
     left: 50%;
     transform: translateX(-50%);
   }
-
   .secao-destinos .texto-descricao {
     margin-left: auto;
     margin-right: auto;
   }
-
   .secao-destinos .linha-estatisticas {
     justify-content: center;
   }
-
   .secao-destinos .pilha-cartoes {
     order: 2;
     height: 550px;
   }
-
   .secao-destinos .cartao-item {
     width: 320px;
     height: 450px;
   }
 }
-
-@media (width <=768px) {
+@media (width <= 768px) {
   .secao-destinos {
     padding: 80px 0;
   }
-
   .secao-destinos .destinos-container {
     padding: 0 1.5rem;
     gap: 4rem;
   }
-
   .secao-destinos .texto-titulo {
     font-size: 2.5rem;
   }
-
   .secao-destinos .texto-descricao {
     font-size: 1rem;
   }
-
   .secao-destinos .linha-estatisticas {
     gap: 2rem;
   }
-
   .secao-destinos .estatistica-numero {
     font-size: 2rem;
   }
-
   .secao-destinos .pilha-cartoes {
     height: 500px;
   }
-
   .secao-destinos .cartao-item {
     width: 280px;
     height: 400px;
   }
-
   .secao-destinos .cartao-icone {
     width: 45px;
     height: 45px;
     font-size: 1.3rem;
   }
 }
-
-@media (width <=680px) {
+@media (width <= 680px) {
   .secao-destinos {
     padding: 60px 0;
     /* Ajusta posicionamento no mobile: menos espaçamento lateral */
     /* Hover no mobile: movimento sutil VERTICAL/SCALE em vez de lateral expansivo */
   }
-
   .secao-destinos .destinos-container {
     padding: 0 1rem;
     gap: 3rem;
   }
-
   .secao-destinos .texto-emblema {
     font-size: 0.8rem;
     padding: 0.4rem 1.2rem;
   }
-
   .secao-destinos .texto-titulo {
     font-size: 2rem;
     margin-top: 1rem;
   }
-
   .secao-destinos .texto-descricao {
     font-size: 0.95rem;
     margin-top: 2rem;
   }
-
   .secao-destinos .linha-estatisticas {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
     margin-top: 2rem;
   }
-
   .secao-destinos .estatistica-item {
     text-align: center;
     padding-left: 0;
   }
-
   .secao-destinos .estatistica-item::before {
     display: none;
   }
-
   .secao-destinos .pilha-cartoes {
     height: 400px;
     margin-top: 1rem;
   }
-
   .secao-destinos .cartao-item {
     width: 240px;
     height: 340px;
     border-radius: 20px;
   }
-
   .secao-destinos .cartao-icone {
     top: 15px;
     left: 15px;
@@ -1900,29 +1510,23 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     height: 40px;
     font-size: 1.2rem;
   }
-
   .secao-destinos .cartao-1 {
     transform: translate(-4%, -4%) rotate(-4deg);
   }
-
   .secao-destinos .cartao-2 {
     transform: translate(0, 0) rotate(0deg);
   }
-
   .secao-destinos .cartao-3 {
     transform: translate(4%, 4%) rotate(4deg);
   }
-
   .secao-destinos .pilha-cartoes:hover .cartao-1 {
     transform: translate(-15%, -8%) rotate(-6deg) scale(0.95);
     z-index: 1;
   }
-
   .secao-destinos .pilha-cartoes:hover .cartao-2 {
     transform: translate(0, -2%) rotate(0deg) scale(1);
     z-index: 2;
   }
-
   .secao-destinos .pilha-cartoes:hover .cartao-3 {
     transform: translate(15%, 8%) rotate(6deg) scale(0.95);
     z-index: 3;
@@ -1941,12 +1545,10 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   /* ========== CARD 3D ========== */
   /* ========== RESPONSIVIDADE ========== */
 }
-
 .container .section-header {
   text-align: center;
   margin-bottom: 80px;
 }
-
 .container .section-header .section-title {
   font-family: "Rufina", serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -1955,7 +1557,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin-bottom: 1rem;
   position: relative;
 }
-
 .container .section-header .section-title::after {
   content: "";
   position: absolute;
@@ -1968,7 +1569,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   border-radius: 2px;
   margin: 1rem auto;
 }
-
 .container .section-header .section-subtitle {
   font-family: "Urbanist", sans-serif;
   font-size: 1.1rem;
@@ -1976,14 +1576,12 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   max-width: 700px;
   margin: 0 auto;
 }
-
 .container .cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   justify-items: center;
 }
-
 .container .card-wrap {
   perspective: 1000px;
   transform-style: preserve-3d;
@@ -1992,7 +1590,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   max-width: 320px;
   /* Efeito de hover no card completo */
 }
-
 .container .card-wrap .card {
   position: relative;
   width: 100%;
@@ -2008,7 +1605,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   /* Overlay gradiente */
   /* Informações do card */
 }
-
 .container .card-wrap .card::before {
   content: "";
   position: absolute;
@@ -2019,18 +1615,15 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   z-index: -1;
   transition: opacity 0.6s ease;
 }
-
 .container .card-wrap .card .card-bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
   opacity: 0.85;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   filter: brightness(0.7) contrast(1.1);
 }
-
 .container .card-wrap .card::after {
   content: "";
   position: absolute;
@@ -2039,7 +1632,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   z-index: 1;
   transition: all 0.6s ease;
 }
-
 .container .card-wrap .card .card-info {
   position: absolute;
   bottom: 0;
@@ -2051,7 +1643,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateY(50px);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 .container .card-wrap .card .card-info h1 {
   font-family: "Rufina", serif;
   font-size: 2rem;
@@ -2061,7 +1652,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   display: inline-block;
 }
-
 .container .card-wrap .card .card-info h1::after {
   content: "";
   position: absolute;
@@ -2072,7 +1662,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: #086016;
   transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 .container .card-wrap .card .card-info p {
   font-family: "Urbanist", sans-serif;
   font-size: 0.95rem;
@@ -2083,125 +1672,98 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateY(20px);
   transition: all 0.6s 0.1s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 .container .card-wrap:hover .card {
   box-shadow: 0 40px 80px rgba(82, 147, 93, 0.3), 0 0 0 2px #086016, inset 0 0 0 1px rgba(8, 96, 22, 0.2);
 }
-
 .container .card-wrap:hover .card::before {
   opacity: 0.6;
   animation: borderGlow 2s ease-in-out infinite;
 }
-
 .container .card-wrap:hover .card .card-bg {
   opacity: 1;
   transform: scale(1.1);
   filter: brightness(0.9) contrast(1.2);
 }
-
 .container .card-wrap:hover .card::after {
   background: linear-gradient(to bottom, rgba(82, 147, 93, 0.1) 0%, rgba(28, 28, 28, 0.4) 40%, rgba(28, 28, 28, 0.98) 100%);
 }
-
 .container .card-wrap:hover .card .card-info {
   transform: translateY(0);
 }
-
 .container .card-wrap:hover .card .card-info h1::after {
   width: 100%;
 }
-
 .container .card-wrap:hover .card .card-info p {
   opacity: 1;
   transform: translateY(0);
 }
-
-@media (width <=1220px) {
+@media (width <= 1220px) {
   .container {
     padding: 50px 40px;
   }
-
   .container .section-header {
     margin-bottom: 60px;
   }
-
   .container .cards-grid {
     gap: 35px;
     grid-template-columns: repeat(2, 1fr);
   }
-
   .container .card {
     height: 400px;
   }
 }
-
-@media (width <=768px) {
+@media (width <= 768px) {
   .container {
     padding: 40px 30px;
   }
-
   .container .section-header {
     margin-bottom: 50px;
   }
-
   .container .section-title {
     font-size: 2.5rem;
   }
-
   .container .section-subtitle {
     font-size: 1rem;
   }
-
   .container .cards-grid {
     gap: 30px;
     grid-template-columns: repeat(2, 1fr);
   }
-
   .container .card {
     height: 380px;
   }
-
   .container .card-info h1 {
     font-size: 1.75rem;
   }
-
   .container .card-info p {
     font-size: 0.9rem;
   }
 }
-
-@media (width <=680px) {
+@media (width <= 680px) {
   .container {
     padding: 30px 20px;
   }
-
   .container .section-header {
     margin-bottom: 40px;
   }
-
   .container .cards-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-
   .container .card-wrap {
     max-width: 100%;
   }
-
   .container .card {
     height: 420px;
     max-width: 360px;
     margin: 0 auto;
   }
-
   .container .card-info {
     padding: 25px;
   }
-
   .container .card-info h1 {
     font-size: 1.65rem;
   }
-
   .container .card-info p {
     font-size: 0.85rem;
   }
@@ -2216,12 +1778,10 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   padding: 48px 0 120px;
 }
-
 .carousel-section .carousel-header {
   text-align: center;
   margin: 2rem;
 }
-
 .carousel-section .carousel-header .carousel-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
@@ -2230,7 +1790,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   font-family: "Rufina", serif;
 }
-
 .carousel-section .carousel-header .carousel-title::after {
   content: "";
   position: absolute;
@@ -2242,7 +1801,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: linear-gradient(90deg, transparent, #086016, transparent);
   border-radius: 2px;
 }
-
 .carousel-section .carousel-header .carousel-subtitle {
   font-size: 1.1rem;
   max-width: 700px;
@@ -2251,7 +1809,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   color: #495057;
   font-family: "Urbanist", sans-serif;
 }
-
 .carousel-section .carousel-viewport {
   width: 100%;
   max-width: 100vw;
@@ -2259,7 +1816,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   display: flex;
   justify-content: center;
 }
-
 .carousel-section .carousel-track {
   display: flex;
   gap: 20px;
@@ -2269,15 +1825,12 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   padding: 12px 20px;
   width: 100%;
 }
-
 .carousel-section .carousel-track::-webkit-scrollbar {
   display: none;
 }
-
 .carousel-section .carousel-track.is-dragging {
   cursor: grabbing;
 }
-
 .carousel-section .carousel-track .card {
   flex: 0 0 auto;
   width: 544px;
@@ -2287,17 +1840,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   border-radius: 12px;
   overflow: hidden;
   background: #1c1c1c;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.3s ease;
 }
-
 .carousel-section .carousel-track .card img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
   display: block;
   transform: scale(1.05);
@@ -2307,16 +1856,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   will-change: transform, filter;
   pointer-events: none;
 }
-
 .carousel-section .carousel-track .card:hover img {
   transform: scale(1);
   filter: brightness(0.9);
 }
-
 .carousel-section .carousel-track .card.centered {
   transform: scale(1.02);
 }
-
 .carousel-section .carousel-track .card .card-overlay {
   position: absolute;
   inset: 0;
@@ -2328,7 +1874,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   pointer-events: none;
   /* Mantém o 'grab' do track */
 }
-
 .carousel-section .carousel-track .card .card-overlay h3 {
   margin: 0;
   padding-top: 18px;
@@ -2342,7 +1887,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   text-shadow: 0 2px 8px rgba(28, 28, 28, 0.6);
   pointer-events: none;
 }
-
 .carousel-section .carousel-track .card .card-overlay .diamond {
   width: 42px;
   height: 42px;
@@ -2360,26 +1904,20 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   z-index: 5;
   cursor: pointer;
 }
-
-.carousel-section .carousel-track .card .card-overlay .diamond:hover,
-.carousel-section .carousel-track .card .card-overlay .diamond:focus {
+.carousel-section .carousel-track .card .card-overlay .diamond:hover, .carousel-section .carousel-track .card .card-overlay .diamond:focus {
   background: #086016;
   border-color: #fff;
   transform: rotate(405deg) scale(1.15);
   box-shadow: 0 15px 40px rgba(8, 96, 22, 0.5);
 }
-
-.carousel-section .carousel-track .card .card-overlay .diamond:hover span,
-.carousel-section .carousel-track .card .card-overlay .diamond:focus span {
+.carousel-section .carousel-track .card .card-overlay .diamond:hover span, .carousel-section .carousel-track .card .card-overlay .diamond:focus span {
   transform: rotate(-45deg) scale(0.9);
   color: #fff;
 }
-
 .carousel-section .carousel-track .card .card-overlay .diamond:focus {
   outline: none;
   box-shadow: 0 0 0 4px rgba(8, 96, 22, 0.18);
 }
-
 .carousel-section .carousel-track .card .card-overlay .diamond span {
   display: inline-block;
   transform: rotate(-45deg);
@@ -2388,7 +1926,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transition: transform 0.3s ease, color 0.2s ease;
   pointer-events: none;
 }
-
 .carousel-section .carousel-controls {
   position: absolute;
   bottom: 32px;
@@ -2398,7 +1935,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   gap: 20px;
   z-index: 30;
 }
-
 .carousel-section .carousel-controls button {
   width: 56px;
   height: 56px;
@@ -2414,45 +1950,35 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transition: all 0.3s ease;
   background: rgb(245, 242, 237);
 }
-
 .carousel-section .carousel-controls button:hover {
   background: #086016;
   border-color: #086016;
   color: #fff;
   transform: translateY(-4px);
 }
-
 .carousel-section .carousel-controls button i {
   pointer-events: none;
 }
-
-/* Mudei o seletor para ser global, já que o modal foi movido para o body */
-.modal {
+.carousel-section .modal {
   position: fixed;
   inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(28, 28, 28, 0.9);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(28, 28, 28, 0.85);
   backdrop-filter: blur(8px);
-  padding: 20px;
-  z-index: 99999 !important;
-  /* Force high z-index */
+  padding: 32px;
+  z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-
-.modal.show {
-  display: flex !important;
-  /* Ensure flex is applied when shown */
+.carousel-section .modal.show {
+  display: flex;
   opacity: 1;
 }
-
-.modal .modal-content {
-  width: min(900px, 100%);
-  max-height: 90vh;
-  /* Limit height to viewport */
+.carousel-section .modal .modal-content {
+  width: min(980px, 96%);
+  max-height: 92vh;
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
@@ -2460,41 +1986,29 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   flex-direction: column;
   position: relative;
   animation: modalSlideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
-
-.modal .modal-content img {
+.carousel-section .modal .modal-content img {
   width: 100%;
   height: 420px;
-  flex-shrink: 0;
-  /* Prevent image from being squished */
-  -o-object-fit: cover;
   object-fit: cover;
 }
-
-.modal .modal-content .modal-body {
+.carousel-section .modal .modal-content .modal-body {
   padding: 32px;
   overflow-y: auto;
-  /* Enable internal scrolling */
-  flex: 1;
-  /* Take remaining space */
 }
-
-.modal .modal-content .modal-body h2 {
+.carousel-section .modal .modal-content .modal-body h2 {
   margin: 0 0 18px;
   font-size: 1.8rem;
   font-family: "Rufina", serif;
   color: #1c1c1c;
 }
-
-.modal .modal-content .modal-body p {
+.carousel-section .modal .modal-content .modal-body p {
   color: #495057;
   line-height: 1.7;
   font-size: 1.05rem;
   font-family: "Urbanist", sans-serif;
 }
-
-.modal .modal-content .modal-close {
+.carousel-section .modal .modal-content .modal-close {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -2513,95 +2027,77 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   justify-content: center;
   z-index: 10;
 }
-
-.modal .modal-content .modal-close:hover {
+.carousel-section .modal .modal-content .modal-close:hover {
   background: #086016;
   color: #fff;
   transform: rotate(90deg);
 }
-
 @keyframes modalSlideUp {
   from {
     opacity: 0;
     transform: translateY(40px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-@media (width <=768px) {
+@media (width <= 768px) {
   .carousel-section {
     padding-bottom: 100px;
   }
-
   .carousel-section .carousel-track {
     padding: 12px 10px;
     gap: 15px;
   }
-
   .carousel-section .carousel-track .card {
     width: 360px;
     height: 480px;
   }
-
   .carousel-section .carousel-track .card .card-overlay h3 {
     font-size: 1rem;
   }
-
   .carousel-section .carousel-controls {
     bottom: 24px;
     gap: 15px;
   }
-
   .carousel-section .carousel-controls button {
     width: 52px;
     height: 52px;
     font-size: 18px;
     padding: 0;
   }
-
   .carousel-section .modal .modal-content img {
     height: 280px;
   }
-
   .carousel-section .modal .modal-content .modal-body {
     padding: 20px;
   }
-
   .carousel-section .modal .modal-content .modal-body h2 {
     font-size: 1.4rem;
   }
 }
-
-@media (width <=680px) {
+@media (width <= 680px) {
   .carousel-section {
     padding: 32px 0 90px;
   }
-
   .carousel-section .carousel-track {
     padding: 12px 8px;
     gap: 12px;
   }
-
   .carousel-section .carousel-track .card {
     width: 280px;
     height: 380px;
   }
-
   .carousel-section .carousel-controls button {
     width: 48px;
     height: 48px;
     font-size: 16px;
     padding: 0;
   }
-
   .carousel-section .modal .modal-content img {
     height: 220px;
   }
-
   .carousel-section .modal .modal-body {
     padding: 16px;
   }
@@ -2619,17 +2115,14 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   overflow: hidden;
   box-sizing: border-box;
 }
-
 .hero-video-hero .hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
   z-index: 0;
 }
-
 .hero-video-hero .hero-overlay {
   position: absolute;
   inset: 0;
@@ -2637,7 +2130,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: linear-gradient(to bottom, rgba(28, 28, 28, 0.45) 0%, rgba(28, 28, 28, 0.35) 35%, rgba(28, 28, 28, 0.45) 100%);
   pointer-events: none;
 }
-
 .hero-video-hero .hero-content {
   position: relative;
   z-index: 2;
@@ -2651,7 +2143,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   align-items: center;
   gap: 20px;
 }
-
 .hero-video-hero .hero-eyebrow {
   margin: 0;
   font-family: "Urbanist", sans-serif;
@@ -2661,7 +2152,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   color: rgba(255, 255, 255, 0.9);
   opacity: 0.95;
 }
-
 .hero-video-hero .hero-title {
   margin: 0;
   font-family: "Rufina", serif;
@@ -2671,13 +2161,11 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   letter-spacing: 0.02em;
   color: #fff;
 }
-
 .hero-video-hero .hero-title--accent {
   font-style: italic;
   font-weight: 600;
   display: inline-block;
 }
-
 .hero-video-hero .hero-cta {
   display: inline-block;
   margin-top: 6px;
@@ -2691,50 +2179,40 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: rgba(255, 255, 255, 0.04);
   transition: background 0.22s ease, transform 0.14s ease, box-shadow 0.18s ease;
 }
-
-.hero-video-hero .hero-cta:hover,
-.hero-video-hero .hero-cta:focus {
+.hero-video-hero .hero-cta:hover, .hero-video-hero .hero-cta:focus {
   background: rgba(255, 255, 255, 0.12);
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(28, 28, 28, 0.35);
   outline: none;
 }
-
-@media (width <=768px) {
+@media (width <= 768px) {
   .hero-video-hero {
     min-height: 64vh;
     height: auto;
   }
-
   .hero-video-hero .hero-title {
     font-size: clamp(1.8rem, 8vw, 3.2rem);
     line-height: 1.05;
   }
-
   .hero-video-hero .hero-content {
     padding: 4vh 18px;
   }
-
   .hero-video-hero .hero-eyebrow {
     font-size: 0.8rem;
     letter-spacing: 2px;
   }
 }
-
-@media (width <=680px) {
+@media (width <= 680px) {
   .hero-video-hero {
     min-height: 50vh;
   }
-
   .hero-video-hero .hero-content {
     padding: 4vh 1rem;
     gap: 15px;
   }
-
   .hero-video-hero .hero-title {
     font-size: clamp(1.6rem, 7vw, 2.5rem);
   }
-
   .hero-video-hero .hero-cta {
     padding: 10px 24px;
     font-size: 0.9rem;

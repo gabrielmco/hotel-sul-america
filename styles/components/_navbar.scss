@@ -9,15 +9,17 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: $white;
-  box-shadow: $box-shadow;
+  background: rgba(255, 255, 255, 0.45); // Lighter & more transparent
+  backdrop-filter: blur(20px); // Increased for premium feel
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03); // Softer, more expanded shadow
   z-index: 1000;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.3s ease;
-  border-bottom: 4px solid rgba($primary, 0.8);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); // Smoother transition
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); // Subtle border
 
   .nav-phone {
     font-size: 0.9rem;
@@ -106,10 +108,12 @@
   }
 
   &.shrink {
-    background: $white;
-    box-shadow: $box-shadow;
-    border: none;
-    transition: 1s ease;
+    background: rgba(255, 255, 255, 0.85); // Slightly more solid but still glassy
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 0.6rem 2rem; // Slightly more compact
 
     .logo img {
       width: 60px;
@@ -184,12 +188,15 @@
       top: 100%;
       left: 0;
       width: 100%;
-      background: $white;
+      background: rgba(255, 255, 255, 0.85); // Antigravity: matching glassmorphism
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       overflow: hidden;
       max-height: 0;
       opacity: 0;
       visibility: hidden;
-      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.4s ease, visibility 0.4s ease;
       z-index: 999;
 
