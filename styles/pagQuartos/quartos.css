@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -195,7 +195,6 @@ ul {
   border-radius: 10px;
   text-align: center;
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* ---------- Títulos e textos ---------- */
 }
 .sobre .sobre-container:hover {
   transform: translateY(-6px);
@@ -220,16 +219,12 @@ ul {
   inset: 0;
   background: #52935d;
   opacity: 0.3;
-  -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
-          clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 100% 0%, 0% 100%);
   z-index: 1;
-  transition: opacity 1s ease, -webkit-clip-path 1s cubic-bezier(0.45, 0, 0.55, 1);
   transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease;
-  transition: clip-path 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s ease, -webkit-clip-path 1s cubic-bezier(0.45, 0, 0.55, 1);
 }
 .sobre .sobre-container .icon-wrapper:hover::after {
-  -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
-          clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 0%);
   opacity: 1;
 }
 .sobre .sobre-container .icon-wrapper i {
@@ -242,6 +237,9 @@ ul {
 .sobre .sobre-container .icon-wrapper:hover i {
   color: rgb(245, 242, 237);
   transform: scale(1.2);
+}
+.sobre .sobre-container {
+  /* ---------- Títulos e textos ---------- */
 }
 .sobre .sobre-container h3 {
   font-family: "Rufina", serif;

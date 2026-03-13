@@ -109,20 +109,41 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    const accordionContainer = document.querySelector(".accordion-horizontal");
+    const menuRightContainer = document.querySelector(".menu-right");
+
     // Toggle Almoço/Jantar
     toggle.addEventListener("change", () => {
+      // Reset animation classes
+      if (accordionContainer) {
+        accordionContainer.classList.remove("deal-animate-days");
+        void accordionContainer.offsetWidth; // trigger reflow
+      }
+      if (menuRightContainer) {
+        menuRightContainer.classList.remove("deal-animate-menu");
+        void menuRightContainer.offsetWidth; // trigger reflow
+      }
+
       if (toggle.checked) {
         // JANTAR
         periodoAtual = "jantar";
         periodoTitulo.textContent = "Jantar";
         labelAlmoco.classList.remove("active");
         labelJantar.classList.add("active");
+
+        // Add deal animation
+        if (accordionContainer) accordionContainer.classList.add("deal-animate-days");
+        if (menuRightContainer) menuRightContainer.classList.add("deal-animate-menu");
       } else {
         // ALMOÇO
         periodoAtual = "almoco";
         periodoTitulo.textContent = "Almoço";
         labelJantar.classList.remove("active");
         labelAlmoco.classList.add("active");
+
+        // Add deal animation for Almoço too
+        if (accordionContainer) accordionContainer.classList.add("deal-animate-days");
+        if (menuRightContainer) menuRightContainer.classList.add("deal-animate-menu");
       }
       atualizarMenu();
     });

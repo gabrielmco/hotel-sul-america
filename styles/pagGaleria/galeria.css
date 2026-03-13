@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -71,10 +71,6 @@ ul {
   padding: 100px 0 0;
   box-sizing: border-box;
   /* Header / título */
-  /* CONTROLE DE TAMANHO (overlay) - compacto */
-  /* tick ativo */
-  /* MASONRY: layout por colunas */
-  /* ===== LIGHTBOX / CARROSSEL ===== */
 }
 .gallery-page .gallery-header {
   max-width: 1520px;
@@ -121,6 +117,9 @@ ul {
   background: #086016;
   color: #fff;
   border-color: rgba(8, 96, 22, 0.95);
+}
+.gallery-page {
+  /* CONTROLE DE TAMANHO (overlay) - compacto */
 }
 .gallery-page .size-control {
   position: fixed;
@@ -198,11 +197,17 @@ ul {
   cursor: grabbing;
   transform: translate(-50%, -50%) scale(0.98);
 }
+.gallery-page {
+  /* tick ativo */
+}
 .gallery-page body.stage-0 .size-ticks .tick:nth-child(1),
 .gallery-page body.stage-1 .size-ticks .tick:nth-child(2),
 .gallery-page body.stage-2 .size-ticks .tick:nth-child(3) {
   background: #086016;
   transform: scale(1.18);
+}
+.gallery-page {
+  /* MASONRY: layout por colunas */
 }
 .gallery-page .masonry {
   max-width: 1520px;
@@ -250,6 +255,9 @@ ul {
   display: none !important;
   opacity: 0;
   pointer-events: none;
+}
+.gallery-page {
+  /* ===== LIGHTBOX / CARROSSEL ===== */
 }
 .gallery-page .lightbox {
   position: fixed;

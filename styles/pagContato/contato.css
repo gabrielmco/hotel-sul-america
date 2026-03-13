@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -544,11 +544,11 @@ ul {
   color: #1c1c1c;
 }
 @media (width <= 768px) {
-  .numeroTel {
-    padding: 0 1rem;
-  }
   .numeroTel h1 {
     font-size: 22px;
+  }
+  .numeroTel {
+    padding: 0 1rem;
   }
 }
 @media (width <= 680px) {

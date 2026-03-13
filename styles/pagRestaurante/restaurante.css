@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -1028,7 +1028,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   font-family: "Rufina", serif;
   font-size: 2.8rem;
   margin-bottom: 1rem;
-  color: #086016;
+  color: #1c1c1c;
 }
 .intro-restaurante p {
   font-family: "Urbanist", sans-serif;
@@ -1087,8 +1087,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   transform: translate(-50%, -50%);
   z-index: 5;
   display: none;
@@ -1119,11 +1118,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   padding: 120px 40px;
   /* Elementos decorativos sutis */
-  /* Container */
-  /* Cabeçalho da seção */
-  /* Grid de Cards */
-  /* Card individual */
-  /* ========== RESPONSIVIDADE (COM MIXINS) ========== */
 }
 .services::before, .services::after {
   content: "";
@@ -1136,22 +1130,28 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .services::before {
   width: 600px;
   height: 600px;
-  background: linear-gradient(135deg, #086016, #10be2c);
+  background: linear-gradient(135deg, #086016, rgb(15.8461538462, 190.1538461538, 43.5769230769));
   top: -200px;
   right: -200px;
 }
 .services::after {
   width: 500px;
   height: 500px;
-  background: linear-gradient(135deg, #04310b, #0ea726);
+  background: linear-gradient(135deg, rgb(4.0769230769, 48.9230769231, 11.2115384615), rgb(13.8846153846, 166.6153846154, 38.1826923077));
   bottom: -150px;
   left: -150px;
+}
+.services {
+  /* Container */
 }
 .services .services-container {
   position: relative;
   z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
+}
+.services {
+  /* Cabeçalho da seção */
 }
 .services .services-header {
   text-align: center;
@@ -1167,11 +1167,10 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   padding: 0.6rem 1.8rem;
   border-radius: 50px;
   margin-bottom: 1.5rem;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .services .services-header .services-badge i {
-  color: #086016;
+  color: #1c1c1c;
   font-size: 1.2rem;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -1210,11 +1209,17 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin: 2rem auto 0;
   line-height: 1.8;
 }
+.services {
+  /* Grid de Cards */
+}
 .services .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   position: relative;
+}
+.services {
+  /* Card individual */
 }
 .services .service-card {
   position: relative;
@@ -1224,11 +1229,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: #fff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Imagem */
-  /* Overlay */
-  /* Número decorativo */
-  /* Linha decorativa */
-  /* Efeitos de Hover no Card */
 }
 .services .service-card::before {
   content: "";
@@ -1243,6 +1243,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   z-index: 2;
   pointer-events: none;
 }
+.services .service-card {
+  /* Imagem */
+}
 .services .service-card img {
   width: 100%;
   height: 420px;
@@ -1250,6 +1253,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
      object-fit: cover;
   display: block;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.services .service-card {
+  /* Overlay */
 }
 .services .service-card .overlay {
   position: absolute;
@@ -1262,7 +1268,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
   z-index: 3;
   /* Ícone decorativo */
-  /* Título do card */
 }
 .services .service-card .overlay .icon-wrapper {
   position: relative;
@@ -1275,14 +1280,16 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   transition: all 0.4s ease;
 }
 .services .service-card .overlay .icon-wrapper i {
   font-size: 2rem;
   color: #fff;
   transition: all 0.4s ease;
+}
+.services .service-card .overlay {
+  /* Título do card */
 }
 .services .service-card .overlay h3 {
   font-family: "Rufina", serif;
@@ -1293,6 +1300,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   line-height: 1.4;
   margin: 0;
   transition: transform 0.4s ease;
+}
+.services .service-card {
+  /* Número decorativo */
 }
 .services .service-card .card-number {
   position: absolute;
@@ -1308,10 +1318,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   font-family: "Rufina", serif;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #086016;
+  color: #1c1c1c;
   z-index: 4;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
+}
+.services .service-card {
+  /* Linha decorativa */
 }
 .services .service-card::after {
   content: "";
@@ -1325,6 +1338,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transition: width 0.6s ease;
   z-index: 4;
 }
+.services .service-card {
+  /* Efeitos de Hover no Card */
+}
 .services .service-card:hover {
   transform: translateY(-15px);
   box-shadow: 0 25px 60px rgba(8, 96, 22, 0.2);
@@ -1337,7 +1353,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 }
 .services .service-card:hover .overlay .icon-wrapper {
   background: rgba(8, 96, 22, 0.2);
-  border-color: #086016;
+  border-color: #1c1c1c;
   transform: translateY(-10px) scale(1.1);
 }
 .services .service-card:hover .overlay .icon-wrapper i {
@@ -1354,6 +1370,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: scale(1.15) rotate(10deg);
   background: #086016;
   color: #fff;
+}
+.services {
+  /* ========== RESPONSIVIDADE (COM MIXINS) ========== */
 }
 @media (width <= 1024px) {
   .services {
@@ -1448,8 +1467,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   overflow: hidden;
   background: rgb(245, 242, 237);
   /* Círculos decorativos animados */
-  /* Container principal */
-  /* ========== RESPONSIVIDADE (Com Mixins) ========== */
 }
 .breakfast-section .floating-circle {
   position: absolute;
@@ -1461,7 +1478,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .breakfast-section .circle-1 {
   width: 400px;
   height: 400px;
-  background: #10be2c;
+  background: rgb(15.8461538462, 190.1538461538, 43.5769230769);
   top: -100px;
   left: -100px;
   animation-delay: 0s;
@@ -1477,10 +1494,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .breakfast-section .circle-3 {
   width: 300px;
   height: 300px;
-  background: #04310b;
+  background: rgb(4.0769230769, 48.9230769231, 11.2115384615);
   top: 50%;
   right: 10%;
   animation-delay: 10s;
+}
+.breakfast-section {
+  /* Container principal */
 }
 .breakfast-section .breakfast-container {
   position: relative;
@@ -1493,12 +1513,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   gap: 6rem;
   align-items: center;
   /* ========== LADO ESQUERDO - CONTEÚDO ========== */
-  /* ========== LADO DIREITO - GALERIA ========== */
 }
 .breakfast-section .breakfast-container .content-left {
   position: relative;
-  /* Features Grid */
-  /* Botão CTA */
 }
 .breakfast-section .breakfast-container .content-left .decorative-line {
   width: 80px;
@@ -1546,58 +1563,75 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin-bottom: 3rem;
   max-width: 500px;
 }
+.breakfast-section .breakfast-container .content-left {
+  /* Features Grid */
+}
 .breakfast-section .breakfast-container .content-left .features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 3rem;
+  /* Image Cards do Café (Novo Layout Premium) */
 }
-.breakfast-section .breakfast-container .content-left .features-grid .feature-card {
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card {
   position: relative;
-  background: #fff;
-  border: 1px solid #dee2e6;
-  padding: 1.5rem;
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px; /* Mais arredondado conforme pedido */
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(8, 96, 22, 0.05);
+  height: 250px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  /* Imagem de Fundo */
 }
-.breakfast-section .breakfast-container .content-left .features-grid .feature-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card .fic-bg {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(8, 96, 22, 0.1), transparent);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.breakfast-section .breakfast-container .content-left .features-grid .feature-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(8, 96, 22, 0.3);
-  box-shadow: 0 20px 40px rgba(8, 96, 22, 0.15);
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card {
+  /* Degradê Escuro Fixo sobre toda a imagem */
 }
-.breakfast-section .breakfast-container .content-left .features-grid .feature-card:hover::before {
-  opacity: 1;
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card .fic-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Fundo sempre visível */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  transition: background 0.5s ease;
 }
-.breakfast-section .breakfast-container .content-left .features-grid .feature-card .feature-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-.breakfast-section .breakfast-container .content-left .features-grid .feature-card h3 {
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card .fic-overlay .fic-text h3 {
   font-family: "Rufina", serif;
   font-size: 1.3rem;
-  color: #1c1c1c;
-  margin-bottom: 0.5rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
   font-weight: 500;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Legibilidade */
 }
-.breakfast-section .breakfast-container .content-left .features-grid .feature-card p {
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card .fic-overlay .fic-text p {
   font-family: "Urbanist", sans-serif;
-  font-size: 0.85rem;
-  color: #495057;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Legibilidade */
+}
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card {
+  /* Hover Interativo: Foco/Zoom na Imagem */
+}
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card:hover .fic-bg {
+  transform: scale(1.12); /* Foco maior na foto da comida */
+}
+.breakfast-section .breakfast-container .content-left .features-grid .feature-image-card:hover .fic-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Escurece um tiquinho mais para contraste elegante */
+}
+.breakfast-section .breakfast-container .content-left {
+  /* Botão CTA */
 }
 .breakfast-section .breakfast-container .content-left .cta-button {
   position: relative;
@@ -1624,14 +1658,14 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #086016, #04310b);
+  background: linear-gradient(135deg, #1c1c1c, #212529);
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
 }
 .breakfast-section .breakfast-container .content-left .cta-button:hover {
   transform: translateY(-3px);
   color: #fff;
-  box-shadow: 0 15px 40px rgba(8, 96, 22, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 .breakfast-section .breakfast-container .content-left .cta-button:hover::before {
   width: 300px;
@@ -1649,18 +1683,19 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   z-index: 1;
   transition: transform 0.4s ease;
 }
+.breakfast-section .breakfast-container {
+  /* ========== LADO DIREITO - GALERIA ========== */
+}
 .breakfast-section .breakfast-container .gallery-right {
   position: relative;
   height: 600px;
-  /* Imagens flutuantes decorativas */
-  /* Selo decorativo */
 }
 .breakfast-section .breakfast-container .gallery-right .main-image-container {
   position: relative;
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(28, 28, 28, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
 }
 .breakfast-section .breakfast-container .gallery-right .main-image-container::before {
   content: "";
@@ -1669,7 +1704,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(8, 96, 22, 0.2), transparent);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), transparent);
   z-index: 2;
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -1678,7 +1713,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   opacity: 1;
 }
 .breakfast-section .breakfast-container .gallery-right .main-image-container:hover .main-image {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Softer scale */
 }
 .breakfast-section .breakfast-container .gallery-right .main-image-container .main-image {
   width: 100%;
@@ -1687,12 +1722,15 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
      object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.breakfast-section .breakfast-container .gallery-right {
+  /* Imagens flutuantes decorativas */
+}
 .breakfast-section .breakfast-container .gallery-right .floating-image {
   position: absolute;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(28, 28, 28, 0.15);
-  border: 3px solid rgba(8, 96, 22, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border: 2px solid #fff;
   animation: floatImage 6s ease-in-out infinite;
 }
 .breakfast-section .breakfast-container .gallery-right .floating-image img {
@@ -1715,6 +1753,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   right: -40px;
   animation-delay: 2s;
 }
+.breakfast-section .breakfast-container .gallery-right {
+  /* Selo decorativo */
+}
 .breakfast-section .breakfast-container .gallery-right .quality-badge {
   position: absolute;
   top: 50%;
@@ -1722,13 +1763,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translateY(-50%);
   width: 140px;
   height: 140px;
-  background: linear-gradient(135deg, #086016, #10be2c);
+  background: linear-gradient(135deg, #1c1c1c, #495057);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 15px 40px rgba(8, 96, 22, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   animation: rotate 20s linear infinite;
   z-index: 10;
 }
@@ -1740,6 +1781,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   text-align: center;
   line-height: 1.3;
   animation: rotate-reverse 20s linear infinite;
+}
+.breakfast-section {
+  /* ========== RESPONSIVIDADE (Com Mixins) ========== */
 }
 @media (width <= 1024px) {
   .breakfast-section .breakfast-container {
@@ -1791,7 +1835,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   max-width: 1400px;
   margin: 0 auto;
   padding: 3rem 2rem;
-  /* ========== RESPONSIVE ========== */
 }
 .menu-semana .menu-right {
   flex: 1;
@@ -1888,6 +1931,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   font-family: "Urbanist", sans-serif;
   font-size: 16px;
 }
+.menu-semana {
+  /* ========== RESPONSIVE ========== */
+}
 @media (width <= 1220px) {
   .menu-semana {
     flex-direction: column-reverse;
@@ -1957,7 +2003,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #086016, #04310b);
+  background: linear-gradient(135deg, #086016, rgb(4.0769230769, 48.9230769231, 11.2115384615));
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
   z-index: 0;
@@ -1992,4 +2038,63 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070") !important;
   background-position: center;
   background-size: cover;
-}/*# sourceMappingURL=restaurante.css.map */
+}
+
+@keyframes slideFromOutLeftCards {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw) rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+@keyframes slideFromOutLeftMenu {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.deal-animate-days .accordion-item {
+  animation: slideFromOutLeftCards 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  opacity: 0;
+}
+
+.deal-animate-days .accordion-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.deal-animate-days .accordion-item:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.deal-animate-days .accordion-item:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.deal-animate-days .accordion-item:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.deal-animate-days .accordion-item:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+.deal-animate-days .accordion-item:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.deal-animate-days .accordion-item:nth-child(7) {
+  animation-delay: 0.47s;
+}
+
+.deal-animate-menu {
+  animation: slideFromOutLeftMenu 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Trigger compiler update 5 *//*# sourceMappingURL=restaurante.css.map */

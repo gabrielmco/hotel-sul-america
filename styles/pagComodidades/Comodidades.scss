@@ -151,21 +151,17 @@
         animation: pulseRing 3s ease-in-out infinite;
       }
 
-      /* Imagem rotativa */
+      /* Imagem minimalista */
       img {
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 15px 50px rgba($primary, 0.3);
-        animation: rotateInfinite 20s linear infinite;
-        border: 3px solid rgba($primary, 0.3);
-        transition: 0.7s ease;
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        animation: floatGentle 6s ease-in-out infinite;
+        transition: transform 0.7s ease;
       }
 
       &:hover img {
-        transition: 0.7s ease;
-        box-shadow: 0 20px 60px rgba($primary, 0.5);
+        transform: scale(1.05);
       }
 
       /* Ícone decorativo central */
@@ -1428,7 +1424,7 @@
 
 /* ========== HERO IMAGE OVERRIDE ========= */
 .hero-comodidades .hero-bg {
-  background-image: url('https://images.unsplash.com/photo-1571896349842-68c697412e6e?q=80&w=2070') !important;
+  background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070') !important;
   background-position: center;
   background-size: cover;
 }

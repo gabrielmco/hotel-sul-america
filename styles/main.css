@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -1023,17 +1023,17 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
-  box-shadow: 0 8px 20px rgba(28, 28, 28, 0.07);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
   z-index: 1000;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.3s ease;
-  border-bottom: 4px solid rgba(8, 96, 22, 0.8);
-  /* --- Estrutura Desktop --- */
-  /* --- Ocultar mobile default --- */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 .navbar .nav-phone {
   font-size: 0.9rem;
@@ -1055,6 +1055,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 70px;
   height: auto;
   transition: 0.3s ease;
+}
+.navbar {
+  /* --- Estrutura Desktop --- */
 }
 .navbar .nav-phone,
 .navbar .nav-center,
@@ -1099,15 +1102,20 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .navbar .nav-book:hover {
   opacity: 0.7;
 }
+.navbar {
+  /* --- Ocultar mobile default --- */
+}
 .navbar .navbar-mobile,
 .navbar .mobile-menu {
   display: none;
 }
 .navbar.shrink {
-  background: #fff;
-  box-shadow: 0 8px 20px rgba(28, 28, 28, 0.07);
-  border: none;
-  transition: 1s ease;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 0.6rem 2rem;
 }
 .navbar.shrink .logo img {
   width: 60px;
@@ -1116,14 +1124,14 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   .navbar {
     padding: 0.5rem 1.5rem 0;
     /* Esconde partes do desktop */
-    /* Header Mobile */
-    /* --- Ícone Hamburguer --- */
-    /* --- Menu Mobile (agora com display: block) --- */
   }
   .navbar .nav-center,
   .navbar .nav-phone,
   .navbar .nav-book {
     display: none !important;
+  }
+  .navbar {
+    /* Header Mobile */
   }
   .navbar .navbar-mobile {
     display: flex !important;
@@ -1134,6 +1142,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   .navbar .navbar-mobile .logo-mobile img {
     width: 70px;
     height: auto;
+  }
+  .navbar {
+    /* --- Ícone Hamburguer --- */
   }
   .navbar .hamburger {
     display: flex;
@@ -1167,20 +1178,25 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   .navbar .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
+  .navbar {
+    /* --- Menu Mobile (agora com display: block) --- */
+  }
   .navbar .mobile-menu {
     display: block !important;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
     max-height: 0;
     opacity: 0;
     visibility: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, visibility 0.4s ease;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, visibility 0.4s ease;
     z-index: 999;
-    /* --- Estado ATIVO (menu visível) --- */
   }
   .navbar .mobile-menu ul {
     display: flex;
@@ -1203,6 +1219,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   }
   .navbar .mobile-menu .book-btn-mobile {
     display: none;
+  }
+  .navbar .mobile-menu {
+    /* --- Estado ATIVO (menu visível) --- */
   }
   .navbar .mobile-menu.active {
     max-height: 100vh;
@@ -1237,8 +1256,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   z-index: 1000;
   /* Seção Superior da Marca */
-  /* Container Principal (3 colunas na base) */
-  /* ================= Responsive ================= */
 }
 .footer .footer-brand-top {
   margin: 0 auto;
@@ -1269,6 +1286,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: rgba(0, 0, 0, 0.1);
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+.footer {
+  /* Container Principal (3 colunas na base) */
 }
 .footer .footer-container {
   max-width: 1200px;
@@ -1419,7 +1439,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 }
 .footer .footer-bottom {
   margin-top: 2rem;
-  text-align: center;
 }
 .footer .footer-bottom .Linha {
   border: none;
@@ -1427,9 +1446,15 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
 }
+.footer .footer-bottom {
+  text-align: center;
+}
 .footer .footer-bottom p {
   font-size: 0.85rem;
   color: #495057;
+}
+.footer {
+  /* ================= Responsive ================= */
 }
 @media (width <= 768px) {
   .footer .footer-brand-top .footer-brand-content {
@@ -1549,16 +1574,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   padding: 0 5% 100px;
   overflow: hidden;
   /* Background com parallax */
-  /* Overlay gradiente sofisticado */
-  /* Círculos decorativos flutuantes (PADRÃO DO SITE) */
-  /* Blur circle interativo */
-  /* Container do conteúdo */
-  /* Lado esquerdo - Título */
-  /* Badge decorativo (PADRÃO DO SITE) */
-  /* Título principal */
-  /* Lado direito - Descrição */
-  /* Scroll indicator */
-  /* ========== RESPONSIVIDADE ========== */
 }
 .hero .hero-bg {
   position: absolute;
@@ -1569,12 +1584,18 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transition: transform 0.3s ease-out;
   will-change: transform;
 }
+.hero {
+  /* Overlay gradiente sofisticado */
+}
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(28, 28, 28, 0.2) 0%, rgba(28, 28, 28, 0.4) 50%, rgba(28, 28, 28, 0.8) 100%);
   z-index: 2;
+}
+.hero {
+  /* Círculos decorativos flutuantes (PADRÃO DO SITE) */
 }
 .hero::after {
   content: "";
@@ -1589,17 +1610,22 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   animation: float 20s ease-in-out infinite;
   filter: blur(80px);
 }
+.hero {
+  /* Blur circle interativo */
+}
 .hero .blur-circle {
   position: absolute;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(28, 28, 28, 0.2), transparent);
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 3;
+}
+.hero {
+  /* Container do conteúdo */
 }
 .hero .hero-content {
   position: relative;
@@ -1612,9 +1638,15 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   align-items: flex-end;
   gap: 4rem;
 }
+.hero {
+  /* Lado esquerdo - Título */
+}
 .hero .content-left {
   flex: 1;
   max-width: 700px;
+}
+.hero {
+  /* Badge decorativo (PADRÃO DO SITE) */
 }
 .hero .hero-badge {
   display: inline-flex;
@@ -1624,8 +1656,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   border: 1px solid rgba(8, 96, 22, 0.3);
   padding: 0.6rem 1.5rem;
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   margin-bottom: 1.5rem;
 }
 .hero .hero-badge span {
@@ -1641,6 +1672,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   color: #fff;
   font-size: 1rem;
   animation: sparkle 2s ease-in-out infinite;
+}
+.hero {
+  /* Título principal */
 }
 .hero h1 {
   font-family: "Rufina", serif;
@@ -1662,6 +1696,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: linear-gradient(90deg, #086016, transparent);
   animation: lineExpand 1.5s ease-out 0.8s forwards;
 }
+.hero {
+  /* Lado direito - Descrição */
+}
 .hero .content-right {
   flex: 0 0 auto;
   max-width: 480px;
@@ -1673,8 +1710,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.95);
   background: rgba(28, 28, 28, 0.4);
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   padding: 2rem;
   border-radius: 16px;
   border: 1px solid rgba(8, 96, 22, 0.2);
@@ -1700,8 +1736,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   text-align: center;
   padding: 1.5rem;
   background: rgba(28, 28, 28, 0.4);
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   border-radius: 12px;
   border: 1px solid rgba(8, 96, 22, 0.2);
   min-width: 120px;
@@ -1721,6 +1756,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
   margin-top: 0.5rem;
+}
+.hero {
+  /* Scroll indicator */
 }
 .hero .scroll-indicator {
   position: absolute;
@@ -1746,6 +1784,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   font-size: 1.5rem;
   color: #086016;
   animation: bounce 2s ease-in-out infinite;
+}
+.hero {
+  /* ========== RESPONSIVIDADE ========== */
 }
 @media (width <= 1024px) {
   .hero {
@@ -1853,12 +1894,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   padding: 2rem 1rem;
   position: relative;
   overflow: hidden;
-  /* container interno */
-  /* conteúdo (ícone + texto) */
-  /* wrapper do ícone */
-  /* botão principal */
-  /* Responsividade: tablet (mixin 'lm') */
-  /* Responsividade: mobile (mixin 'sm') */
 }
 .hero-cta::before {
   content: "";
@@ -1870,6 +1905,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: radial-gradient(circle, rgba(8, 96, 22, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
+}
+.hero-cta {
+  /* container interno */
 }
 .hero-cta-inner {
   max-width: 1200px;
@@ -1884,11 +1922,17 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   z-index: 1;
 }
+.hero-cta {
+  /* conteúdo (ícone + texto) */
+}
 .hero-cta-content {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   flex: 1 1 auto;
+}
+.hero-cta {
+  /* wrapper do ícone */
 }
 .hero-cta-icon-wrapper {
   flex: 0 0 auto;
@@ -1921,6 +1965,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   line-height: 1.6;
   margin: 0;
 }
+.hero-cta {
+  /* botão principal */
+}
 .hero-cta-btn {
   flex: 0 0 auto;
   display: inline-flex;
@@ -1939,7 +1986,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   font-size: 1rem;
   position: relative;
   overflow: hidden;
-  /* ícone dentro do botão -> .hero-cta-btn-icon */
 }
 .hero-cta-btn::before {
   content: "";
@@ -1954,10 +2000,12 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .hero-cta-btn:hover, .hero-cta-btn:focus {
   transform: translateY(-3px) scale(1.02);
   outline: none;
-  /* movimenta o ícone do botão */
 }
 .hero-cta-btn:hover::before, .hero-cta-btn:focus::before {
   left: 100%;
+}
+.hero-cta-btn:hover, .hero-cta-btn:focus {
+  /* movimenta o ícone do botão */
 }
 .hero-cta-btn:hover-icon, .hero-cta-btn:focus-icon {
   transform: translateX(4px);
@@ -1965,10 +2013,16 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 .hero-cta-btn:active {
   transform: translateY(-1px) scale(1);
 }
+.hero-cta-btn {
+  /* ícone dentro do botão -> .hero-cta-btn-icon */
+}
 .hero-cta-btn-icon {
   font-size: 1rem;
   line-height: 1;
   transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-cta {
+  /* Responsividade: tablet (mixin 'lm') */
 }
 @media (width <= 992px) {
   .hero-cta-inner {
@@ -1989,6 +2043,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     padding: 0.9rem 1.5rem;
     font-size: 0.95rem;
   }
+}
+.hero-cta {
+  /* Responsividade: mobile (mixin 'sm') */
 }
 @media (width <= 680px) {
   .hero-cta {

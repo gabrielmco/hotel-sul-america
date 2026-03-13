@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -835,8 +835,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   padding: 0.6rem 1.8rem;
   border-radius: 50px;
   margin-bottom: 2rem;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .hero-eventos .hero-content .hero-badge i {
   color: #086016;
@@ -962,8 +961,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   top: 20px;
   right: 20px;
   background: rgba(8, 96, 22, 0.95);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   padding: 1rem 1.5rem;
   border-radius: 12px;
   z-index: 10;

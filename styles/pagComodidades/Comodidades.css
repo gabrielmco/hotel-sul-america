@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -799,10 +799,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   overflow: hidden;
   background: transparent;
   /* Elementos decorativos de fundo */
-  /* Container */
-  /* ========== CONTEÚDO DE TEXTO ========== */
-  /* ========== BADGE ROTATIVO ========== */
-  /* ========== RESPONSIVIDADE ========== */
 }
 .hero-intro::before, .hero-intro::after {
   content: "";
@@ -828,6 +824,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   right: -100px;
   animation-delay: 8s;
 }
+.hero-intro {
+  /* Container */
+}
 .hero-intro .container {
   display: flex;
   align-items: center;
@@ -839,13 +838,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   z-index: 1;
 }
+.hero-intro {
+  /* ========== CONTEÚDO DE TEXTO ========== */
+}
 .hero-intro .hero-intro-content {
   flex: 1;
   max-width: 750px;
   /* Linha decorativa */
-  /* Badge pequeno acima do título */
-  /* Título principal */
-  /* Subtítulo/descrição */
 }
 .hero-intro .hero-intro-content::before {
   content: "";
@@ -856,6 +855,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin-bottom: 2rem;
   animation: lineShimmer 3s ease-in-out infinite;
 }
+.hero-intro .hero-intro-content {
+  /* Badge pequeno acima do título */
+}
 .hero-intro .hero-intro-content .intro-badge {
   display: inline-flex;
   align-items: center;
@@ -865,8 +867,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   margin-bottom: 1.5rem;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .hero-intro .hero-intro-content .intro-badge span {
   font-family: "Urbanist", sans-serif;
@@ -882,6 +883,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   font-size: 1rem;
   animation: sparkle 2s ease-in-out infinite;
 }
+.hero-intro .hero-intro-content {
+  /* Título principal */
+}
 .hero-intro .hero-intro-content .hero-intro-title {
   font-family: "Rufina", serif;
   font-size: clamp(2rem, 4vw, 3.5rem);
@@ -891,12 +895,18 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin-bottom: 1.5rem;
   position: relative;
 }
+.hero-intro .hero-intro-content {
+  /* Subtítulo/descrição */
+}
 .hero-intro .hero-intro-content .hero-intro-subtitle {
   font-family: "Urbanist", sans-serif;
   font-size: 1.125rem;
   line-height: 1.8;
   color: #495057;
   margin-bottom: 2.5rem;
+}
+.hero-intro {
+  /* ========== BADGE ROTATIVO ========== */
 }
 .hero-intro .hero-intro-badge {
   flex-shrink: 0;
@@ -911,8 +921,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   align-items: center;
   justify-content: center;
   /* Círculo externo decorativo */
-  /* Imagem rotativa */
-  /* Ícone decorativo central */
 }
 .hero-intro .hero-intro-badge .badge-container .badge-ring {
   position: absolute;
@@ -921,20 +929,22 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   border-radius: 50%;
   animation: pulseRing 3s ease-in-out infinite;
 }
+.hero-intro .hero-intro-badge .badge-container {
+  /* Imagem minimalista */
+}
 .hero-intro .hero-intro-badge .badge-container img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  box-shadow: 0 15px 50px rgba(8, 96, 22, 0.3);
-  animation: rotateInfinite 20s linear infinite;
-  border: 3px solid rgba(8, 96, 22, 0.3);
-  transition: 0.7s ease;
+  width: 120px;
+  height: 120px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  animation: floatGentle 6s ease-in-out infinite;
+  transition: transform 0.7s ease;
 }
 .hero-intro .hero-intro-badge .badge-container:hover img {
-  transition: 0.7s ease;
-  box-shadow: 0 20px 60px rgba(8, 96, 22, 0.5);
+  transform: scale(1.05);
+}
+.hero-intro .hero-intro-badge .badge-container {
+  /* Ícone decorativo central */
 }
 .hero-intro .hero-intro-badge .badge-container .badge-icon {
   position: absolute;
@@ -944,8 +954,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   width: 60px;
   height: 60px;
   background: rgba(8, 96, 22, 0.95);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -955,6 +964,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   box-shadow: 0 10px 30px rgba(8, 96, 22, 0.4);
   pointer-events: none;
 }
+.hero-intro {
+  /* ========== RESPONSIVIDADE ========== */
+}
 @media (width <= 1220px) {
   .hero-intro {
     padding: 2rem 0;
@@ -963,7 +975,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 @media (width <= 768px) {
   .hero-intro {
     padding: 0;
-    /* Esconde o badge rotativo */
   }
   .hero-intro .container {
     flex-direction: column;
@@ -982,6 +993,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   }
   .hero-intro .hero-intro-subtitle {
     font-size: 1rem;
+  }
+  .hero-intro {
+    /* Esconde o badge rotativo */
   }
   .hero-intro .hero-intro-badge {
     display: none !important;
@@ -1145,7 +1159,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   padding-bottom: 2rem;
   margin-top: 0;
   transform: translateZ(0);
-  /* máscaras laterais para o fade */
 }
 .infinite-text .marquee {
   display: flex;
@@ -1171,6 +1184,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   content: "•";
   margin: 0 1rem;
   color: #52935d;
+}
+.infinite-text {
+  /* máscaras laterais para o fade */
 }
 .infinite-text::before, .infinite-text::after {
   content: "";
@@ -1199,12 +1215,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   background: rgb(245, 242, 237);
   padding: 4rem 0 0;
   /* Elementos decorativos de fundo (Padrão) */
-  /* ========== HEADER (NOVO ESTILO) ========== */
-  /* --- XL (<= 1220px) --- */
-  /* --- LG (<= 1024px) --- */
-  /* --- MD (<= 768px) - QUEBRA PARA 1 COLUNA --- */
-  /* --- SM (<= 680px) - Mobile otimizado --- */
-  /* --- XS (<= 480px) --- */
 }
 .instalacoes::before, .instalacoes::after {
   content: "";
@@ -1229,6 +1239,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   bottom: -100px;
   left: -100px;
   animation-delay: 8s;
+}
+.instalacoes {
+  /* ========== HEADER (NOVO ESTILO) ========== */
 }
 .instalacoes .instalacoes-header {
   text-align: center;
@@ -1451,6 +1464,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   left: 0;
   background-color: #086016;
 }
+.instalacoes {
+  /* --- XL (<= 1220px) --- */
+}
 @media (width <= 1220px) {
   .instalacoes .conteudo-display {
     max-width: 1100px;
@@ -1491,12 +1507,18 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     padding: 20px 12px;
   }
 }
+.instalacoes {
+  /* --- LG (<= 1024px) --- */
+}
 @media (width <= 1024px) {
   .instalacoes .conteudo-display {
     max-width: 950px;
     gap: 2rem;
     padding: 50px 1.5rem;
   }
+}
+.instalacoes {
+  /* --- MD (<= 768px) - QUEBRA PARA 1 COLUNA --- */
 }
 @media (width <= 768px) {
   .instalacoes .conteudo-display {
@@ -1577,6 +1599,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     border-bottom: none;
   }
 }
+.instalacoes {
+  /* --- SM (<= 680px) - Mobile otimizado --- */
+}
 @media (width <= 680px) {
   .instalacoes .conteudo-display {
     max-width: 100%;
@@ -1626,6 +1651,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
     font-size: 16px;
     padding: 16px 12px;
   }
+}
+.instalacoes {
+  /* --- XS (<= 480px) --- */
 }
 
 .about-section {
@@ -1910,7 +1938,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 
 /* ========== HERO IMAGE OVERRIDE ========= */
 .hero-comodidades .hero-bg {
-  background-image: url("../../img/piscinaladoDeFora/piscina-principal (1).jpg") !important;
+  background-image: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070") !important;
   background-position: center;
   background-size: cover;
 }/*# sourceMappingURL=Comodidades.css.map */

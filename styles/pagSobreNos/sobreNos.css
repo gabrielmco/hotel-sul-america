@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .highlight--verde {
   font-weight: 600;
-  background: linear-gradient(135deg, #086016 0%, #10be2c 50%, #086016 100%);
+  background: linear-gradient(135deg, #086016 0%, rgb(15.8461538462, 190.1538461538, 43.5769230769) 50%, #086016 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
           background-clip: text;
@@ -1171,8 +1171,7 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   transform: translate(-50%, -50%);
   display: none;
   z-index: 10;
-  -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 @media (width <= 768px) {
   .galeria-sobre-nos {
@@ -1662,9 +1661,6 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   overflow: hidden;
   background: rgb(245, 242, 237);
   /* ========== HEADER ========== */
-  /* ========== VIDEOS CONTAINER ========== */
-  /* Video Wrapper */
-  /* ========== OVERLAY / PARALLAX LOGO ========== */
 }
 .discover-section .discover-header {
   text-align: center;
@@ -1699,6 +1695,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   margin: 2rem auto 0;
   line-height: 1.8;
 }
+.discover-section {
+  /* ========== VIDEOS CONTAINER ========== */
+}
 .discover-section .discover-videos {
   display: flex;
   justify-content: center;
@@ -1710,6 +1709,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   position: relative;
   z-index: 1;
 }
+.discover-section {
+  /* Video Wrapper */
+}
 .discover-section .video-wrapper {
   position: relative;
   width: 33%;
@@ -1717,11 +1719,13 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(28, 28, 28, 0.15);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  /* Vídeo */
 }
 .discover-section .video-wrapper:hover {
   transform: translateY(-15px) scale(1.02);
   box-shadow: 0 30px 80px rgba(8, 96, 22, 0.25);
+}
+.discover-section .video-wrapper {
+  /* Vídeo */
 }
 .discover-section .video-wrapper video {
   width: 100%;
@@ -1737,6 +1741,9 @@ ANIMAÇÕES DA TRANSIÇÃO DE PÁGINA
 }
 .discover-section .video-wrapper:hover video {
   filter: brightness(1) contrast(1.1);
+}
+.discover-section {
+  /* ========== OVERLAY / PARALLAX LOGO ========== */
 }
 .discover-section .discover-overlay {
   position: relative;

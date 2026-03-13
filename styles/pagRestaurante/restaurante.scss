@@ -16,7 +16,7 @@
     font-family: $font-title;
     font-size: 2.8rem;
     margin-bottom: 1rem;
-    color: $primary;
+    color: $black;
   }
 
   p {
@@ -174,7 +174,7 @@
       backdrop-filter: blur(10px);
 
       i {
-        color: $primary;
+        color: $black;
         font-size: 1.2rem;
         animation: pulse 2s ease-in-out infinite;
       }
@@ -328,7 +328,7 @@
       font-family: $font-title; // CORRIGIDO
       font-size: 1.5rem;
       font-weight: 600;
-      color: $primary;
+      color: $black;
       z-index: 4;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
       transition: all 0.4s ease;
@@ -364,7 +364,7 @@
       .overlay {
         .icon-wrapper {
           background: rgba($primary, 0.2);
-          border-color: $primary;
+          border-color: $black;
           transform: translateY(-10px) scale(1.1);
 
           i {
@@ -622,62 +622,69 @@
         gap: 1.5rem;
         margin-bottom: 3rem;
 
-        .feature-card {
-          position: relative;
-          background: $white;
-          border: 1px solid $gray-300;
+              /* Image Cards do Café (Novo Layout Premium) */
+      .feature-image-card {
+        position: relative;
+        border-radius: 20px; /* Mais arredondado conforme pedido */
+        overflow: hidden;
+        height: 250px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+
+        /* Imagem de Fundo */
+        .fic-bg {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Degradê Escuro Fixo sobre toda a imagem */
+        .fic-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4); /* Fundo sempre visível */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
           padding: 1.5rem;
-          border-radius: 12px;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          overflow: hidden;
-          box-shadow: 0 10px 30px rgba($primary, 0.05);
+          transition: background 0.5s ease;
 
-          &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg,
-                rgba($primary, 0.1),
-                transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-          }
+          .fic-text {
+            h3 {
+              font-family: $font-title;
+              font-size: 1.3rem;
+              color: $white;
+              margin-bottom: 0.3rem;
+              font-weight: 500;
+              text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Legibilidade */
+            }
 
-          &:hover {
-            transform: translateY(-5px);
-            border-color: rgba($primary, 0.3);
-            box-shadow: 0 20px 40px rgba($primary, 0.15);
-
-            &::before {
-              opacity: 1;
+            p {
+              font-family: $font-body;
+              font-size: 0.9rem;
+              color: rgba(255, 255, 255, 0.9);
+              line-height: 1.4;
+              margin: 0;
+              text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Legibilidade */
             }
           }
+        }
 
-          .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
+        /* Hover Interativo: Foco/Zoom na Imagem */
+        &:hover {
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+          .fic-bg {
+            transform: scale(1.12); /* Foco maior na foto da comida */
           }
 
-          h3 {
-            font-family: $font-title;
-            font-size: 1.3rem;
-            color: $black;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-          }
-
-          p {
-            font-family: $font-body;
-            font-size: 0.85rem;
-            color: $gray-700;
-            line-height: 1.6;
+          .fic-overlay {
+            background: rgba(0, 0, 0, 0.5); /* Escurece um tiquinho mais para contraste elegante */
           }
         }
       }
+}
 
       /* Botão CTA */
       .cta-button {
@@ -709,8 +716,8 @@
           height: 0;
           border-radius: 50%;
           background: linear-gradient(135deg,
-              $primary,
-              color.adjust($primary, $lightness: -10%));
+              $black,
+              $gray-900);
 
           transform: translate(-50%, -50%);
           transition: width 0.6s ease, height 0.6s ease;
@@ -719,7 +726,7 @@
         &:hover {
           transform: translateY(-3px);
           color: $white;
-          box-shadow: 0 15px 40px rgba($primary, 0.4);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 
           &::before {
             width: 300px;
@@ -756,7 +763,7 @@
         height: 100%;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 30px 80px rgba($black, 0.2);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
 
         &::before {
           content: "";
@@ -765,7 +772,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(135deg, rgba($primary, 0.2), transparent);
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), transparent);
           z-index: 2;
           opacity: 0;
           transition: opacity 0.6s ease;
@@ -777,7 +784,7 @@
           }
 
           .main-image {
-            transform: scale(1.1);
+            transform: scale(1.05); /* Softer scale */
           }
         }
 
@@ -794,8 +801,8 @@
         position: absolute;
         border-radius: 15px;
         overflow: hidden;
-        box-shadow: 0 20px 60px rgba($black, 0.15);
-        border: 3px solid rgba($primary, 0.3);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border: 2px solid $white;
         animation: floatImage 6s ease-in-out infinite;
 
         img {
@@ -831,14 +838,14 @@
         height: 140px;
         // CORRIGIDO:
         background: linear-gradient(135deg,
-            $primary,
-            color.adjust($primary, $lightness: 20%));
+            $black,
+            $gray-700);
         border-radius: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 15px 40px rgba($primary, 0.4);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         animation: rotate 20s linear infinite;
         z-index: 10;
 
@@ -1170,3 +1177,42 @@
   background-position: center;
   background-size: cover;
 }
+
+@keyframes slideFromOutLeftCards {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw) rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes slideFromOutLeftMenu {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.deal-animate-days .accordion-item {
+  animation: slideFromOutLeftCards 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  opacity: 0;
+}
+.deal-animate-days .accordion-item:nth-child(1) { animation-delay: 0.05s; }
+.deal-animate-days .accordion-item:nth-child(2) { animation-delay: 0.12s; }
+.deal-animate-days .accordion-item:nth-child(3) { animation-delay: 0.19s; }
+.deal-animate-days .accordion-item:nth-child(4) { animation-delay: 0.26s; }
+.deal-animate-days .accordion-item:nth-child(5) { animation-delay: 0.33s; }
+.deal-animate-days .accordion-item:nth-child(6) { animation-delay: 0.40s; }
+.deal-animate-days .accordion-item:nth-child(7) { animation-delay: 0.47s; }
+
+.deal-animate-menu {
+  animation: slideFromOutLeftMenu 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+/* Trigger compiler update 5 */
